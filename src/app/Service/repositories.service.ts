@@ -15,7 +15,7 @@ export class RepositoriesService {
 
   repositories: Observable<{id: string, data: Repository}[]>;
   private _http = inject(HttpClient);
-  private RepoCollection: any;
+  private RepoCollection: AngularFirestoreCollection<Repository>;
 
 
   constructor (storage: AngularFireStorage, firestore: AngularFirestore) {
@@ -23,19 +23,14 @@ export class RepositoriesService {
     firestore = firestore;
     this.RepoCollection = firestore.collection<Repository>('Repositories')
     this.repositories = this.RepoCollection.snapshotChanges().pipe(
-      map((actions: DocumentChangeAction<Repository>[]) => {
-        actions.map((a) => {
-          const { payload } = a;
-          const data = payload.doc.data() as Repository;
-          const id = payload.doc.id;
-          return { id, data };
-        })
-      })
+      map((actions: DocumentChangeAction<Repository>[]) =>
+        actions.map((a) => ({ id: a.payload.doc.id, data: a.payload.doc.data() as Repository }))
+      )
     )
   }
+  
+  
   getRepositories(): Observable<{id: string, data: Repository}[]> {
-    // console.log('esto es data: );
     return this.repositories
-    
   }
 }

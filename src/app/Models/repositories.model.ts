@@ -1,5 +1,4 @@
 export interface Repository {
-    // id_Rep:            string;
+    name:              string;
     link:              string;
-
 }
