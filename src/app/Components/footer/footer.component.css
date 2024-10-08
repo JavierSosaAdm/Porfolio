@@ -1,0 +1,21 @@
+.sub-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+}
+
+.icon{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.tittle {
+    padding-top: 10px;
+    margin: 0px;
+}
+
+.copy {
+    margin-top: 0px;
+}
