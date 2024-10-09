@@ -1,0 +1,65 @@
+<div class="Title">
+    <h3 class="title">Registro de Repositorio</h3>
+</div>
+<div class="container">
+    <div class="form">
+      <form [formGroup]="data" class="row g-3 needs-validation" novalidate (submit)="postRepositories($event)" >
+        
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre de Proyecto:</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="name" 
+            formControlName="name"
+            aria-describedby="emailHelp"
+            [ngClass]="{'is-valid': hasErrors('name', 'required')}"
+          >
+          @if (hasErrors('name', 'required')) {
+            <span class="text-danger" >Debe colocar el nombre del proyecto.</span>
+          }
+        </div>
+        <div class="mb-3">
+          <label for="link" class="form-label">Link:</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="link" 
+            formControlName="link"
+            aria-describedby="emailHelp"
+            [ngClass]="{'is-valid': hasErrors('link', 'required')}"
+          >
+          @if (hasErrors('link', 'required')) {
+            <span class="text-danger">Debe colocar un el Link del Proyecto</span>
+          }
+        </div>
+       
+       
+        <div class="mb-3">
+          <label for="description" class="form-label">Describa el proyecto</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="description" 
+            formControlName="description"
+            aria-describedby="emailHelp"
+          >
+        </div>
+        <div class="mb-3">
+          <label for="skills" class="form-label">Tecnologías utilizadas</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="skills" 
+            formControlName="skills"
+            aria-describedby="emailHelp"
+            [ngClass]="{'is-valid': hasErrors('skills', 'required')}"
+          >
+          @if (hasErrors('skills', 'required')) {
+            <span class="text-danger">Debe colocar un número.</span>
+          }
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+      </form>
+    </div>
+</div>
