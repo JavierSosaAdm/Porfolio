@@ -1,9 +1,8 @@
 <div class="container">
-    @if (repoList) {
-        @for (repo of repoList; track repo.id) {
-            <h3>{{repo.data.name}}</h3>
-            <h4>{{repo.data.link}}</h4>
-        }
-    }
-    
+    <h1>Bienvanidos a mis trabajos</h1>
+    <h2>Repositorios:</h2>
+    <app-card
+        *ngFor="let repo of repoList"
+        [repository]="repo.data">
+    </app-card>
 </div>

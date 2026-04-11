@@ -4,28 +4,31 @@ import { InformationService } from '../../Service/information.service';
 import { RepositoriesService } from '../../Service/repositories.service';
 import { Repository } from '../../Models/repositories.model';
 import { Observable } from 'rxjs';
+import { CardComponent } from '../../Components/card/card.component';
 
 
-@Component({
-  selector: 'app-landing-page',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './landing-page.component.html',
-  styleUrl: './landing-page.component.css'
-})
-export class LandingPageComponent implements OnInit {
 
-  private _infoService = inject(InformationService);
-  private _repoService = inject(RepositoriesService);
-  repoList: {id: string, data: Repository}[] = [];
+  @Component({
+    selector: 'app-landing-page',
+    standalone: true,
+    imports: [CommonModule, CardComponent ],
+    templateUrl: './landing-page.component.html',
+    styleUrl: './landing-page.component.css'
+  })
+  export class LandingPageComponent implements OnInit {
 
- ngOnInit(): void {
-   this._repoService.getRepositories().subscribe((data) => {
-    console.log("esto es data: ", data);
+  
+  //   private _infoService = inject(InformationService);
+    private _repoService = inject(RepositoriesService);
+    repoList: {id: string, data: Repository}[] = [];
 
-    this.repoList = data;
-    console.log("esto es repolist: ", this.repoList);
-    
-   })
- }
-}
+  ngOnInit(): void {
+    console.log(CardComponent);
+    this._repoService.getRepositories().subscribe((data) => {
+      console.log("esto es data: ", data);
+      this.repoList = data;
+      console.log("esto es repolist: ", this.repoList);
+      
+    })
+  }
+  }

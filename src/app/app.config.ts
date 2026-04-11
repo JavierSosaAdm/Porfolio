@@ -1,11 +1,13 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter, withHashLocation } from '@angular/router';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { initializeApp } from 'firebase/app'
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+//import { HttpClientModule } from '@angular/common/http';
+//import { initializeApp } from 'firebase/app'
+//import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyCRvKnkKq59RHE4hy8H79G4hB42Z6xV8C8",
@@ -21,8 +23,9 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, withHashLocation()), 
     provideClientHydration(),
+    provideHttpClient(withFetch()),
     importProvidersFrom(
-      HttpClientModule,
+//      HttpClientModule,
       AngularFireModule.initializeApp(firebaseConfig),
       AngularFireModule
     )

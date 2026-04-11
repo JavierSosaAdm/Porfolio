@@ -15,8 +15,8 @@ export class AppComponent {
   title = 'Porfolio';
   menuSelected: string = '';
 
-  onOption(nemuOption: string) {
-    this.menuSelected = nemuOption;
+  onOption(menuOption: string) {
+    this.menuSelected = menuOption;
     
   }
 }

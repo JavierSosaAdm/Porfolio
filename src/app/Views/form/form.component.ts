@@ -2,7 +2,7 @@ import { CommonModule, NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RepositoriesService } from '../../Service/repositories.service';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -31,7 +31,7 @@ export class FormComponent {
     const {name, link, skills, description } = this.data.value;
 
     try {
-      await this.RepService.postRepositories(this.data.value).subscribe({
+        this.RepService.postRepositories(this.data.value).subscribe({
         next: () => {
           console.log('postRepositories exitoso? ', this.data.value);
           this._router.navigate(['/']); // redirección a home page
