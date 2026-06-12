@@ -4,7 +4,6 @@ import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } fr
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { from, map, Observable } from 'rxjs';
 import { Repository } from '../Models/repositories.model';
-import { Information } from '../Models/information.model';
 import { doc } from 'firebase/firestore';
 import { v4 as uuidV4 } from 'uuid';
 

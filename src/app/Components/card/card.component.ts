@@ -14,6 +14,7 @@ import { Repository } from '../../Models/repositories.model';
 })
 export class CardComponent {
     @Input() repository!: Repository;
+    
   //   private _infoService = inject(InformationService);
   //   private _repoService = inject(RepositoriesService);
   //   repoList: {id: string, data: Repository}[] = [];
