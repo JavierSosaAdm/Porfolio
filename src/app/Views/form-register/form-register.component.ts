@@ -24,7 +24,7 @@ export class FormRegisterComponent {
       name: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
       IsAdmin: [false]
     })
   }
@@ -41,7 +41,6 @@ export class FormRegisterComponent {
     try {
       this.UserService.postUser(this.data.value).subscribe({
         next: () => {
-          console.log('PostUser exitoso: ', this.data.value);
           this._router.navigate(['/']);
         }
       })

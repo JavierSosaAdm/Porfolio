@@ -1,47 +1,8 @@
-<div class="Title">
-  <h3 class="title">Registro de Usuarios</h3>
-</div>
 <div class="container">
     <div class="form">
-      <form [formGroup]="data" class="row g-3 needs-validation" novalidate (submit)="register($event)" >
-        
-        <div class="mb-3">
-          <label for="name" class="form-label">Nombre:</label>
-          <input 
-            type="text" 
-            class="form-control" 
-            id="name" 
-            formControlName="name"
-            aria-describedby="emailHelp"
-            [ngClass]="{
-              'is-invalid': hasErrors('name', 'required'), 
-              'is-valid': data.get('name')?.valid && data.get('name')?.touched
-            }"
-          >
-          @if (hasErrors('name', 'required')) {
-            <span class="text-danger" >Debe colocar el nombre del usuario.</span>
-          }
-        </div>
-        <div class="mb-3">
-          <label for="lastName" class="form-label">Apellido:</label>
-          <input 
-            type="text" 
-            class="form-control" 
-            id="lastName" 
-            formControlName="lastName"
-            aria-describedby="emailHelp"
-            [ngClass]="{
-              'is-invalid': hasErrors('lastName', 'required'), 
-              'is-valid': data.get('lastName')?.valid && data.get('lastName')?.touched
-            }"
-          >
-          @if (hasErrors('lastName', 'required')) {
-            <span class="text-danger">Debe colocar el apellido del usuario.</span>
-          }
-        </div>
-       
-       
-        <div class="mb-3">
+        <h3 class="title">Login</h3>
+        <form [formGroup]="data" class="row g-3 needs-validation" novalidate (submit)="login($event)" >
+                    <div class="mb-3">
           <label for="email" class="form-label">email:</label>
           <input 
             type="email" 
@@ -92,8 +53,7 @@
           </span>
         }
       </div>
-      <button type="submit" class="btn btn-primary"> Registrar </button>
-      </form>
+      <button type="submit" class="btn btn-primary"> Ingresar </button>
+        </form>
     </div>
 </div>
-

@@ -33,7 +33,6 @@ export class FormComponent {
     try {
         this.RepService.postRepositories(this.data.value).subscribe({
         next: () => {
-          console.log('postRepositories exitoso? ', this.data.value);
           this._router.navigate(['/']); // redirección a home page
         }
       })

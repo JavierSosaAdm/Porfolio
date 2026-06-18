@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, Input } from '@angular/core';
-import { InformationService } from '../../Service/information.service';
+
 import { RepositoriesService } from '../../Service/repositories.service';
 import { Repository } from '../../Models/repositories.model';
 

@@ -1,6 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
-import { InformationService } from '../../Service/information.service';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { RepositoriesService } from '../../Service/repositories.service';
 import { Repository } from '../../Models/repositories.model';
 import { Observable } from 'rxjs';
@@ -16,19 +15,15 @@ import { CardComponent } from '../../Components/card/card.component';
     styleUrl: './landing-page.component.css'
   })
   export class LandingPageComponent implements OnInit {
-
-  
-  //   private _infoService = inject(InformationService);
+    private platformId = inject(PLATFORM_ID);
     private _repoService = inject(RepositoriesService);
     repoList: {id: string, data: Repository}[] = [];
 
-  ngOnInit(): void {
-    console.log(CardComponent);
-    this._repoService.getRepositories().subscribe((data) => {
-      console.log("esto es data: ", data);
-      this.repoList = data;
-      console.log("esto es repolist: ", this.repoList);
-      
-    })
-  }
+    ngOnInit(): void {
+      if (isPlatformBrowser(this.platformId)) {
+        this._repoService.getRepositories().subscribe((data) => {
+          this.repoList = data;
+        })
+      }
+    }
   }

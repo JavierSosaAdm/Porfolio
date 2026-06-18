@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LandingPageComponent } from '../../Views/landing-page/landing-page.component';
-import { InformationService } from '../../Service/information.service';
+import { InformationService } from '../../Service/auth.service';
 import { RepositoriesService } from '../../Service/repositories.service';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire/compat';
