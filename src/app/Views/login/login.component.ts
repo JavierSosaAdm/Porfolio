@@ -19,6 +19,7 @@ export class LoginComponent {
   private _router = inject(Router);  
   private authService = inject(AuthService);
 
+
   constructor(private FormBuilder: FormBuilder) {
     this.data = this.FormBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -46,6 +47,7 @@ export class LoginComponent {
           if (userFound) {
             localStorage.setItem('user', JSON.stringify(userFound.data));
             this.authService.setIsAdmin(userFound.data.IsAdmin);
+            this.authService.login();
             this._router.navigate(['/']);
           } else {
             console.log('Email o contraseña incorrectos');

@@ -13,9 +13,6 @@
           <a class="nav-link" [routerLink]="['/card']">Card</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/login']">Iniciar sesión</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" [routerLink]="['/UserRegister']">Registrarse</a>
         </li>
         @if (IsAdmin) {
@@ -23,6 +20,15 @@
             <a class="nav-link" [routerLink]="['/register']">Registros de Trabajos</a>
           </li>
         }       
+        @if (userLog === false) {
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">Iniciar sesión</a>
+          </li>
+        } @else {
+          <button class="btn btn-outline-danger" (click)="logout()" >
+            Cerrar sesión
+          </button>
+        }
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>

@@ -3,6 +3,7 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { UserService } from '../../Service/user.service';
 import { CommonModule, NgClass, isPlatformBrowser } from '@angular/common';
 import { AuthService } from '../../Service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,7 +16,9 @@ export class NavBarComponent implements OnInit {
   private authService = inject(AuthService);
   private _userService = inject(UserService);
   private platformId = inject(PLATFORM_ID);
+  private _router = inject(Router);
   IsAdmin: boolean = false;
+  userLog: boolean = false;
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -25,10 +28,22 @@ export class NavBarComponent implements OnInit {
       }
       this.authService.isAdmin$.subscribe({
         next: (value) => {
-        this.IsAdmin = value;
+          this.IsAdmin = value;
+        }
+      });
+      this.authService.userLog$.subscribe({
+        next: (value) => {
+          this.userLog = value;
         }
       });
     }
   }
+
+  logout() {
+    this.authService.logout();
+    this._userService.logout();
+    this._router.navigate(['/']);
+  }
+  
 }
 
