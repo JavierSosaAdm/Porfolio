@@ -20,7 +20,7 @@
             <a class="nav-link" [routerLink]="['/register']">Registros de Trabajos</a>
           </li>
         }       
-        @if (userLog === false) {
+        @if (!userLog) {
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/login']">Iniciar sesión</a>
           </li>

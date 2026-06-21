@@ -4,13 +4,14 @@ import { RepositoriesService } from '../../Service/repositories.service';
 import { Repository } from '../../Models/repositories.model';
 import { Observable } from 'rxjs';
 import { CardComponent } from '../../Components/card/card.component';
+import { ContactComponent } from '../../Components/contact/contact.component';
 
 
 
   @Component({
     selector: 'app-landing-page',
     standalone: true,
-    imports: [CommonModule, CardComponent ],
+    imports: [CommonModule, CardComponent, ContactComponent ],
     templateUrl: './landing-page.component.html',
     styleUrl: './landing-page.component.css'
   })

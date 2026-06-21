@@ -1,0 +1,74 @@
+<form [formGroup]="contactForm" (ngSubmit)="sendEmail()" class="row g-3 needs-validation" novalidate>
+    <div class="mb-3">
+        <label for="name" class="form-label">Nombre:</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="name" 
+            formControlName="name"
+            aria-describedby="emailHelp"
+            [ngClass]="{
+              'is-invalid': hasErrors('name', 'required'), 
+              'is-valid': contactForm.get('name')?.valid && contactForm.get('name')?.touched
+            }"
+          >
+          @if (hasErrors('name', 'required')) {
+            <span class="text-danger" >Debe colocar el nombre del usuario.</span>
+          }
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">email:</label>
+        <input 
+            type="email" 
+            class="form-control" 
+            id="email" 
+            formControlName="email"
+            aria-describedby="emailHelp"
+            [ngClass]="{
+              'is-invalid': hasErrors('email', 'required') || hasErrors('email', 'email'),
+              'is-valid': contactForm.get('email')?.valid && contactForm.get('email')?.touched
+            }"
+        >
+        @if (hasErrors('email', 'required')) {
+            <span class="text-danger">Debe ingrasar un correo electrónico.</span>
+        }
+        @if (hasErrors('email', 'email')) {
+            <span class="text-danger">El formato de correo electrónico no es válido.</span>
+        }
+    </div>
+    <div class="mb-3">
+        <label for="subject" class="form-label">Asunto:</label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="subject" 
+            formControlName="subject"
+            aria-describedby="emailHelp"
+            [ngClass]="{
+              'is-invalid': hasErrors('subject', 'required'), 
+              'is-valid': contactForm.get('subject')?.valid && contactForm.get('subject')?.touched
+            }"
+        >
+        @if (hasErrors('subject', 'required')) {
+            <span class="text-danger">Debe colocar el asunto de la consulta.</span>
+        }
+    </div>
+    <div class="mb-3">
+        <label for="message" class="form-label">Mensaje:</label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="message" 
+            formControlName="message"
+            aria-describedby="emailHelp"
+            [ngClass]="{
+              'is-invalid': hasErrors('message', 'required'), 
+              'is-valid': contactForm.get('message')?.valid && contactForm.get('message')?.touched
+            }"
+        >
+        @if (hasErrors('message', 'required')) {
+            <span class="text-danger">Debe colocar el mensaje.</span>
+        }
+    </div>
+    <button type="submit" class="btn btn-primary"> Enviar </button>
+</form>
