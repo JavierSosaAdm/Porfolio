@@ -1,19 +1,19 @@
 <div class="container">
     <div class="form">
         <h3 class="title">Login</h3>
-        <form [formGroup]="data" class="row g-3 needs-validation" novalidate (submit)="login($event)" >
-                    <div class="mb-3">
-          <label for="email" class="form-label">email:</label>
-          <input 
-            type="email" 
-            class="form-control" 
-            id="email" 
-            formControlName="email"
-            aria-describedby="emailHelp"
-            [ngClass]="{
-              'is-invalid': hasErrors('email', 'required') || hasErrors('email', 'email'),
-              'is-valid': data.get('email')?.valid && data.get('email')?.touched
-            }"
+        <form [formGroup]="data" class="row g-3 needs-validation" novalidate (ngSubmit)="login($event)" >
+          <div class="mb-3">
+            <label for="email" class="form-label">email:</label>
+            <input 
+              type="email" 
+              class="form-control" 
+              id="email" 
+              formControlName="email"
+              aria-describedby="emailHelp"
+              [ngClass]="{
+                'is-invalid': hasErrors('email', 'required') || hasErrors('email', 'email'),
+                'is-valid': data.get('email')?.valid && data.get('email')?.touched
+              }"
           >
           @if (hasErrors('email', 'required')) {
             <span class="text-danger">Debe ingrasar un correo electrónico.</span>
@@ -21,22 +21,22 @@
           @if (hasErrors('email', 'email')) {
             <span class="text-danger">El formato de correo electrónico no es válido.</span>
           }
-        </div>
-        <div class="mb-3">
-        <label for="password" class="form-label">Password:</label>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
 
-        <div class="input-group">
-          <input
-            [type]="showPassword ? 'text' : 'password'"
-            class="form-control"
-            id="password"
-            formControlName="password"
-            aria-describedby="emailHelp"
-            [ngClass]="{
-              'is-invalid': hasErrors('password', 'required'),
-              'is-valid': data.get('password')?.valid && data.get('password')?.touched
-            }"
-          >
+          <div class="input-group">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              class="form-control"
+              id="password"
+              formControlName="password"
+              aria-describedby="emailHelp"
+              [ngClass]="{
+                'is-invalid': hasErrors('password', 'required'),
+                'is-valid': data.get('password')?.valid && data.get('password')?.touched
+              }"
+            >
 
           <button
             type="button"
@@ -52,8 +52,8 @@
             Debe colocar una contraseña válida de al menos 8 caracteres.
           </span>
         }
-      </div>
-      <button type="submit" class="btn btn-primary"> Ingresar </button>
+          </div>
+          <button type="submit" class="btn btn-primary"> Ingresar </button>
         </form>
     </div>
 </div>

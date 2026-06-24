@@ -30,6 +30,7 @@ export class FormRegisterComponent {
   }
 
   async register(event: Event) {
+    console.log('ENTER O CLICK DETECTADO');
     event.preventDefault();
     const {name, lastName, email, password, IsAdmin} = this.data.value;
 
@@ -49,8 +50,9 @@ export class FormRegisterComponent {
               email: this.data.value.email    
             },
             'ql609On2bliwpuBro'
-          )
-          this._router.navigate(['/']);
+          ).then(() => {
+              this._router.navigate(['/']);
+          })
         }
       })
     } catch (error) {

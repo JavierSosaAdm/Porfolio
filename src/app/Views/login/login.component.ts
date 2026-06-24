@@ -28,6 +28,7 @@ export class LoginComponent {
   }
 
   login(event: Event) {
+    console.log('ENTER O CLICK DETECTADO');
     event.preventDefault();
     const { email, password } = this.data.value;
 

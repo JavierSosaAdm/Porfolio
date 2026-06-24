@@ -3,7 +3,7 @@
 </div>
 <div class="container">
     <div class="form">
-      <form [formGroup]="data" class="row g-3 needs-validation" novalidate (submit)="postRepositories($event)" >
+      <form [formGroup]="data" class="row g-3 needs-validation" novalidate (ngSubmit)="postRepositories($event)" >
         
         <div class="mb-3">
           <label for="name" class="form-label">Nombre de Proyecto:</label>
