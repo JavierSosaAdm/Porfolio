@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../Service/user.service';
-//import { subscribe } from 'diagnostics_channel';
+import  emailjs  from '@emailjs/browser';
 
 @Component({
   selector: 'app-form-register',
@@ -41,6 +41,15 @@ export class FormRegisterComponent {
     try {
       this.UserService.postUser(this.data.value).subscribe({
         next: () => {
+          emailjs.send(
+            'service_v0w8st3',
+            'template_6s172yp',
+            {
+              name: this.data.value.name,
+              email: this.data.value.email    
+            },
+            'ql609On2bliwpuBro'
+          )
           this._router.navigate(['/']);
         }
       })
