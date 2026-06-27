@@ -8,7 +8,7 @@ import { LoginComponent } from './Views/login/login.component';
 export const routes: Routes = [
     {path: '', component: LandingPageComponent},
     {path: 'register', component: FormComponent},
-    {path: 'card', component: CardComponent},
+//    {path: 'card', component: CardComponent},
     {path: 'UserRegister', component: FormRegisterComponent},
     {path: 'login', component: LoginComponent},
     {path: '**', redirectTo: '', pathMatch: 'full'},

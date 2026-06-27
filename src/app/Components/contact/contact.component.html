@@ -55,17 +55,17 @@
     </div>
     <div class="mb-3">
         <label for="message" class="form-label">Mensaje:</label>
-        <input 
-            type="text" 
+        <textarea 
             class="form-control" 
             id="message" 
             formControlName="message"
+            rows="5"
             aria-describedby="emailHelp"
             [ngClass]="{
               'is-invalid': hasErrors('message', 'required'), 
               'is-valid': contactForm.get('message')?.valid && contactForm.get('message')?.touched
             }"
-        >
+        ></textarea>
         @if (hasErrors('message', 'required')) {
             <span class="text-danger">Debe colocar el mensaje.</span>
         }

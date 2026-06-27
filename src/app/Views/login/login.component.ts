@@ -28,35 +28,44 @@ export class LoginComponent {
   }
 
   login(event: Event) {
-    console.log('ENTER O CLICK DETECTADO');
     event.preventDefault();
     const { email, password } = this.data.value;
 
-    if (this. data.invalid) {
+    if (this.data.invalid) {
       this.data.markAllAsTouched();
       return;
     }
+    
     try {
       this.UserService.getUser().subscribe({
-        next: (users) => {
-          const userFound = users.find(
-            user => 
-              user.data.email === email && 
-              user.data.password === password
+        next:(users) => {
+          const userByEmail = users.find(
+            user => user.data.email === email
           )
-
-          if (userFound) {
-            localStorage.setItem('user', JSON.stringify(userFound.data));
-            this.authService.setIsAdmin(userFound.data.IsAdmin);
-            this.authService.login();
-            this._router.navigate(['/']);
-          } else {
-            console.log('Email o contraseña incorrectos');
+          
+          if (!userByEmail) {
+            alert('El email no se encuentra registrado');
+            return;
           }
+          
+          if (userByEmail.data.password != password) {
+            if (userByEmail.data.password.length < 8) {
+                alert('La contaseña debe tener al menos 8 caracteres');
+                return;
+              }
+            alert('Contraseña incorrecta');
+            return;
+          }
+          
+          localStorage.setItem('user', JSON.stringify(userByEmail.data));
+          this.authService.setIsAdmin(userByEmail.data.IsAdmin);
+          this.authService.login();
+          this._router.navigate(['/']);          
         }
       })
     } catch (error) {
       console.error('Error de logeo: ', error)
+      alert('Hay un error de sistema');
     }
     
   }
@@ -64,3 +73,4 @@ export class LoginComponent {
     return this.data.get(field)?.hasError(typeError) && this.data.get(field)?.touched;
   }
 }
+

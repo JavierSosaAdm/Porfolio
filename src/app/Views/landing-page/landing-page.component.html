@@ -1,11 +1,10 @@
 <div class="container">
+    <app-profile/>
     <h1>Bienvanidos a mis trabajos</h1>
     <h2>Repositorios:</h2>
     <app-card
         *ngFor="let repo of repoList"
-        [repository]="repo.data">
-    </app-card>
+        [repository]="repo.data"/>
     <h2>Contacto:</h2>
-    <app-contact>
-    </app-contact>
+    <app-contact/>
 </div>

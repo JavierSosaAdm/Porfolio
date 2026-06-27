@@ -91,8 +91,13 @@
             Debe colocar una contraseña válida de al menos 8 caracteres.
           </span>
         }
-      </div>
-      <button type="submit" class="btn btn-primary"> Registrar </button>
+        @if (hasErrors('password', 'minlength')) {
+          <span class="text-danger">
+            Debe colocar una contraseña válida de al menos 8 caracteres.
+          </span>
+        }
+        </div>
+        <button type="submit" class="btn btn-primary"> Registrar </button>
       </form>
     </div>
 </div>

@@ -30,7 +30,6 @@ export class FormRegisterComponent {
   }
 
   async register(event: Event) {
-    console.log('ENTER O CLICK DETECTADO');
     event.preventDefault();
     const {name, lastName, email, password, IsAdmin} = this.data.value;
 
