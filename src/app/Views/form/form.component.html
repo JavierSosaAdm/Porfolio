@@ -47,16 +47,22 @@
         </div>
         <div class="mb-3">
           <label for="skills" class="form-label">Tecnologías utilizadas</label>
-          <input 
-            type="text" 
-            class="form-control" 
-            id="skills" 
-            formControlName="skills"
-            aria-describedby="emailHelp"
-            [ngClass]="{'is-valid': hasErrors('skills', 'required')}"
-          >
+          @for (skill of skills; track skill.id) {
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                [id]="skill.id"
+                (change)="onSkillChange($event, skill.data.skillName)">
+
+              <label class="form-check-label" [for]="skill.id">
+                {{ skill.data.skillName }}
+              </label>
+
+            </div>
+          }
           @if (hasErrors('skills', 'required')) {
-            <span class="text-danger">Debe colocar un número.</span>
+            <span class="text-danger">Debe seleccionar las tecnologías utilizadas.</span>
           }
         </div>
         <button type="submit" class="btn btn-primary">Registrar</button>

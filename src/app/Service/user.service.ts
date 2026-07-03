@@ -11,8 +11,8 @@ import { v4 as uuidV4 } from 'uuid';
 })
 
 export class UserService {
-users: Observable<{ id: string; data: User }[]>;
-
+  
+  users: Observable<{ id: string; data: User }[]>;
   private userLogSubject = new BehaviorSubject<boolean>(false);
   private _http = inject(HttpClient);
   private UserCollection: AngularFirestoreCollection<User>;
