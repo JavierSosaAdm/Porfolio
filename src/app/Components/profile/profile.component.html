@@ -2,4 +2,14 @@
 <div *ngFor="let user of admin">
   <h4>{{ user.data.name }} {{user.data.lastName}} Developer </h4>
   <p>Email: {{ user.data.email }}</p>
+
+  <p>Skill:  </p>
+  <ul>
+    <li *ngFor="let skill of skills">
+      <i [class]="skill.data.image"></i>
+      <img [src]="skill.data.img"/>
+      {{ skill.data.skillName }}
+    </li>
+  </ul>    
+  
 </div>  
