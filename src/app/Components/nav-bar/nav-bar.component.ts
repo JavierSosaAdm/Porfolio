@@ -5,11 +5,16 @@ import { CommonModule, NgClass, isPlatformBrowser } from '@angular/common';
 import { AuthService } from '../../Service/auth.service';
 import { Router } from '@angular/router';
 import { MusicService } from '../../Service/music.service';
+import { LoginComponent } from '../../Views/login/login.component'; 
+import { FormRegisterComponent } from '../../Views/form-register/form-register.component';
+import { FormComponent } from '../../Views/form/form.component';
+
+
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [RouterModule, RouterLink, CommonModule],
+  imports: [RouterModule, RouterLink, CommonModule, LoginComponent, FormRegisterComponent, FormComponent],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })

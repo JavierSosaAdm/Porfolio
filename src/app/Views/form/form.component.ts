@@ -63,6 +63,21 @@ export class FormComponent implements OnInit {
     try {
         this.RepService.postRepositories(this.data.value).subscribe({
         next: () => {
+          if (typeof window !== 'undefined') {
+            const modal = document.getElementById('repositoryModal');
+
+            if (modal) {
+              modal.classList.remove('show');
+              modal.style.display = 'none';
+              modal.setAttribute('aria-hidden', 'true');
+
+              document.querySelector('.modal-backdrop')?.remove();
+
+              document.body.classList.remove('modal-open');
+              document.body.style.removeProperty('padding-right');
+              document.body.style.overflow = 'auto';
+            }
+          }
           this._router.navigate(['/']); // redirectionn to home page
         }
       })

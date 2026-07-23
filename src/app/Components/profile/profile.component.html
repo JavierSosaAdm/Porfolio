@@ -4,7 +4,7 @@
   <p>Email: {{ user.data.email }}</p>
 
   <p>Skill:  </p>
-  <ul>
+  <ul class="skill-list">
     <li *ngFor="let skill of skills">
       <i [class]="skill.data.image"></i>
       <img [src]="skill.data.img"/>

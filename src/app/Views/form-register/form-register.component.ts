@@ -1,6 +1,6 @@
-import { CommonModule, NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule, NgClass } from '@angular/common';
 import { Router } from '@angular/router';
 import { UserService } from '../../Service/user.service';
 import  emailjs  from '@emailjs/browser';
@@ -49,11 +49,27 @@ export class FormRegisterComponent {
               email: this.data.value.email    
             },
             'ql609On2bliwpuBro'
-          ).then(() => {
-              this._router.navigate(['/']);
-          })
+          )
+          
+          if (typeof window !== 'undefined') {
+            const modal = document.getElementById('registerModal');
+
+            if (modal) {
+              modal.classList.remove('show');
+              modal.style.display = 'none';
+              modal.setAttribute('aria-hidden', 'true');
+
+              document.querySelector('.modal-backdrop')?.remove();
+
+              document.body.classList.remove('modal-open');
+              document.body.style.removeProperty('padding-right');
+              document.body.style.overflow = 'auto';
+            }
+          }
+          this._router.navigate(['/']);
         }
       })
+
     } catch (error) {
       console.error('Error de logeo: ', error)
     }

@@ -23,7 +23,6 @@ import { MusicService } from '../../Service/music.service';
     repoList: {id: string, data: Repository}[] = [];
 
     ngOnInit(): void {
-      console.log('esto es playing 1: ', this.musicService.play)
       if (isPlatformBrowser(this.platformId)) {
         this._repoService.getRepositories().subscribe((data) => {
           this.repoList = data;

@@ -14,16 +14,16 @@
         </li>
           <i class="devicon-angularjs-plain colored"></i>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/UserRegister']">Registrarse</a>
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a>
         </li>
         @if (IsAdmin) {
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/register']">Registros de Trabajos</a>
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#repositoryModal">Registros de Trabajos</a>
           </li>
         }       
         @if (!userLog) {
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/login']">Iniciar sesión</a>
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a>
           </li>
         } @else {
           <button class="btn btn-outline-danger" (click)="logout()" >
@@ -70,3 +70,84 @@
       (input)="changeVolume($event)"> 
   </div>
 </nav>
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">
+          Iniciar sesión
+        </h5>
+
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          >
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <app-login></app-login>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<div class="modal fade" id="repositoryModal" tabindex="-1" aria-labelledby="repositoryModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="repositoryModalLabel">
+          Registrar Trabajo
+        </h5>
+
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close">
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <app-form></app-form>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalLabel">
+          Registrar Trabajo
+        </h5>
+
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close">
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <app-form-register></app-form-register>
+      </div>
+
+    </div>
+
+  </div>
+</div>

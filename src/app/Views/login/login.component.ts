@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, Validators, FormGroup, FormBuilder } from '@angular/forms'; 
-import { UserService } from '../../Service/user.service';
 import { CommonModule, NgClass } from '@angular/common';
 import { Router } from '@angular/router';
+import { UserService } from '../../Service/user.service';
 import { AuthService } from '../../Service/auth.service';
+// import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent {
   private UserService = inject(UserService)
   private _router = inject(Router);  
   private authService = inject(AuthService);
+  
 
 
   constructor(private FormBuilder: FormBuilder) {
@@ -60,7 +62,23 @@ export class LoginComponent {
           localStorage.setItem('user', JSON.stringify(userByEmail.data));
           this.authService.setIsAdmin(userByEmail.data.IsAdmin);
           this.authService.login();
-          this._router.navigate(['/']);          
+          
+          if (typeof window !== 'undefined') {
+            const modal = document.getElementById('loginModal');
+
+            if (modal) {
+              modal.classList.remove('show');
+              modal.style.display = 'none';
+              modal.setAttribute('aria-hidden', 'true');
+              const backdrop = document.querySelector('.modal-backdrop');
+              backdrop?.remove();
+              
+              document.body.classList.remove('modal-open');
+              document.body.style.removeProperty('padding-right');
+              document.body.style.overflow = 'auto';
+            }      
+          }
+          this._router.navigate(['/']);    
         }
       })
     } catch (error) {
@@ -72,5 +90,6 @@ export class LoginComponent {
   hasErrors(field: string, typeError: string) {
     return this.data.get(field)?.hasError(typeError) && this.data.get(field)?.touched;
   }
+  
 }
 
