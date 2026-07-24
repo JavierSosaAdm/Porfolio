@@ -4,17 +4,18 @@ import { UserService } from '../../Service/user.service';
 import { CommonModule, NgClass, isPlatformBrowser } from '@angular/common';
 import { AuthService } from '../../Service/auth.service';
 import { Router } from '@angular/router';
+import { ViewportScroller } from '@angular/common';
 import { MusicService } from '../../Service/music.service';
 import { LoginComponent } from '../../Views/login/login.component'; 
 import { FormRegisterComponent } from '../../Views/form-register/form-register.component';
 import { FormComponent } from '../../Views/form/form.component';
-
+import { ContactComponent } from '../contact/contact.component';
 
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [RouterModule, RouterLink, CommonModule, LoginComponent, FormRegisterComponent, FormComponent],
+  imports: [RouterModule, RouterLink, CommonModule, LoginComponent, FormRegisterComponent, FormComponent, ContactComponent],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
@@ -24,6 +25,7 @@ export class NavBarComponent implements OnInit {
   private platformId = inject(PLATFORM_ID);
   private _router = inject(Router);
   private musicService = inject (MusicService);
+  private viewportScroller = inject(ViewportScroller);
   IsAdmin: boolean = false;
   userLog: boolean = false;
   playing: boolean = false;
@@ -82,5 +84,7 @@ export class NavBarComponent implements OnInit {
     console.log('Este es el volumen: ', this.volume);    
   }
   
+  goToSection(sectionId: string) {
+    this.viewportScroller.scrollToAnchor(sectionId);
+  }
 }
-

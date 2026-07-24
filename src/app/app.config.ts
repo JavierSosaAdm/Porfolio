@@ -4,9 +4,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-//import { HttpClientModule } from '@angular/common/http';
-//import { initializeApp } from 'firebase/app'
-//import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
 
 
 const firebaseConfig = {
