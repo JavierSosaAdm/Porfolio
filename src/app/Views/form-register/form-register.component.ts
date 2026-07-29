@@ -17,6 +17,7 @@ export class FormRegisterComponent {
   showPassword = false;
   private UserService = inject(UserService)
   private _router = inject(Router);
+
   
 
   constructor(private FormBuilder: FormBuilder) {
@@ -32,7 +33,7 @@ export class FormRegisterComponent {
   async register(event: Event) {
     event.preventDefault();
     const {name, lastName, email, password, IsAdmin} = this.data.value;
-
+    
     if (this.data.invalid) {
       this.data.markAllAsTouched();
       return;
@@ -65,9 +66,17 @@ export class FormRegisterComponent {
               document.body.style.removeProperty('padding-right');
               document.body.style.overflow = 'auto';
             }
-          }
+
+            setTimeout(() => {
+              const loginModal = document.querySelector(
+                '[data-bs-target="#loginModal"]'
+              ) as HTMLElement;
+              loginModal.click();
+            }, 200);
+          } 
           this._router.navigate(['/']);
         }
+
       })
 
     } catch (error) {

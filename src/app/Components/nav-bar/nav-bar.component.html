@@ -1,46 +1,41 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" [routerLink]="['/']">Porfolio</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" [routerLink]="['/']">Home</a>
+        <li class="nav-item-d">
+          <a class="bi bi-house-door-fill nav-link active" [routerLink]="['/']">  Home</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item-d dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Menú de Página</a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" [routerLink]="['/']" (click)="goToSection('profile')">Perfil</a></li> 
-            <li><a class="nav-link" [routerLink]="['/']" (click)="goToSection('repositories')">Trabajos</a></li>
-            <li><a class="nav-link" [routerLink]="['/']" (click)="goToSection('contact')">Contactame</a></li>
+            <li><a class="bi bi-person-square nav-link" [routerLink]="['/']" (click)="goToSection('profile')">  Perfil</a></li> 
+            <li><a class="bi bi-journal-text nav-link" [routerLink]="['/']" (click)="goToSection('repositories')">  Trabajos</a></li>
+            <li><a class="bi bi-envelope-at-fill nav-link" [routerLink]="['/']" (click)="goToSection('contact')">  Contactame</a></li>
           </ul>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/card']">Card</a>
-        </li> -->
           <i class="devicon-angularjs-plain colored"></i>
-        <li class="nav-item">
-          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a>
-        </li>
-        @if (IsAdmin) {
-          <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#repositoryModal">Registros de Trabajos</a>
-          </li>
-        }       
-        @if (!userLog) {
-          <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a>
-          </li>
+          @if (IsAdmin) {
+            <li class="nav-item">
+              <a class="bi bi-journal-plus nav-link" href="#" data-bs-toggle="modal" data-bs-target="#repositoryModal">  Nuevo Repositorio</a>
+            </li>
+          }       
+          @if (!userLog) {
+            <li class="nav-item">
+              <a class="bi bi-person-fill nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">  Iniciar sesión</a>
+            </li>
+            <li class="nav-item">
+              <a class="bi bi-person-vcard nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">  Registrarse</a>
+            </li>
         } @else {
-          <button class="btn btn-outline-danger" (click)="logout()" >
-            Cerrar sesión
-          </button>
+          <li class="nav-item" (click)="logout()" >
+            <a class="bi bi-person-dash-fill nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+              Cerrar sesión
+            </a>
+          </li>
         }
-        <!-- <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li> -->
       </ul>
     </div>
     @if (playing === true) {
@@ -115,7 +110,7 @@
 
       <div class="modal-header">
         <h5 class="modal-title" id="repositoryModalLabel">
-          Registrar Trabajo
+          Registrar Repositorio
         </h5>
 
         <button
@@ -141,7 +136,7 @@
 
       <div class="modal-header">
         <h5 class="modal-title" id="registerModalLabel">
-          Registrar Trabajo
+          Registrar Usuario
         </h5>
 
         <button
