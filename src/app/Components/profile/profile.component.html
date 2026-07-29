@@ -7,9 +7,16 @@
     <p>Skill:  </p>
     <ul class="skill-list">
       <li *ngFor="let skill of skills">
-        <i [class]="skill.data.image"></i>
-        <img [src]="skill.data.img"/>
-        {{ skill.data.skillName }}
+        <a 
+          [href]="skill.data.documentation"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="skill-link"
+        >
+          <i [class]="skill.data.image"></i>
+          <img [src]="skill.data.img"/>
+        </a>
+        <span class="skill-name">{{ skill.data.skillName }}</span>
       </li>
     </ul>    
     

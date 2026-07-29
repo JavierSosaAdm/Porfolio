@@ -25,3 +25,9 @@ img {
   height: 50px;
   object-fit: contain;
 }
+
+.skill-name {
+  font-size: 14px;
+  color: #333333; /* Elige el color exacto que prefieras */
+  text-align: center;
+}

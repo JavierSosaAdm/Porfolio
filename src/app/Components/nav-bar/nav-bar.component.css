@@ -1,0 +1,101 @@
+.btn-pause{
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7280ff 0%, #464ee8 100%);
+    box-shadow: 0 4px 15px rgba(85, 98, 245, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-pause:hover {
+    box-shadow: 0 6px 20px rgba(85, 98, 245, 0.6);
+    transform: translateY(-1px);
+}
+
+.btn-play{
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7280ff 0%, #464ee8 100%);
+    box-shadow: 0 4px 15px rgba(85, 98, 245, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-play:hover {
+    box-shadow: 0 6px 20px rgba(85, 98, 245, 0.6);
+    transform: translateY(-1px);
+}
+
+.btn-stop{
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7280ff 0%, #464ee8 100%);
+    box-shadow: 0 4px 15px rgba(85, 98, 245, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-stop:hover {
+    box-shadow: 0 6px 20px rgba(85, 98, 245, 0.6);
+    transform: translateY(-1px);
+}
+
+.volume{
+    width: 100px;
+    height: 5px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #7280ff 0%, #464ee8 100%);
+    box-shadow: 0 4px 15px rgba(85, 98, 245, 0.4);
+    cursor: pointer;
+}
+
+.volume:hover {
+    box-shadow: 0 6px 20px rgba(85, 98, 245, 0.6);
+    transform: translateY(-1px);
+}
+
+.dropdown-menu {
+    display: block !important;   /* Bootstrap lo pone en none */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition:
+        opacity .35s ease,
+        transform .35s ease,
+        visibility .35s;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu .nav-link {
+    color: black;
+    transition: .25s;
+}
+
+.dropdown-menu .nav-link:hover {
+    /* background: #7280ff; */
+    color: black;
+    transform: translateX(6px);
+}
+
+.nav-item:hover {
+    background: #7280ff;
+    color: black;
+    transform: translateX(6px);
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7280ff 0%, #8085ee 100%);
+    box-shadow: 0 4px 15px rgba(85, 98, 245, 0.4);
+    cursor: pointer;
+    transition:
+        opacity .55s ease,
+        transform .55s ease,
+        visibility .55s;
+}

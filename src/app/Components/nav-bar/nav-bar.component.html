@@ -17,9 +17,9 @@
             <li><a class="nav-link" [routerLink]="['/']" (click)="goToSection('contact')">Contactame</a></li>
           </ul>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" [routerLink]="['/card']">Card</a>
-        </li>
+        </li> -->
           <i class="devicon-angularjs-plain colored"></i>
         <li class="nav-item">
           <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a>
@@ -38,14 +38,14 @@
             Cerrar sesión
           </button>
         }
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
+        </li> -->
       </ul>
     </div>
     @if (playing === true) {
       <button
-      class="btn btn-outline-primary"
+      class="btn btn-outline-primary btn-pause"
       (click)="pause()"  
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
@@ -55,7 +55,7 @@
     }
     @if (playing === false) {
       <button
-        class="btn btn-outline-primary"
+        class="btn btn-outline-primary btn-play"
         (click)="play()"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
@@ -64,13 +64,14 @@
       </button>
     }
     <button
-      class="btn btn-outline-primary"
+      class="btn btn-outline-primary btn-stop"
       (click)="stop()">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stop-circle-fill" viewBox="0 0 16 16">
         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.5 5A1.5 1.5 0 0 0 5 6.5v3A1.5 1.5 0 0 0 6.5 11h3A1.5 1.5 0 0 0 11 9.5v-3A1.5 1.5 0 0 0 9.5 5z"/>
       </svg>
     </button>
     <input
+      class="volume"
       type="range"
       min="0"
       max="1"

@@ -1,0 +1,21 @@
+.button{
+    display: flex;
+    justify-content: end;
+}
+
+.btn-send{
+    width: 120px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7280ff 0%, #464ee8 100%);
+    box-shadow: 0 4px 15px rgba(85, 98, 245, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-send:hover {
+    box-shadow: 0 6px 20px rgba(85, 98, 245, 0.6);
+    transform: translateY(-1px);
+}
