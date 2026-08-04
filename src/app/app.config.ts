@@ -4,18 +4,31 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { enviroment } from './enviroment.prod';
 
 
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCRvKnkKq59RHE4hy8H79G4hB42Z6xV8C8",
+//   authDomain: "porfolio-1e22d.firebaseapp.com",
+//   projectId: "porfolio-1e22d",
+//   storageBucket: "porfolio-1e22d.appspot.com",
+//   messagingSenderId: "162706270904",
+//   appId: "1:162706270904:web:875f1c999d4ff42077624d",
+//   measurementId: "G-D2N5KKRGP2"
+// };
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCRvKnkKq59RHE4hy8H79G4hB42Z6xV8C8",
-  authDomain: "porfolio-1e22d.firebaseapp.com",
-  projectId: "porfolio-1e22d",
-  storageBucket: "porfolio-1e22d.appspot.com",
-  messagingSenderId: "162706270904",
-  appId: "1:162706270904:web:875f1c999d4ff42077624d",
-  measurementId: "G-D2N5KKRGP2"
+  apiKey: enviroment.firebaseConfig.apiKey,
+  authDomain: enviroment.firebaseConfig.authDomain,
+  projectId: enviroment.firebaseConfig.projectId,
+  storageBucket: enviroment.firebaseConfig.storageBucket,
+  messagingSenderId: enviroment.firebaseConfig.messagingSenderId,
+  appId: enviroment.firebaseConfig.appId,
+  measurementId: enviroment.firebaseConfig.measurementId
 };
+
+
 
 export const appConfig: ApplicationConfig = {
   providers: [

@@ -1,0 +1,11 @@
+<p>chat works!</p>
+<form [formGroup]="chatForm">
+    <input
+        type="text"
+        formControlName="message"
+        placeholder="Escribe un mensaje"
+        (focus)="checkLogin()">
+    <button type="submit" (click)="send()">
+        Enviar
+    </button>
+</form>

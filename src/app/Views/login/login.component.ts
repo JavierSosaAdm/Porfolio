@@ -59,8 +59,9 @@ export class LoginComponent {
             return;
           }
           
-          localStorage.setItem('user', JSON.stringify(userByEmail.data));
-          this.authService.setIsAdmin(userByEmail.data.IsAdmin);
+          
+          
+          this.authService.setCurrentUser(userByEmail);
           this.authService.login();
           
           if (typeof window !== 'undefined') {

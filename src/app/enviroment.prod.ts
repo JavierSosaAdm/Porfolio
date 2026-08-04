@@ -10,3 +10,7 @@ export const enviroment = {
       measurementId: "G-D2N5KKRGP2"
     }
   };
+
+export const AdminUserId = {
+  userId: '0af9bd47-521f-454d-9d8a-11d2ce200cb2'
+}

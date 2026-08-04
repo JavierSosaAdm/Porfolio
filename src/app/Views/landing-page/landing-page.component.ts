@@ -6,13 +6,14 @@ import { ProfileComponent } from '../../Components/profile/profile.component';
 import { CardComponent } from '../../Components/card/card.component';
 import { ContactComponent } from '../../Components/contact/contact.component';
 import { MusicService } from '../../Service/music.service';
+import { ChatComponent } from '../../Components/chat/chat.component';
 
 
 
   @Component({
     selector: 'app-landing-page',
     standalone: true,
-    imports: [CommonModule, CardComponent, ContactComponent, ProfileComponent ],
+    imports: [CommonModule, CardComponent, ContactComponent, ProfileComponent, ChatComponent ],
     templateUrl: './landing-page.component.html',
     styleUrl: './landing-page.component.css'
   })
