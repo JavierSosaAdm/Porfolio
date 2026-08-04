@@ -88,3 +88,4 @@ export class NavBarComponent implements OnInit {
     this.viewportScroller.scrollToAnchor(sectionId);
   }
 }
+

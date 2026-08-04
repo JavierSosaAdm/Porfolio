@@ -1,0 +1,27 @@
+.chat-window{
+    height:400px;
+    overflow-y:auto;
+    border:1px solid #ccc;
+    padding:15px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.message{
+    max-width:70%;
+    padding:10px 15px;
+    border-radius:15px;
+    word-break:break-word;
+}
+
+.mine{
+    align-self:flex-end;
+    background:#d6d318;
+    color:rgb(0, 0, 0);
+}
+
+.other{
+    align-self:flex-start;
+    background:#ececec;
+}

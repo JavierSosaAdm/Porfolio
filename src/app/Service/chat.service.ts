@@ -7,28 +7,33 @@ import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } fr
 })
 export class ChatService {
 
+  
+
   constructor(private firestore: AngularFirestore) {}
 
-  sendMessage(chatId: string, message: {user: string, received: string, text: string, createdAt: Date}) {
+  sendMessage(chatId: string, userInfo: {id: string, name: string, lastName: string, email: string}, message: {user: string, received: string, text: string, createdAt: Date, read: boolean}) {
 
     this.firestore
       .collection('Chats')
       .doc(chatId)
       .set({
-        userId: chatId,
+        userId: userInfo.id,
+        userName: userInfo.name,
+        userLastName: userInfo.lastName,
+        userEmail: userInfo.email,
         adminId: message.received,
         createdAt: new Date()
     }, { merge: true})
-
-    console.log('esto es chatId: ', chatId);  
-    console.log('esto es message: ', message);
-    return this.firestore.collection(`chats/${chatId}/messages`).add({message})
+    return this.firestore.collection(`Chats/${chatId}/messages`).add({...message})
   }
 
   getMessages(chatId: string) {
-    console.log('esto es chatId: ', chatId);
-    return this.firestore.collection(`chats/${chatId}/messages`, 
+    return this.firestore.collection(`Chats/${chatId}/messages`, 
       ref => ref.orderBy('createdAt')
     ).valueChanges({ idField: 'id' })
+  }
+
+  getchats() {
+    return this.firestore.collection('Chats').valueChanges({idField: 'id'});
   }
 }

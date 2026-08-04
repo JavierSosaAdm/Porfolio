@@ -6,13 +6,20 @@
         <h1>Bienvanidos a mis trabajos</h1>
         <h2>Repositorios:</h2>
         <app-card
-            *ngFor="let repo of repoList"
-            [repository]="repo.data"/>
+        *ngFor="let repo of repoList"
+        [repository]="repo.data"/>
     </div>
-
-    <div id="chat">
-        <app-chat/>
-    </div>
+    
+    @if (IsAdmin === true) {
+        <div id="chat-admin">
+            <app-admin-chat/>
+        </div>
+    }
+    @if (IsAdmin !== true || !IsAdmin) {
+        <div id="chat">
+            <app-chat/>
+        </div>
+    }
 
     <div id="contact">
         <app-contact/>

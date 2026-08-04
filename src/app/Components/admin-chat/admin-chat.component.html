@@ -1,0 +1,10 @@
+<p>admin-chat works!</p>
+<div class="chat-list">
+
+    @for(chat of chats; track chat.chatId){
+        
+        <strong>{{chat.userName}} {{chat.userLastName}}</strong> - {{chat.email}}
+
+    }
+
+</div>

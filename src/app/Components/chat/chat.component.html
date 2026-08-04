@@ -1,4 +1,14 @@
 <p>chat works!</p>
+<div class="chat-window">
+    @for (message of messages; track message.id) {
+        <div
+            class="message"
+            [class.mine]="message.user === userId"
+            [class.other]="message.user === userId">
+            {{message.text}}
+        </div>
+    }
+</div>
 <form [formGroup]="chatForm">
     <input
         type="text"

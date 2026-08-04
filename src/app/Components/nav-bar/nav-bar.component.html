@@ -30,8 +30,8 @@
               <a class="bi bi-person-vcard nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">  Registrarse</a>
             </li>
         } @else {
-          <li class="nav-item" (click)="logout()" >
-            <a class="bi bi-person-dash-fill nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+          <li class="nav-item">
+            <a class="bi bi-person-dash-fill nav-link" href="#" (click)="logout(); $event.preventDefault()">
               Cerrar sesión
             </a>
           </li>
@@ -174,7 +174,8 @@
         <button
           type="button"
           class="btn-close"
-          data-bs-dismiss="modal">
+          data-bs-dismiss="modal"
+          aria-label="Close">
         </button>
       </div>
 

@@ -27,12 +27,14 @@ export class AuthService {
       return;
     }
     const user = localStorage.getItem('user')
+    console.log('Usuario almacenado:', user);
 
     if (user) {
       this.currentUserSubject.next(JSON.parse(user));
       this.userLogSubject.next(true);
 
       const currentUser = JSON.parse(user);
+      console.log('Restaurando usuario:', currentUser);
       this.isAdminSubject.next(currentUser.data.IsAdmin);
     }
   }

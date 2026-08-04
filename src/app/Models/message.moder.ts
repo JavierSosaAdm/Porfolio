@@ -3,4 +3,5 @@ export interface Message {
   senderId:        string;
   text:            string;
   createdAt:       Date;
+  read:            boolean;
 }

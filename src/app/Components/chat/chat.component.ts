@@ -1,11 +1,12 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { AdminUserId } from '../../enviroment.prod';
 import { ChatService } from '../../Service/chat.service';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule, Validators, FormGroup, FormBuilder } from '@angular/forms'; 
 import { BehaviorSubject } from 'rxjs';
 import { AuthService } from '../../Service/auth.service';
-
+// import * as bootstrap from 'bootstrap';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-chat',
@@ -21,15 +22,21 @@ export class ChatComponent  {
   Admin: string = AdminUserId.userId;
   userId: string = '';
   chatId: string = '';
+  currentName: string = '';
+  currentEmail: string = '';
+  currentLastName: string = '';
+  private platformId = inject(PLATFORM_ID)
+  messages: any[] = [];
 
   constructor(
+    
     private authService: AuthService,
     private chatService: ChatService,
     private fb: FormBuilder) {
+      console.log('SE CREÓ CHAT COMPONENT');
       this.chatForm = this.fb.group({
         message: ['', Validators.required]
       });
-    console.log('esto es chatForm: ', this.chatForm);
     }
     
     ngOnInit(): void {
@@ -38,35 +45,42 @@ export class ChatComponent  {
         if (!user) {
           this.userId = '';  
           this.chatId = '';
+          this.messages = [];
           return;
         }
 
         this.userId = user.id;
         this.chatId = user.id;
-        console.log('Usuario actual: ', this.userId)
+        this.currentEmail = user.data.email;
+        this.currentName = user.data.name;
+        this.currentLastName = user.data.lastName;
+        this.chatService.getMessages(this.chatId).subscribe(messages => {
+          this.messages = messages;
+        });        
       })
     }
     
-    checkLogin() {
+    async checkLogin() {
       const user = localStorage.getItem('user');
 
       if (user) {
         return;
       }
-
-      const modal = document.getElementById('chatLoginModal');
-
-      if (modal) {
-        modal.classList.add('show');
-        modal.style.display = 'block';
-        modal.removeAttribute('aria-hidden');
-
-        const backdrop = document.createElement('div');
-        backdrop.className = 'modal-backdrop fade show';
-
-        document.body.appendChild(backdrop);
-        document.body.classList.add('modal-open');
+      if (this.userId) {
+        return;
       }
+      
+      if (!isPlatformBrowser(this.platformId)) {
+        return;
+      }
+      const bootstrap = await import('bootstrap');
+      
+      const modalElement = document.getElementById('chatLoginModal');
+
+      if (!modalElement) return;
+
+      const modal = bootstrap.Modal.getOrCreateInstance(modalElement);
+      modal.show();
     }
 
 
@@ -77,20 +91,28 @@ export class ChatComponent  {
     }
 
     if(this.chatForm.invalid) {
-      console.log('mensaje no enviado');
       this.chatForm.markAllAsTouched();
       return;
     }
   
     const text = this.chatForm.value.message;
-    console.log('esto es texto: ', text);
     this.chatService.sendMessage(this.chatId, {
+      id: this.userId,
+      name: this.currentName,
+      lastName: this.currentLastName,
+      email: this.currentEmail
+      },
+      {
       user: this.userId,
       received: this.Admin,
       text: text,
-      createdAt: new Date()
+      createdAt: new Date(),
+      read: false
     });
-    // console.log('mensaje enviado:');
+     
     this.chatForm.reset();
+    this.chatService.getMessages(this.chatId).subscribe(messages => {
+      this.messages = messages;
+    });
   }
 }
