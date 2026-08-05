@@ -14,16 +14,4 @@ import { Repository } from '../../Models/repositories.model';
 })
 export class CardComponent {
     @Input() repository!: Repository;
-    
-  //   private _infoService = inject(InformationService);
-  //   private _repoService = inject(RepositoriesService);
-  //   repoList: {id: string, data: Repository}[] = [];
-
-  // ngOnInit(): void {
-  //   this._repoService.getRepositories().subscribe((data) => {
-  //     console.log("esto es data: ", data);
-  //     this.repoList = data;
-  //     console.log("esto es repolist: ", this.repoList);
-  //   });
-  // }
 }
