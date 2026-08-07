@@ -73,14 +73,17 @@ export class ChatComponent  {
       if (!isPlatformBrowser(this.platformId)) {
         return;
       }
-      const bootstrap = await import('bootstrap');
-      
-      const modalElement = document.getElementById('chatLoginModal');
+      const bootstrap = (window as any).bootstrap;
 
-      if (!modalElement) return;
+      if (bootstrap) {
 
-      const modal = bootstrap.Modal.getOrCreateInstance(modalElement);
-      modal.show();
+        const modalElement = document.getElementById('chatLoginModal');
+  
+        if (!modalElement) return;
+  
+        const modal = bootstrap.Modal.getOrCreateInstance(modalElement);
+        modal.show();
+      }
     }
 
 

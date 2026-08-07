@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../../Service/user.service';
 import { AuthService } from '../../Service/auth.service';
 // import * as bootstrap from 'bootstrap';
+import { ModalService } from '../../Service/modal.service';
 
 @Component({
   selector: 'app-login',
@@ -40,7 +41,7 @@ export class LoginComponent {
     
     try {
       this.UserService.getUser().subscribe({
-        next:(users) => {
+        next: async (users) => {
           const userByEmail = users.find(
             user => user.data.email === email
           )
@@ -58,28 +59,29 @@ export class LoginComponent {
             alert('Contraseña incorrecta');
             return;
           }
-          
-          
+        
+          if (typeof window !== 'undefined') {
+            const modalElement = document.getElementById('loginModal');
+            if (modalElement) {
+              const bootstrap = (window as any).bootstrap; 
+
+              if (bootstrap) {
+                const modal = bootstrap.Modal.getOrCreateInstance(modalElement);
+                modalElement.addEventListener('hidden.bs.modal', () => {
+                  this.authService.setCurrentUser(userByEmail);
+                  this.authService.login()
+                  this._router.navigate(['/'])
+                }, {once: true});
+                modal.hide();
+                return;
+              }
+            }
+          }
           
           this.authService.setCurrentUser(userByEmail);
           this.authService.login();
-          
-          if (typeof window !== 'undefined') {
-            const modal = document.getElementById('loginModal');
 
-            if (modal) {
-              modal.classList.remove('show');
-              modal.style.display = 'none';
-              modal.setAttribute('aria-hidden', 'true');
-              const backdrop = document.querySelector('.modal-backdrop');
-              backdrop?.remove();
-              
-              document.body.classList.remove('modal-open');
-              document.body.style.removeProperty('padding-right');
-              document.body.style.overflow = 'auto';
-            }      
-          }
-          this._router.navigate(['/']);    
+          this._router.navigate(['/']);
         }
       })
     } catch (error) {

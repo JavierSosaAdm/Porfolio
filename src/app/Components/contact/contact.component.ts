@@ -20,6 +20,7 @@ export class ContactComponent {
       message: ['', Validators.required]
     });
   }
+
   sendEmail() {
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();

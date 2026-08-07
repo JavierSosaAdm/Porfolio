@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { BehaviorSubject, from, map, Observable } from 'rxjs';
+import { BehaviorSubject, from, map, Observable, take } from 'rxjs';
 import { User } from '../Models/user.model';
 import { v4 as uuidV4 } from 'uuid';
 
@@ -40,6 +40,8 @@ export class UserService {
 
   getUser(): Observable<{ id: string; data: User }[]> {
     this.userLogSubject.next(true);
+    console.log('users: ', this.users);
+    
     return this.users;
   }
   
@@ -56,6 +58,18 @@ export class UserService {
     );
   }
 
+  getUserByEmail(email: string): Observable<{ id: string, data: User } | null> {
+      console.log('esto es email: ',email);
+      
+      return this.users.pipe(take(1), map(users => {
+        const user = users.find(
+          user => user.data.email === email
+        )
+        console.log('esto es user de getByemial: ', user);
+        
+        return user || null;
+      })) 
+  }
 }
 
 

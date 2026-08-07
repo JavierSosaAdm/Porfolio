@@ -22,20 +22,20 @@
               <a class="bi bi-journal-plus nav-link" href="#" data-bs-toggle="modal" data-bs-target="#repositoryModal">  Nuevo Repositorio</a>
             </li>
           }       
-          @if (!userLog) {
-            <li class="nav-item">
+
+            <li class="nav-item" [hidden]="userLog">
               <a class="bi bi-person-fill nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">  Iniciar sesión</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" [hidden]="userLog">
               <a class="bi bi-person-vcard nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">  Registrarse</a>
             </li>
-        } @else {
-          <li class="nav-item">
+
+          <li class="nav-item" [hidden]="!userLog">
             <a class="bi bi-person-dash-fill nav-link" href="#" (click)="logout(); $event.preventDefault()">
               Cerrar sesión
             </a>
           </li>
-        }
+
       </ul>
     </div>
     @if (playing === true) {
