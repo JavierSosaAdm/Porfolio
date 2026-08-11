@@ -1,8 +1,8 @@
 <div class="container">
     <div class="form">
         <form [formGroup]="data" class="row g-3 needs-validation" novalidate (ngSubmit)="login($event)" >
-          <div class="mb-3">
-            <label for="email" class="form-label">email:</label>
+          <div class="mb-3-email">
+            <label for="email" class="form-label">Email:</label>
             <input 
               type="email" 
               class="form-control" 
@@ -14,12 +14,14 @@
                 'is-valid': data.get('email')?.valid && data.get('email')?.touched
               }"
           >
-          @if (hasErrors('email', 'required')) {
-            <span class="text-danger">Debe ingrasar un correo electrónico.</span>
-          }
-          @if (hasErrors('email', 'email')) {
-            <span class="text-danger">El formato de correo electrónico no es válido.</span>
-          }
+          <div class="error-container">
+            @if (hasErrors('email', 'required')) {
+              <span class="text-danger">Debe ingrasar un correo electrónico.</span>
+            }
+            @if (hasErrors('email', 'email')) {
+              <span class="text-danger">El formato de correo electrónico no es válido.</span>
+            }
+          </div>
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password:</label>
@@ -45,17 +47,27 @@
             <i [class]="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
           </button>
         </div>
-        @if (hasErrors('password', 'minlength')) {
-          <span class="text-danger">Debe colocar una contraseña válida de al menos 8 caracteres.</span>
-        }
-        
-        @if (hasErrors('password', 'required')) {
-          <span class="text-danger">
-            Debe colocar una contraseña válida de al menos 8 caracteres.
-          </span>
-        }
+        <div class="error-container">
+          @if (hasErrors('password', 'minlength')) {
+            <span class="text-danger">Debe colocar una contraseña válida de al menos 8 caracteres.</span>
+          }
+          
+          @if (hasErrors('password', 'required')) {
+            <span class="text-danger">
+              Debe colocar una contraseña válida de al menos 8 caracteres.
+            </span>
+          }
+        </div>
           </div>
-          <button type="submit" class="btn btn-primary"> Ingresar </button>
+          <div class="btn-container">
+            <button 
+              type="button"
+              class="btn btn-primary-close" 
+              data-bs-dismiss="modal">
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-primary"> Ingresar </button>
+          </div>
         </form>
     </div>
 </div>

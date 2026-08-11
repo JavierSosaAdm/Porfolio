@@ -4,7 +4,7 @@
     <div class="form">
       <form [formGroup]="data" class="row g-3 needs-validation" novalidate (ngSubmit)="register($event)" >
         
-        <div class="mb-3">
+        <div class="mb-3-name">
           <label for="name" class="form-label">Nombre:</label>
           <input 
             type="text" 
@@ -17,9 +17,11 @@
               'is-valid': data.get('name')?.valid && data.get('name')?.touched
             }"
           >
-          @if (hasErrors('name', 'required')) {
-            <span class="text-danger" >Debe colocar el nombre del usuario.</span>
-          }
+          <div class="error-container">
+            @if (hasErrors('name', 'required')) {
+              <span class="text-danger" >Debe colocar el nombre del usuario.</span>
+            }
+          </div>
         </div>
         <div class="mb-3">
           <label for="lastName" class="form-label">Apellido:</label>
@@ -34,14 +36,16 @@
               'is-valid': data.get('lastName')?.valid && data.get('lastName')?.touched
             }"
           >
-          @if (hasErrors('lastName', 'required')) {
-            <span class="text-danger">Debe colocar el apellido del usuario.</span>
-          }
+          <div class="error-container">
+            @if (hasErrors('lastName', 'required')) {
+              <span class="text-danger">Debe colocar el apellido del usuario.</span>
+            }
+          </div>
         </div>
        
        
         <div class="mb-3">
-          <label for="email" class="form-label">email:</label>
+          <label for="email" class="form-label">Email:</label>
           <input 
             type="email" 
             class="form-control" 
@@ -53,12 +57,14 @@
               'is-valid': data.get('email')?.valid && data.get('email')?.touched
             }"
           >
-          @if (hasErrors('email', 'required')) {
-            <span class="text-danger">Debe ingrasar un correo electrónico.</span>
-          }
-          @if (hasErrors('email', 'email')) {
-            <span class="text-danger">El formato de correo electrónico no es válido.</span>
-          }
+          <div class="error-container">
+            @if (hasErrors('email', 'required')) {
+              <span class="text-danger">Debe ingrasar un correo electrónico.</span>
+            }
+            @if (hasErrors('email', 'email')) {
+              <span class="text-danger">El formato de correo electrónico no es válido.</span>
+            }
+          </div>
         </div>
         <div class="mb-3">
         <label for="password" class="form-label">Password:</label>
@@ -84,19 +90,28 @@
             <i [class]="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
           </button>
         </div>
-
-        @if (hasErrors('password', 'required')) {
-          <span class="text-danger">
-            Debe colocar una contraseña válida de al menos 8 caracteres.
-          </span>
-        }
-        @if (hasErrors('password', 'minlength')) {
-          <span class="text-danger">
-            Debe colocar una contraseña válida de al menos 8 caracteres.
-          </span>
-        }
+        <div class="error-container">
+          @if (hasErrors('password', 'required')) {
+            <span class="text-danger">
+              Debe colocar una contraseña válida de al menos 8 caracteres.
+            </span>
+          }
+          @if (hasErrors('password', 'minlength')) {
+            <span class="text-danger">
+              Debe colocar una contraseña válida de al menos 8 caracteres.
+            </span>
+          }
         </div>
-        <button type="submit" class="btn btn-primary"> Registrar </button>
+        </div>
+          <div class="btn-container">
+            <button 
+              type="button"
+              class="btn btn-primary-close" 
+              data-bs-dismiss="modal">
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-primary"> Registrar </button>
+          </div>
       </form>
     </div>
 </div>

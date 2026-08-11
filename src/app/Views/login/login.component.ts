@@ -4,8 +4,7 @@ import { CommonModule, NgClass } from '@angular/common';
 import { Router } from '@angular/router';
 import { UserService } from '../../Service/user.service';
 import { AuthService } from '../../Service/auth.service';
-// import * as bootstrap from 'bootstrap';
-import { ModalService } from '../../Service/modal.service';
+
 
 @Component({
   selector: 'app-login',
@@ -21,7 +20,6 @@ export class LoginComponent {
   private _router = inject(Router);  
   private authService = inject(AuthService);
   
-
 
   constructor(private FormBuilder: FormBuilder) {
     this.data = this.FormBuilder.group({
