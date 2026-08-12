@@ -3,6 +3,22 @@
     flex-direction: row;
     border-radius: 12px;
     background-color: #7280ff25;
+    width: 50rem;
+}
+.panel-chat {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.admin-chat-container {
+    display: flex;
+    justify-content: space-between;
+}
+.chat-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .chat-window{ 
@@ -17,6 +33,7 @@
     height: 50rem;
     width: 30rem;
 }
+
 
 .message{
     max-width:70%;
@@ -73,4 +90,9 @@
 .input {
     border-radius: 12px;
     width: 23rem;
+}
+
+.strong {
+    display: flex;
+    flex-direction: column;
 }

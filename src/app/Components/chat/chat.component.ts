@@ -1,11 +1,8 @@
 import { Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { AdminUserId } from '../../enviroment.prod';
 import { ChatService } from '../../Service/chat.service';
-import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule, Validators, FormGroup, FormBuilder } from '@angular/forms'; 
-import { BehaviorSubject } from 'rxjs';
 import { AuthService } from '../../Service/auth.service';
-// import * as bootstrap from 'bootstrap';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -15,7 +12,7 @@ import { isPlatformBrowser } from '@angular/common';
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
-export class ChatComponent  {
+export class ChatComponent implements OnInit {
 
   chatForm: FormGroup;
   message: string = '';
@@ -72,9 +69,6 @@ export class ChatComponent  {
           })
         };
       })
-
-
-
     }
     
     async checkLogin() {
@@ -123,7 +117,7 @@ export class ChatComponent  {
       return;
     }
 
-    const text = this.chatForm.value.message;
+    const text = this.chatForm.value.message?.trim();
 
     if (!text) {
       return;
@@ -149,7 +143,7 @@ export class ChatComponent  {
 
     if(this.currentAdmin === true) {
       this.chatService.sendMessage(this.chatId, {
-        id: this.userId,
+        id: this.Admin,
         name: this.currentName,
         lastName: this.currentLastName,
         email: this.currentEmail,
