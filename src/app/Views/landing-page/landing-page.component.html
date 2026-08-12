@@ -9,17 +9,22 @@
         *ngFor="let repo of repoList"
         [repository]="repo.data"/>
     </div>
-    
-    @if (IsAdmin === true) {
+    <div>
+        <button>
+            <i class="bi bi-chat-dots-fill">
+                <div id="chat">
+                    <app-chat/>
+                </div>
+            </i>
+        </button>
+    </div>
+    <!-- @if (IsAdmin === true) {
         <div id="chat-admin">
             <app-admin-chat/>
         </div>
     }
     @if (IsAdmin !== true || !IsAdmin) {
-        <div id="chat">
-            <app-chat/>
-        </div>
-    }
+    } -->
 
     <div id="contact">
         <app-contact/>

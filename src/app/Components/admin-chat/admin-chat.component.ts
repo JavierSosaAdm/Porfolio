@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../../Service/chat.service';
-import { log } from 'console';
+// import { log } from 'console';
 
 interface AdminChat {
   chatId: string;
@@ -34,7 +34,8 @@ export class AdminChatComponent implements OnInit {
               userId: chat.userId,
               userName: chat.userName,
               userLastName: chat.userLastName,
-              email: chat.userEmail
+              email: chat.userEmail,
+              text: chat.text
             }
           })   
           console.log('esto es chats: ', this.chats);

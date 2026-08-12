@@ -4,7 +4,8 @@ export interface Chat {
     userName:       string;
     userLastName:   string;
     email:          string;
-    adminId:        string;
+    receivedID:     string;
+    IsAdmin:        boolean;
     createdAt:      Date;
 }
 

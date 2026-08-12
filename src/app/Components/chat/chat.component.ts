@@ -25,8 +25,11 @@ export class ChatComponent  {
   currentName: string = '';
   currentEmail: string = '';
   currentLastName: string = '';
+  currentAdmin: boolean = false;
   private platformId = inject(PLATFORM_ID)
   messages: any[] = [];
+  selectedChat: any = null;
+  chats: any[] = [];
 
   constructor(
     
@@ -46,18 +49,32 @@ export class ChatComponent  {
           this.userId = '';  
           this.chatId = '';
           this.messages = [];
+          this.chats = [];
+          this.selectedChat = null;
           return;
         }
-
         this.userId = user.id;
-        this.chatId = user.id;
         this.currentEmail = user.data.email;
         this.currentName = user.data.name;
         this.currentLastName = user.data.lastName;
-        this.chatService.getMessages(this.chatId).subscribe(messages => {
-          this.messages = messages;
-        });        
+        this.currentAdmin = user.data.IsAdmin;
+        
+        if (this.currentAdmin === false) {
+          this.chatId = user.id;
+          this.chatService.getMessages(this.chatId).subscribe(messages => {
+            this.messages = messages;
+          });        
+        }
+        
+        if (this.currentAdmin === true) {
+          this.chatService.getchats().subscribe(chats => {
+            this.chats = chats;
+          })
+        };
       })
+
+
+
     }
     
     async checkLogin() {
@@ -86,6 +103,14 @@ export class ChatComponent  {
       }
     }
 
+  selectChat(chat: any) {
+    this.selectedChat = chat;
+    this.chatId = chat.id;
+
+    this.chatService.getMessages(this.chatId).subscribe(messages => {
+      this.messages = messages
+    })
+  };
 
   send() {
     if (!this.userId) {
@@ -97,25 +122,48 @@ export class ChatComponent  {
       this.chatForm.markAllAsTouched();
       return;
     }
-  
+
     const text = this.chatForm.value.message;
-    this.chatService.sendMessage(this.chatId, {
-      id: this.userId,
-      name: this.currentName,
-      lastName: this.currentLastName,
-      email: this.currentEmail
-      },
-      {
-      user: this.userId,
-      received: this.Admin,
-      text: text,
-      createdAt: new Date(),
-      read: false
-    });
+
+    if (!text) {
+      return;
+    }
+
+
+    if(this.currentAdmin === false) {
+      this.chatService.sendMessage(this.chatId, {
+        id: this.userId,
+        name: this.currentName,
+        lastName: this.currentLastName,
+        email: this.currentEmail,
+        IsAdmin: this.currentAdmin
+        },
+        {
+        user: this.userId,
+        received: this.Admin,
+        text: text,
+        createdAt: new Date(),
+        read: false
+      });
+    }
+
+    if(this.currentAdmin === true) {
+      this.chatService.sendMessage(this.chatId, {
+        id: this.userId,
+        name: this.currentName,
+        lastName: this.currentLastName,
+        email: this.currentEmail,
+        IsAdmin: this.currentAdmin
+        },
+        {
+        user: this.Admin,
+        received: this.chatId,
+        text: text,
+        createdAt: new Date(),
+        read: false
+      });
+    }
      
     this.chatForm.reset();
-    this.chatService.getMessages(this.chatId).subscribe(messages => {
-      this.messages = messages;
-    });
   }
 }

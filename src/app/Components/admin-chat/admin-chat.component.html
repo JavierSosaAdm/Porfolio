@@ -1,10 +1,21 @@
-<p>admin-chat works!</p>
-<div class="chat-list">
-
-    @for(chat of chats; track chat.chatId){
-        
-        <strong>{{chat.userName}} {{chat.userLastName}}</strong> - {{chat.email}}
-
+<!-- <p>chat works!</p>
+<div class="chat-window">
+    @for (chat of chats; track chat.chatId) {
+        <div
+            class="chat"
+            [class.mine]="chat.userId === userId"
+            [class.other]="chat.userId !== userId">
+            {{chat.text}}
+        </div>
     }
-
-</div>
+</div> -->
+<!-- <form [formGroup]="chatForm">
+    <input
+        type="text"
+        formControlName="message"
+        placeholder="Escribe un mensaje"
+        (focus)="checkLogin()">
+    <button type="submit" (click)="send()">
+        Enviar
+    </button>
+</form> -->
