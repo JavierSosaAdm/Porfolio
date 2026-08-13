@@ -4,11 +4,12 @@ import { ChatService } from '../../Service/chat.service';
 import { ReactiveFormsModule, Validators, FormGroup, FormBuilder } from '@angular/forms'; 
 import { AuthService } from '../../Service/auth.service';
 import { isPlatformBrowser } from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, DatePipe],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })

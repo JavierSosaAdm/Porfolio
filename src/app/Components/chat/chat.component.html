@@ -5,27 +5,29 @@
             @if (currentAdmin === true) {
                 <div class="panel-chat">
                     <div class="chat-list">
-                        <h3>Conversaciones</h3>
+                        <h3 class="title">Consultas</h3>
                         @for (chat of chats; track chatId) {
-                            <button
+                            <ul
                                 type="button"
                                 class="chat-user"
                                 (click)="selectChat(chat)">
-                                <strong>
-                                    {{chat.userName}} {{chat.userLastName}}
-                                </strong>
+                                <li>
+                                    <strong class="bi bi-person-fill name">
+                                        {{chat.userName}} {{chat.userLastName}}
+                                    </strong>
+                                </li>
                                 <span>
                                     {{chat.email}}
                                 </span>
-                            </button>
+                            </ul>
                         }
                     </div>
                     <div class="chat-conversation">
                         @if (selectedChat) {
-                            <div class="strong">
+                            <h5 class="strong">
                                 {{selectedChat.userName}}
                                 {{selectedChat.userLastName}}
-                            </div>
+                            </h5>
                             <div class="chat-window">
                                 @for (message of messages; track message.id) {
                                     <div
@@ -33,6 +35,14 @@
                                         [class.mine]="message.user === userId"
                                         [class.other]="message.user !== userId">
                                         {{message.text}}
+                                        <div 
+                                            class="date"
+                                            [class.mine]="message.user === userId"
+                                            [class.other]="message.user !== userId">                                        
+                                            {{message.createdAt?.toDate
+                                                ? (message.createdAt.toDate() | date:'HH:mm')
+                                                : (message.createdAt | date:'HH:mm')}}
+                                        </div>
                                     </div>
                                 }
                                     </div>

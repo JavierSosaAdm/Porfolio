@@ -44,8 +44,5 @@ import { Subscription } from 'rxjs';
           console.log('¿Es admin?', this.IsAdmin);
       });
     }
-    // ngOnDestroy(): void {
-    //   this.authSub.unsubscribe();
-    // }
    
   }
