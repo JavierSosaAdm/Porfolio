@@ -1,80 +1,82 @@
-<p>chat works!</p>
-<div class="container">
-    <div class="admin-chat-container">
-        @if (currentAdmin === true) {
-            <div class="panel-chat">
-                <div class="chat-list">
-                    <h3>Conversaciones</h3>
-                    @for (chat of chats; track chatId) {
-                        <button
-                            type="button"
-                            class="chat-user"
-                            (click)="selectChat(chat)">
-                            <strong>
-                                {{chat.userName}} {{chat.userLastName}}
-                            </strong>
-                            <span>
-                                {{chat.email}}
-                            </span>
-                        </button>
-                    }
-                </div>
-                <div class="chat-conversation">
-                    @if (selectedChat) {
-                        <div class="strong">
-                            {{selectedChat.userName}}
-                            {{selectedChat.userLastName}}
-                        </div>
-                        <div class="chat-window">
-                            @for (message of messages; track message.id) {
-                                <div
-                                    class="message"
-                                    [class.mine]="message.user === userId"
-                                    [class.other]="message.user !== userId">
-                                    {{message.text}}
-                                </div>
-                            }
-                                </div>
-                        <form class="form" [formGroup]="chatForm">
-                            <input
-                            class="input"
-                            type="text"
-                            formControlName="message"
-                            placeholder="Escribe un mensaje"
-                            (focus)="checkLogin()">
-                            <button class="btn btn-primary" type="submit" (click)="send()">
-                                Enviar
-                            </button>
-                        </form>
-                    }
-                </div>
-            </div>
-        }
-    </div>
-    <div class="user">
-    @if (currentAdmin === false || !currentAdmin) {
 
-            <div class="chat-window">
-                @for (message of messages; track message.id) {
-                    <div
-                    class="message"
-                    [class.mine]="message.user === userId"
-                    [class.other]="message.user !== userId">
-                    {{message.text}}
+<div class="chat-container">
+    <div class="container">
+        <div class="admin-chat-container">
+            @if (currentAdmin === true) {
+                <div class="panel-chat">
+                    <div class="chat-list">
+                        <h3>Conversaciones</h3>
+                        @for (chat of chats; track chatId) {
+                            <button
+                                type="button"
+                                class="chat-user"
+                                (click)="selectChat(chat)">
+                                <strong>
+                                    {{chat.userName}} {{chat.userLastName}}
+                                </strong>
+                                <span>
+                                    {{chat.email}}
+                                </span>
+                            </button>
+                        }
                     </div>
+                    <div class="chat-conversation">
+                        @if (selectedChat) {
+                            <div class="strong">
+                                {{selectedChat.userName}}
+                                {{selectedChat.userLastName}}
+                            </div>
+                            <div class="chat-window">
+                                @for (message of messages; track message.id) {
+                                    <div
+                                        class="message"
+                                        [class.mine]="message.user === userId"
+                                        [class.other]="message.user !== userId">
+                                        {{message.text}}
+                                    </div>
+                                }
+                                    </div>
+                            <form class="form" [formGroup]="chatForm">
+                                <input
+                                class="input"
+                                type="text"
+                                formControlName="message"
+                                placeholder="Escribe un mensaje"
+                                (focus)="checkLogin()">
+                                <button class="btn btn-primary" type="submit" (click)="send()">
+                                    Enviar
+                                </button>
+                            </form>
+                        }
+                    </div>
+                </div>
             }
-            </div>
-                <form class="form" [formGroup]="chatForm">
-                    <input
-                    class="input"
-                    type="text"
-                    formControlName="message"
-                    placeholder="Escribe un mensaje"
-                    (focus)="checkLogin()">
-                    <button class="btn btn-primary" type="submit" (click)="send()">
-                        Enviar
-                    </button>
-                </form>
-            }
+        </div>
+        <div class="user">
+        @if (currentAdmin === false || !currentAdmin) {
+    
+                <div class="chat-window">
+                    @for (message of messages; track message.id) {
+                        <div
+                        class="message"
+                        [class.mine]="message.user === userId"
+                        [class.other]="message.user !== userId">
+                        {{message.text}}
+                        </div>
+                }
+                </div>
+                    <form class="form" [formGroup]="chatForm">
+                        <input
+                        class="input"
+                        type="text"
+                        formControlName="message"
+                        placeholder="Escribe un mensaje"
+                        (focus)="checkLogin()">
+                        <button class="btn btn-primary" type="submit" (click)="send()">
+                            Enviar
+                        </button>
+                    </form>
+                }
+        </div>
     </div>
 </div>

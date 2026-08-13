@@ -6,6 +6,43 @@
     margin-top: 4rem;
 }
 
-/* .chat {
-    margin-left: auto;
-} */
+.chat-button {
+    position: fixed;
+    left: 25px;
+    bottom: 25px;
+
+    width: 60px;
+    height: 60px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #7280ff;
+    color: black;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+
+    transition:
+        background-color 0.7s ease,
+        color 0.7s ease,
+        transform 0.7s ease,
+        box-shadow 0.7s ease;
+}
+
+.chat-button:hover {
+    background: #8085ee;
+    color: white;
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 6px 20px rgba(85, 98, 245, 0.45);
+}

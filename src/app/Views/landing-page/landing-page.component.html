@@ -10,21 +10,19 @@
         [repository]="repo.data"/>
     </div>
     <div class="chat">
-        <button>
-            <i class="bi bi-chat-dots-fill">
-                <div id="chat">
-                    <app-chat/>
-                </div>
-            </i>
+        <button
+            type="button"
+            class="chat-button"
+            (click)="showChat = !showChat"
+            >
+            <i class="bi bi-chat-dots-fill"></i>
         </button>
+        @if (showChat) {
+            <div id="chat">
+                <app-chat/>
+            </div>
+        }
     </div>
-    <!-- @if (IsAdmin === true) {
-        <div id="chat-admin">
-            <app-admin-chat/>
-        </div>
-    }
-    @if (IsAdmin !== true || !IsAdmin) {
-    } -->
 
     <div id="contact">
         <app-contact/>

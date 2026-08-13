@@ -3,6 +3,10 @@
     justify-content: end;
 }
 
+.form-control {
+    border-radius: 12px;
+}
+
 .btn-send{
     width: 120px;
     padding: 6px 12px;

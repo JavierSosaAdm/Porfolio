@@ -26,6 +26,7 @@ import { Subscription } from 'rxjs';
     private authService = inject(AuthService);
     repoList: {id: string, data: Repository}[] = [];
     IsAdmin: boolean = false;
+    showChat: boolean = false;
     currentUser: LoggerUser | null = null;
     private authSub!: Subscription;
     

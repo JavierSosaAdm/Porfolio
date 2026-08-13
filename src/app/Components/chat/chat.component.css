@@ -1,3 +1,26 @@
+.chat-container {
+    position: fixed;
+
+    left: 25px;
+    bottom: 95px;
+
+    width: 700px;
+    max-width: calc(100vw - 30px);
+
+    max-height: calc(100vh - 120px);
+
+    z-index: 1050;
+    
+    background: white;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.25);
+
+    overflow: hidden;
+}
+
 .container {
     display: flex;
     flex-direction: row;
