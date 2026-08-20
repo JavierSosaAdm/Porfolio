@@ -15,6 +15,11 @@
                                     <strong class="bi bi-person-fill name">
                                         {{chat.userName}} {{chat.userLastName}}
                                     </strong>
+                                    @if (unreadCounts[chat.id] > 0) {
+                                        <span class="unread-badge">
+                                            {{ unreadCounts[chat.id] }}
+                                        </span>
+                                    }
                                 </li>
                                 <span>
                                     {{chat.email}}

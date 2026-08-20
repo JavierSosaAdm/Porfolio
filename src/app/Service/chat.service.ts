@@ -43,4 +43,12 @@ export class ChatService {
   getChat(chatId: string) {
     return this.firestore.collection('Chats').doc(chatId).valueChanges();
   }
+
+  getUnReadMessages(chatId: string, userId: string) {
+    return this.firestore.collection(`Chats/${chatId}/messages`, ref => ref.where('received', '==', userId).where('read', '==', false)).valueChanges({ idField: 'id' });
+  }
+
+  markMessagesAsRead(chatId: string, messageId: string) {
+    return this.firestore.collection(`Chats/${chatId}/messages`).doc(messageId).update({ read: true });
+  }
 }

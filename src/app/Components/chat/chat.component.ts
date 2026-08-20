@@ -28,6 +28,8 @@ export class ChatComponent implements OnInit {
   messages: any[] = [];
   selectedChat: any = null;
   chats: any[] = [];
+  unreadCounts: { [chatId: string]: number } = {};
+  unreadCount: number = 0;
 
   constructor(
     
@@ -62,11 +64,21 @@ export class ChatComponent implements OnInit {
           this.chatService.getMessages(this.chatId).subscribe(messages => {
             this.messages = messages;
           });        
+          this.chatService.getUnReadMessages(this.chatId, this.userId).subscribe(messages => {
+            this.unreadCount = messages.length;
+          })
         }
         
         if (this.currentAdmin === true) {
           this.chatService.getchats().subscribe(chats => {
             this.chats = chats;
+
+            chats.forEach(chat => {
+              this.chatService.getUnReadMessages(chat.id, this.userId).subscribe(messages => {
+                this.unreadCounts[chat.id] = messages.length;
+                this.unreadCount = Object.values(this.unreadCounts).reduce((total, count) => total + count, 0)
+              })
+            })
           })
         };
       })
@@ -98,13 +110,26 @@ export class ChatComponent implements OnInit {
       }
     }
 
-  selectChat(chat: any) {
+  async selectChat(chat: any) {
     this.selectedChat = chat;
     this.chatId = chat.id;
 
     this.chatService.getMessages(this.chatId).subscribe(messages => {
       this.messages = messages
+    });
+
+    this.chatService.getUnReadMessages(this.chatId, this.userId).subscribe(messages => {
+      messages.forEach(message => {
+        this.chatService.markMessagesAsRead(this.chatId, message.id).then(() => {
+          console.log('Mensaje marcado como leido: ', message.id);
+        }).catch(error => {
+          console.error('Error al marcar mensaje como leido: ', error);
+        });
+      })
+      this.unreadCounts[this.chatId] = 0;
+      this.unreadCount = Object.values(this.unreadCounts).reduce((total, count) => total + count, 0);
     })
+
   };
 
   send() {
