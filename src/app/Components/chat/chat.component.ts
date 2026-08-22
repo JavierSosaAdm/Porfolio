@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, inject, OnInit, PLATFORM_ID, ViewChild, ElementRef, AfterViewChecked, viewChild } from '@angular/core';
 import { AdminUserId } from '../../enviroment.prod';
 import { ChatService } from '../../Service/chat.service';
 import { ReactiveFormsModule, Validators, FormGroup, FormBuilder } from '@angular/forms'; 
@@ -13,7 +13,9 @@ import { DatePipe } from '@angular/common';
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, AfterViewChecked {
+
+  @ViewChild('chatWindow') chatWindow!: ElementRef;
 
   chatForm: FormGroup;
   message: string = '';
@@ -30,6 +32,15 @@ export class ChatComponent implements OnInit {
   chats: any[] = [];
   unreadCounts: { [chatId: string]: number } = {};
   unreadCount: number = 0;
+  private scrollToBottom(): void {
+    if (!this.chatWindow) {
+      return
+    }
+
+    const element = this.chatWindow.nativeElement;
+
+    element.scrollTop = element.scrollHeight;
+  }
 
   constructor(
     
@@ -82,6 +93,10 @@ export class ChatComponent implements OnInit {
           })
         };
       })
+    }
+
+    ngAfterViewChecked(): void {
+      this.scrollToBottom();
     }
     
     async checkLogin() {

@@ -115,6 +115,8 @@
 .chat-window {
     overflow-y: auto;
 
+    scroll-behavior: smooth;
+
     border: 1px solid #DDE4F2;
 
     padding: 15px;
