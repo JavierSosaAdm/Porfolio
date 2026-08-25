@@ -5,6 +5,7 @@ import { Repository } from '../../Models/repositories.model';
 import { ProfileComponent } from '../../Components/profile/profile.component';
 import { CardComponent } from '../../Components/card/card.component';
 import { ContactComponent } from '../../Components/contact/contact.component';
+import { CarouselComponent } from '../carousel/carousel.component';
 import { MusicService } from '../../Service/music.service';
 import { ChatComponent } from '../../Components/chat/chat.component';
 import { AdminChatComponent } from '../../Components/admin-chat/admin-chat.component';
@@ -16,7 +17,7 @@ import { Subscription } from 'rxjs';
   @Component({
     selector: 'app-landing-page',
     standalone: true,
-    imports: [CommonModule, CardComponent, ContactComponent, ProfileComponent, ChatComponent, AdminChatComponent ],
+    imports: [CommonModule, CardComponent, ContactComponent, ProfileComponent, ChatComponent, CarouselComponent ],
     templateUrl: './landing-page.component.html',
     styleUrl: './landing-page.component.css'
   })
