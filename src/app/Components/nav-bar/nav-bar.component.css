@@ -116,5 +116,138 @@
         visibility .55s;
 }
 
+.chat-access-modal .modal-content {
+  overflow: hidden;
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 22px 55px rgba(40, 50, 120, 0.25);
+}
 
+.chat-access-modal .modal-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(79, 70, 229, 0.12);
+  background: linear-gradient(135deg, #4f46e5, #6d5dfc);
+}
+
+.chat-access-modal .modal-title {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.chat-access-modal .btn-close {
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.chat-access-modal .modal-body {
+  padding: 2rem 1.5rem;
+  color: #526076;
+}
+
+.chat-access-modal .modal-body p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.action-primary,
+.action-secondary {
+  min-height: 46px;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.action-primary {
+  border: 1px solid #4f46e5;
+  color: #fff;
+  background: linear-gradient(135deg, #4f46e5, #6d5dfc);
+  box-shadow: 0 8px 16px rgba(79, 70, 229, 0.22);
+}
+
+.action-primary:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #3730a3, #5b4cde);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(79, 70, 229, 0.32);
+}
+
+.action-secondary {
+  border: 1px solid #4f46e5;
+  color: #4f46e5;
+  background: #fff;
+}
+
+.action-secondary:hover {
+  border-color: #4f46e5;
+  color: #fff;
+  background: #4f46e5;
+  transform: translateY(-2px);
+}
+
+/* Modal: Acceso requerido */
+#chatLoginModal .modal-content {
+  overflow: hidden;
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  border-radius: 22px;
+  box-shadow: 0 22px 55px rgba(40, 50, 120, 0.25);
+}
+
+#chatLoginModal .modal-header {
+  border-bottom: 0;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, #4f46e5, #6d5dfc);
+}
+
+#chatLoginModal .modal-title {
+  color: #fff;
+  font-weight: 700;
+}
+
+#chatLoginModal .btn-close {
+  filter: brightness(0) invert(1);
+}
+
+#chatLoginModal .modal-body {
+  padding: 2rem 1.5rem;
+  color: #526076;
+}
+
+/* Iniciar sesión: acción principal */
+#chatLoginModal .modal-body .btn.btn-primary {
+  min-height: 46px;
+  border: 1px solid #4f46e5 !important;
+  border-radius: 12px;
+  color: #fff !important;
+  font-weight: 700;
+  background: linear-gradient(135deg, #4f46e5, #6d5dfc) !important;
+  box-shadow: 0 8px 16px rgba(79, 70, 229, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#chatLoginModal .modal-body .btn.btn-primary:hover {
+  color: #fff !important;
+  background: linear-gradient(135deg, #3730a3, #5b4cde) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(79, 70, 229, 0.32);
+}
+
+/* Registrarse: acción secundaria */
+#chatLoginModal .modal-body .btn.btn-outline-primary {
+  min-height: 46px;
+  border: 1px solid #4f46e5 !important;
+  border-radius: 12px;
+  color: #4f46e5 !important;
+  font-weight: 700;
+  background: #fff !important;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#chatLoginModal .modal-body .btn.btn-outline-primary:hover {
+  color: #fff !important;
+  background: #4f46e5 !important;
+  transform: translateY(-2px);
+}
 
