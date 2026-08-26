@@ -32,6 +32,7 @@ export class NavBarComponent implements OnInit {
   volume: string = '';
 
   ngOnInit(): void {
+    // this.play();
     if (isPlatformBrowser(this.platformId)) {
       const user = JSON.parse(localStorage.getItem('user') || '{}');
       if (user.IsAdmin !== undefined) {
@@ -61,6 +62,8 @@ export class NavBarComponent implements OnInit {
     console.log('Deberia estar sonando Daft Punk')
     this.musicService.play();
     this.playing = true;
+    this.volume = '1';
+    console.log('Este es el volumen: ', this.volume); 
   }
 
   pause() {
@@ -82,7 +85,7 @@ export class NavBarComponent implements OnInit {
     const input = event.target as HTMLInputElement;
     this.musicService.setVolume(Number(input.value));
     this.volume = input.value;
-    console.log('Este es el volumen: ', this.volume);    
+    console.log('Este es el cambio de volumen: ', this.volume);    
   }
   
   goToSection(sectionId: string) {

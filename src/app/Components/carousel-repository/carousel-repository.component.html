@@ -1,0 +1,33 @@
+<section class="repository-carousel">
+    <button
+        type="button"
+        class="carousel-button previous-button"
+        (click)="previous()">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <div class="carosel-viewport">
+        @for (repo of repositories; track repo.id; let i = $index) {
+            <div
+                class="carousel-card"
+                [class.active]="getCardClass(i) === 'active'"
+                [class.previous]="getCardClass(i) === 'previous'"
+                [class.next]="getCardClass(i) === 'next'"
+                [class.hidden]="getCardClass(i) === 'hidden'"
+                [style.transform]="getCardPosition(i)"
+                (click)="selectCard(i)">
+
+                <app-card [repository]="repo.data"/>
+
+            </div>
+        }
+
+    </div>
+
+    <button
+        type="button"
+        class="carousel-button next-button"
+        (click)="next()">
+        <i class="bi bi-chevron-down"></i>
+    </button>
+</section>

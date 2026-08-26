@@ -3,12 +3,11 @@ import { Component, inject, OnInit, OnDestroy, PLATFORM_ID } from '@angular/core
 import { RepositoriesService } from '../../Service/repositories.service';
 import { Repository } from '../../Models/repositories.model';
 import { SkillsComponent } from '../../Components/skills/skills.component';
-import { CardComponent } from '../../Components/card/card.component';
 import { ContactComponent } from '../../Components/contact/contact.component';
 import { CarouselComponent } from '../carousel/carousel.component';
-import { MusicService } from '../../Service/music.service';
 import { ChatComponent } from '../../Components/chat/chat.component';
-import { AdminChatComponent } from '../../Components/admin-chat/admin-chat.component';
+import { CarouselRepositoryComponent } from '../../Components/carousel-repository/carousel-repository.component';
+// import { AdminChatComponent } from '../../Components/admin-chat/admin-chat.component';
 import { IntroductionComponent } from '../../Components/introduction/introduction.component';
 import { AuthService, LoggerUser } from '../../Service/auth.service';
 import { Subscription } from 'rxjs';
@@ -18,7 +17,7 @@ import { Subscription } from 'rxjs';
   @Component({
     selector: 'app-landing-page',
     standalone: true,
-    imports: [CommonModule, CardComponent, ContactComponent, SkillsComponent, ChatComponent, CarouselComponent, IntroductionComponent ],
+    imports: [CommonModule, ContactComponent, SkillsComponent, ChatComponent, CarouselComponent, IntroductionComponent, CarouselRepositoryComponent ],
     templateUrl: './landing-page.component.html',
     styleUrl: './landing-page.component.css'
   })

@@ -9,7 +9,7 @@ export class MusicService {
   private music = new Howl({
     src: ['assets/music/12 - End Of Line.mp3'],
     loop: true,
-    volume: 0.2,
+    volume: 1,
     html5: true
   })
 

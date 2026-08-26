@@ -14,9 +14,7 @@
     <div id="repositories">
         <h1>Bienvanidos a mis trabajos</h1>
         <h2>Repositorios:</h2>
-        <app-card
-        *ngFor="let repo of repoList"
-        [repository]="repo.data"/>
+        <app-carousel-repository [repositories]="repoList"/>
     </div>
 
     <div class="chat">
