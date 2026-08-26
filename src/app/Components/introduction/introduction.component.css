@@ -1,0 +1,95 @@
+.image {
+    height: 10rem;
+    width: 15rem;
+} 
+
+.intro-loganweb {
+    width: 100%;
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 30px;
+
+    box-sizing: border-box;
+}
+
+
+.intro-content {
+    width: 100%;
+    max-width: 900px;
+
+    text-align: center;
+
+    color: #172033;
+}
+
+
+/* Logo */
+
+.intro-content h1 {
+    margin: 0 0 20px;
+
+    font-size: 2.8rem;
+    font-weight: 700;
+
+    color: #464ee8;
+
+    letter-spacing: 1px;
+}
+
+
+/* Título principal */
+
+.intro-content h2 {
+    margin: 0 auto 25px;
+
+    font-size: 2.2rem;
+    font-weight: 600;
+
+    color: #172033;
+}
+
+
+/* Párrafos */
+
+.intro-content p {
+    max-width: 750px;
+
+    margin: 0 auto 20px;
+
+    font-size: 1.1rem;
+    line-height: 1.7;
+
+    color: #4b5563;
+}
+
+
+/* Texto destacado */
+
+.intro-content strong {
+    color: #464ee8;
+}
+
+
+/* Frase final */
+
+.intro-slogan {
+    margin-top: 40px;
+
+    font-size: 1.25rem;
+
+    color: #172033;
+}
+
+
+.intro-slogan strong {
+    color: #464ee8;
+}
+
+
+.intro-slogan span {
+    color: #4b5563;
+}

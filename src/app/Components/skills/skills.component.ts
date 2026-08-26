@@ -5,13 +5,13 @@ import { SkillService } from '../../Service/skills.service';
 
 
 @Component({
-  selector: 'app-profile',
+  selector: 'app-skills',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
+  templateUrl: './skills.component.html',
+  styleUrl: './skills.component.css'
 })
-export class ProfileComponent implements OnInit {
+export class SkillsComponent implements OnInit {
   private UserService = inject(UserService);
   private SkillService = inject(SkillService);
   skills: {id: string, data: any}[] = [];

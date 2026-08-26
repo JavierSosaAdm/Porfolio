@@ -1,69 +1,103 @@
-<div class="carousel-container">
+<div class="carousel">
+
+    <!-- Flecha izquierda -->
+
     <button
-        class="carousel-button left"
+        class="carousel-button carousel-button-left"
         type="button"
         (click)="previous()"
         [disabled]="selectedIndex === 0">
-        <i class="bi bi-chevron-left"></i>
-    </button>
-    <div class="carousel-viewport">
-        <div
-            class="carousel-track"
-            [class.position-0]="selectedIndex === 0"
-            [class.position-1]="selectedIndex === 1"
-            [class.position-2]="selectedIndex === 2">
 
-            <div
-                class="carousel.screen"
-                [class.selected]="selectedIndex === 0"
-                (click)="selectScreem(0)">
-                <app-profile/>
-            </div>
-            
-            <div
-                class="carousel.screen"
-                [class.selected]="selectedIndex === 1"
-                (click)="selectScreem(1)">
-                <app-profile-admin/>
-            </div>
-            
-            <div
-            class="carousel.screen"
-            [class.selected]="selectedIndex === 2"
-            (click)="selectScreem(2)">
-                <app-tercer-componente/>
-            </div>
+        <i class="bi bi-chevron-left"></i>
+
+    </button>
+
+
+    <!-- Área visible -->
+
+    <div class="carousel-viewport">
+
+        <!-- PROFILE -->
+
+        <div
+            class="carousel-card"
+            [class.selected]="selectedIndex === 0"
+            [style.--index]="0"
+            [style.--selected]="selectedIndex"
+            (click)="selectScreen(0)">
+
+            <app-skills/>
+
         </div>
+
+
+        <!-- SKILLS -->
+
+        <div
+            class="carousel-card"
+            [class.selected]="selectedIndex === 1"
+            [style.--index]="1"
+            [style.--selected]="selectedIndex"
+            (click)="selectScreen(1)">
+
+            <app-profile-admin/>
+
+        </div>
+
+
+        <!-- TERCER COMPONENTE -->
+
+        <div
+            class="carousel-card"
+            [class.selected]="selectedIndex === 2"
+            [style.--index]="2"
+            [style.--selected]="selectedIndex"
+            (click)="selectScreen(2)">
+
+            <app-tercer-componente/>
+
+        </div>
+
     </div>
+
+
+    <!-- Flecha derecha -->
+
     <button
-        class="carousel-button left"
+        class="carousel-button carousel-button-right"
         type="button"
         (click)="next()"
         [disabled]="selectedIndex === 2">
+
         <i class="bi bi-chevron-right"></i>
+
     </button>
+
+    <!-- Indicadores -->
+
+    <div class="carousel-indicators">
+    
+        <button
+            type="button"
+            [class.active]="selectedIndex === 0"
+            (click)="selectScreen(0)">
+        </button>
+    
+        <button
+            type="button"
+            [class.active]="selectedIndex === 1"
+            (click)="selectScreen(1)">
+        </button>
+    
+        <button
+            type="button"
+            [class.active]="selectedIndex === 2"
+            (click)="selectScreen(2)">
+        </button>
+    
+    </div>
 </div>
-<div class="carousel-indicators">
 
-    <button
-        type="button"
-        class="indicator"
-        [class.active]="selectedIndex === 0"
-        (click)="selectScreem(0)">
-    </button>
 
-    <button
-        type="button"
-        class="indicator"
-        [class.active]="selectedIndex === 1"
-        (click)="selectScreem(1)">
-    </button>
 
-    <button
-        type="button"
-        class="indicator"
-        [class.active]="selectedIndex === 2"
-        (click)="selectScreem(2)">
-    </button>
 
-</div>

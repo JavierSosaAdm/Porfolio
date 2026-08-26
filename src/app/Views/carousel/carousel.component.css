@@ -1,4 +1,285 @@
-.carousel-container {
+.carousel {
+    position: relative;
+
+    width: 100%;
+    height: 600px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.carousel-viewport {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-card {
+
+    --card-step: 430px;
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 700px;
+    height: 520px;
+
+    transform:
+        translate(
+            calc(
+                -50% +
+                (var(--index) - var(--selected)) * var(--card-step)
+            ),
+            -50%
+        )
+        scale(0.72);
+
+    transform-origin: center center;
+
+    border-radius: 25px;
+
+    background: white;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    opacity: 0.45;
+
+    transition:
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.7s ease,
+        box-shadow 0.7s ease,
+        filter 0.7s ease;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.12);
+
+    z-index: 1;
+}
+
+.carousel-card.selected {
+
+    transform:
+        translate(
+            calc(
+                -50% +
+                (var(--index) - var(--selected)) * var(--card-step)
+            ),
+            -50%
+        )
+        scale(1);
+
+    opacity: 1;
+
+    z-index: 10;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.22);
+
+    filter: none;
+}
+
+.carousel-card:not(.selected) {
+
+    filter: brightness(0.92);
+
+}
+
+.carousel-card:not(.selected):hover {
+
+    opacity: 0.75;
+
+    transform:
+        translate(
+            calc(
+                -50% +
+                (var(--index) - var(--selected)) * var(--card-step)
+            ),
+            -50%
+        )
+        scale(0.78);
+
+}
+
+.carousel-button {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid #d5dbea;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    color: #4b6cb7;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.carousel-button-left {
+
+    left: 25px;
+
+}
+
+.carousel-button-right {
+
+    right: 25px;
+
+}
+
+.carousel-button:hover:not(:disabled) {
+
+    background: white;
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.15);
+
+}
+
+.carousel-button:disabled {
+
+    opacity: 0.3;
+
+    cursor: default;
+
+}
+
+.carousel-indicators {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.carousel-indicators button {
+
+    width: 9px;
+    height: 9px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #cbd3e1;
+
+    cursor: pointer;
+
+    transition:
+        width 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.carousel-indicators button.active {
+
+    width: 28px;
+
+    border-radius: 10px;
+
+    background: #7280ff;
+
+}
+
+@media (max-width: 900px) {
+
+    .carousel-card {
+
+        width: 500px;
+        height: 380px;
+
+        --card-step: 360px;
+
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .carousel {
+
+        height: 500px;
+
+    }
+
+    .carousel-card {
+
+        width: calc(100vw - 80px);
+
+        height: 360px;
+
+        --card-step: 300px;
+
+    }
+
+    .carousel-button {
+
+        width: 35px;
+        height: 35px;
+
+    }
+
+    .carousel-button-left {
+
+        left: 5px;
+
+    }
+
+    .carousel-button-right {
+
+        right: 5px;
+
+    }
+
+}
+
+
+
+/* .carousel-container {
     position: relative;
 
     width: 100%;
@@ -82,4 +363,4 @@
 
 .carousel-track.position-2 {
     transform: translateX(-1060px);
-}
+} */

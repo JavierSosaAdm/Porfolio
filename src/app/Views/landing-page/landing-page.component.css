@@ -2,9 +2,18 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 150rem;
-    width: 50rem;
-    margin-top: 4rem;
+    height: 170rem;
+    width: 120rem;
+    margin-top: 1rem;
+}
+
+.imageLog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 350px;
+    margin-left: 25rem;
 }
 
 .chat-button {
@@ -46,4 +55,11 @@
 
     box-shadow:
         0 6px 20px rgba(85, 98, 245, 0.45);
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 7rem;
 }

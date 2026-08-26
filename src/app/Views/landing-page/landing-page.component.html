@@ -1,8 +1,16 @@
 <div class="container">
-    <div id="profile">
-        <app-profile/>
-        <!-- <app-carousel/> -->
+    <div class="imageLog">
+        <img src="../../../assets/image/Logo.png" alt="">
     </div>
+        <h2 class="title">Desarrollo de soluciones Web</h2>
+    <div id="introduction">
+        <app-introduction/>
+    </div>
+    
+    <div id="service">
+        <app-carousel/>  
+    </div>
+
     <div id="repositories">
         <h1>Bienvanidos a mis trabajos</h1>
         <h2>Repositorios:</h2>
@@ -10,6 +18,7 @@
         *ngFor="let repo of repoList"
         [repository]="repo.data"/>
     </div>
+
     <div class="chat">
         <button
             type="button"
@@ -28,4 +37,5 @@
     <div id="contact">
         <app-contact/>
     </div>
+
 </div>

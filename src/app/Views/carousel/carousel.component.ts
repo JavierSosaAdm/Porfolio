@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProfileComponent } from '../../Components/profile/profile.component';
+import { SkillsComponent } from '../../Components/skills/skills.component';
 import { TercerComponenteComponent } from '../../Components/tercer-componente/tercer-componente.component';
 import { ProfileAdminComponent } from '../../Components/profile-admin/profile-admin.component'
 
@@ -14,13 +14,15 @@ interface CarouselItem {
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [CommonModule, ProfileComponent, ProfileAdminComponent, TercerComponenteComponent],
+  imports: [CommonModule, SkillsComponent, ProfileAdminComponent, TercerComponenteComponent],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.css'
 })
 export class CarouselComponent {
+
     selectedIndex = 0;
-    selectScreem(index: number) {
+  
+    selectScreen(index: number) {
       this.selectedIndex = index;
     }
 
