@@ -1,21 +1,80 @@
 <section id="profile">
 
-  
-    <h3>Teconologias usualmente utilizadas:  </h3 >
-    <ul class="skill-list">
-      <li *ngFor="let skill of skills">
-        <a 
-          [href]="skill.data.documentation"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="skill-link"
-        >
-          <i [class]="skill.data.image"></i>
-          <img [src]="skill.data.img"/>
-        </a>
-        <span class="skill-name">{{ skill.data.skillName }}</span>
-      </li>
-    </ul>    
-    
+  <h3>Teconologias usualmente utilizadas  </h3 >
 
+    <p>
+      Desarrollo aplicaciones web dinámicas y escalables 
+      en lenguajes <strong>Javascript</strong> y <strong>Typescript</strong> aplicando componentes reutilizables 
+      y una estructura de código clara y mantenible.
+    </p>
+
+  <div class="skills-container">
+    @for (row of skillRows; track $index) {
+      <div class="skill-lane">
+        <div
+          class="skill-track"
+          [class.reverse]="$index === 1">
+          @for (skill of row; track skill.id) {
+            <a 
+              [href]="skill.data.documentation"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="skill">
+
+              <div class="skill-icon">
+
+                <i [class]="skill.data.image"></i>
+                <img [src]="skill.data.img" [alt]="skill.data.skillName">
+                
+              </div>
+              
+              <span class="skill-name">
+                {{ skill.data.skillName }}
+              </span>
+
+            </a>
+          }
+
+          @for (skill of row; track skill.id + '-duplicate') {
+            <a 
+              [href]="skill.data.documentation"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="skill">
+
+              <div class="skill-icon">
+
+                <i [class]="skill.data.image"></i>
+                <img [src]="skill.data.img" [alt]="skill.data.skillName">
+                
+              </div>
+              
+              <span class="skill-name">
+                {{ skill.data.skillName }}
+              </span>
+
+            </a>
+          }
+
+        </div>
+
+      </div>
+    }
+
+  </div>  
+    
 </section>
+  <!-- <ul class="skill-list">
+    <li *ngFor="let skill of skills">
+      <a 
+        [href]="skill.data.documentation"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="skill-link"
+      >
+        <i [class]="skill.data.image"></i>
+        <img [src]="skill.data.img"/>
+      </a>
+      <span class="skill-name">{{ skill.data.skillName }}</span>
+    </li>
+  </ul>     -->

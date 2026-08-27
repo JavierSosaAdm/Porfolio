@@ -16,7 +16,11 @@ export class SkillsComponent implements OnInit {
   private SkillService = inject(SkillService);
   skills: {id: string, data: any}[] = [];
   admin: any[] = [];
-
+  skillRows: {id: string, data: any}[][] = [
+    [],
+    [],
+    []
+  ]
 
   ngOnInit(): void {
     this.UserService.getUser().subscribe({
@@ -27,7 +31,21 @@ export class SkillsComponent implements OnInit {
     this.SkillService.getSkills().subscribe({
       next: (skills) => {
         this.skills = skills;
+        this.createSkillRows();
       }
+    });
+  }
+
+  createSkillRows() {
+    this.skillRows = [
+      [],
+      [],
+      []
+    ]
+
+    this.skills.forEach((skill, index) => {
+      const row = index % 3;
+      this.skillRows[row].push(skill);
     });
   }
 

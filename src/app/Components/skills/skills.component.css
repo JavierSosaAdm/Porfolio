@@ -1,33 +1,280 @@
-.skill-list {
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 15px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+#profile {
+    width: 100%;
+    overflow: hidden;
+    padding: 28px 30px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #ffffff, #f4f6ff);
 }
 
-.skill-list li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+#profile h3 {
+    margin: 0 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #172554;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 750;
+    letter-spacing: -0.035em;
 }
 
-.skills-list i {
+#profile h3::before {
+    content: "";
+    width: 5px;
+    height: 1.1em;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #6366f1, #22c55e);
+}
+
+#profile p {
+    max-width: 760px;
+    margin: 0 0 8px;
+    
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+}
+
+#profile p strong {
+    color: #3730a3;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 5px;
+    background-color: rgba(99, 102, 241, 0.1);
+}
+
+
+/* =========================
+   CONTENEDOR DE LAS VÍAS
+   ========================= */
+
+.skills-container {
+    width: 100%;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    padding: 10px 0;
+}
+
+
+/* =========================
+   CADA VÍA
+   ========================= */
+
+.skill-lane {
+    width: 100%;
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+/* =========================
+   PISTA EN MOVIMIENTO
+   ========================= */
+
+.skill-track {
+
+    display: flex;
+    align-items: center;
+
+    width: max-content;
+
+    gap: 35px;
+
+    animation: moveSkills 25s linear infinite;
+
+}
+
+
+/* Segunda fila se mueve en sentido contrario */
+
+.skill-track.reverse {
+    animation-direction: reverse;
+}
+
+
+/* =========================
+   PAUSAR AL PASAR EL CURSOR
+   ========================= */
+
+.skill-track:hover {
+    animation-play-state: paused;
+}
+
+
+/* =========================
+   SKILL
+   ========================= */
+
+.skill {
+
+    flex: 0 0 100px;
+
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    border-radius: 15px;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   HOVER DE LA SKILL
+   ========================= */
+
+.skill:hover {
+
+    transform: scale(1.18);
+
+    background-color: rgba(114, 128, 255, 0.12);
+
+    box-shadow:
+        0 8px 20px rgba(70, 78, 232, 0.20);
+
+    z-index: 10;
+}
+
+
+/* =========================
+   ICONO
+   ========================= */
+
+.skill-icon {
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.skill-icon img {
+
+    width: 50px;
+    height: 50px;
+
+    object-fit: contain;
+}
+
+
+.skill-icon i {
+
     font-size: 50px;
-    margin-bottom: 5px;
 }
 
-img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-}
+
+/* =========================
+   NOMBRE
+   ========================= */
 
 .skill-name {
-  font-size: 14px;
-  color: #333333; 
-  text-align: center;
+
+    margin-top: 7px;
+
+    font-size: 14px;
+
+    color: #333;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.25s ease,
+        font-weight 0.25s ease;
+}
+
+
+.skill:hover .skill-name {
+
+    color: #464ee8;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================
+   ANIMACIÓN
+   ========================= */
+
+@keyframes moveSkills {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .skills-container {
+        gap: 15px;
+    }
+
+    .skill-track {
+        gap: 20px;
+        animation-duration: 20s;
+    }
+
+    .skill {
+
+        flex-basis: 85px;
+
+        width: 85px;
+        height: 90px;
+
+    }
+
+    .skill-icon img {
+
+        width: 42px;
+        height: 42px;
+
+    }
+
+    .skill-icon i {
+
+        font-size: 42px;
+
+    }
+
+    .skill-name {
+
+        font-size: 12px;
+
+    }
+
 }
