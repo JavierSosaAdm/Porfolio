@@ -1,0 +1,9 @@
+.Hosting {
+    height: 20px;
+    width: 20px;
+}
+
+.service {
+    display: flex;
+    flex-flow: wrap-reverse;
+}

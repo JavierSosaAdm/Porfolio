@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Logo de Web Developer</title>
+  <desc id="desc">Una ventana de navegador con símbolos de código que representa desarrollo web</desc>
+  <defs>
+    <linearGradient id="developer-gradient" x1="86" y1="89" x2="426" y2="423" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+    <filter id="developer-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#312E81" flood-opacity=".2"/>
+    </filter>
+  </defs>
+  <g filter="url(#developer-shadow)">
+    <rect x="67" y="105" width="378" height="285" rx="34" fill="url(#developer-gradient)"/>
+    <rect x="93" y="132" width="326" height="232" rx="18" fill="#fff"/>
+    <path d="M93 183h326" stroke="#C7D2FE" stroke-width="12"/>
+    <circle cx="122" cy="157" r="8" fill="#F97316"/>
+    <circle cx="147" cy="157" r="8" fill="#FACC15"/>
+    <circle cx="172" cy="157" r="8" fill="#22C55E"/>
+    <path d="m193 235-54 45 54 45M319 235l54 45-54 45" fill="none" stroke="#6366F1" stroke-linecap="round" stroke-linejoin="round" stroke-width="21"/>
+    <path d="m285 218-46 125" fill="none" stroke="#06B6D4" stroke-linecap="round" stroke-width="19"/>
+    <rect x="145" y="402" width="222" height="24" rx="12" fill="#312E81"/>
+  </g>
+</svg>

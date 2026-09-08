@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Logo de hosting</title>
+  <desc id="desc">Un servidor en la nube con conexiones de red</desc>
+  <defs>
+    <linearGradient id="blue" x1="88" y1="92" x2="426" y2="436" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#312E81" flood-opacity=".2"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <path d="M145 331c-42 0-76-32-76-72 0-35 26-65 62-71 12-51 59-89 115-89 61 0 111 44 119 101 45 2 78 33 78 74 0 42-35 77-80 77H145Z" fill="url(#blue)"/>
+    <path d="M177 235h158c15 0 27 12 27 27v96c0 15-12 27-27 27H177c-15 0-27-12-27-27v-96c0-15 12-27 27-27Z" fill="#fff"/>
+    <rect x="177" y="261" width="158" height="18" rx="9" fill="#E0E7FF"/>
+    <rect x="177" y="302" width="158" height="18" rx="9" fill="#E0E7FF"/>
+    <rect x="177" y="343" width="158" height="18" rx="9" fill="#E0E7FF"/>
+    <circle cx="199" cy="270" r="6" fill="#06B6D4"/>
+    <circle cx="199" cy="311" r="6" fill="#6366F1"/>
+    <circle cx="199" cy="352" r="6" fill="#22C55E"/>
+  </g>
+</svg>

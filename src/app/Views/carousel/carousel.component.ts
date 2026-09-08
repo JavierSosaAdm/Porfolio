@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SkillsComponent } from '../../Components/skills/skills.component';
 import { TercerComponenteComponent } from '../../Components/tercer-componente/tercer-componente.component';
 import { ProfileAdminComponent } from '../../Components/profile-admin/profile-admin.component'
+import { ServiceComponent } from '../../Components/service/service.component'
 
 interface CarouselItem {
   id: number;
@@ -14,7 +15,7 @@ interface CarouselItem {
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [CommonModule, SkillsComponent, ProfileAdminComponent, TercerComponenteComponent],
+  imports: [CommonModule, SkillsComponent, ProfileAdminComponent, TercerComponenteComponent, ServiceComponent],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.css'
 })

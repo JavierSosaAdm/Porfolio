@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Logo de Website Management</title>
+  <desc id="desc">Un panel web con engranaje que representa gestión de sitios web</desc>
+  <defs>
+    <linearGradient id="management-gradient" x1="88" y1="80" x2="428" y2="428" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+    <filter id="management-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#312E81" flood-opacity=".2"/>
+    </filter>
+  </defs>
+  <g filter="url(#management-shadow)">
+    <rect x="74" y="106" width="364" height="274" rx="32" fill="url(#management-gradient)"/>
+    <rect x="98" y="132" width="316" height="222" rx="18" fill="#fff"/>
+    <path d="M98 181h316" stroke="#C7D2FE" stroke-width="12"/>
+    <circle cx="126" cy="157" r="8" fill="#F97316"/>
+    <circle cx="151" cy="157" r="8" fill="#FACC15"/>
+    <circle cx="176" cy="157" r="8" fill="#22C55E"/>
+    <rect x="126" y="211" width="92" height="18" rx="9" fill="#E0E7FF"/>
+    <rect x="126" y="245" width="64" height="72" rx="12" fill="#DBEAFE"/>
+    <rect x="207" y="245" width="64" height="72" rx="12" fill="#E0F2FE"/>
+    <path d="M345 260v-17l-20-7c-2-5-4-9-7-13l9-19-12-12-19 9c-4-3-8-5-13-7l-7-20h-17l-7 20c-5 2-9 4-13 7l-19-9-12 12 9 19c-3 4-5 8-7 13l-20 7v17l20 7c2 5 4 9 7 13l-9 19 12 12 19-9c4 3 8 5 13 7l7 20h17l7-20c5-2 9-4 13-7l19 9 12-12-9-19c3-4 5-8 7-13l20-7Z" fill="#6366F1"/>
+    <circle cx="267" cy="251" r="25" fill="#fff"/>
+    <circle cx="267" cy="251" r="10" fill="#06B6D4"/>
+  </g>
+</svg>
