@@ -1,4 +1,282 @@
-.Hosting {
+.services {
+    width: 100%;
+    height: 100%;
+
+    /* padding: 35px 45px; */
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    padding: 0px 20px 20px 20px; 
+}
+
+
+/* =========================
+   ENCABEZADO
+   ========================= */
+
+.services-header {
+    text-align: center;
+
+    margin-bottom: 15px;
+}
+
+
+.section-title {
+    margin: 0;
+
+    font-size: 2rem;
+    font-weight: 600;
+
+    color: #1f2937;
+}
+
+
+.section-subtitle {
+    margin: 10px 0 0;
+
+    font-size: 1rem;
+
+    color: #4b5563;
+}
+
+
+/* =========================
+   GRID DE SERVICIOS
+   ========================= */
+
+.service {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-rows: repeat(2, 1fr);
+
+    gap: 20px;
+
+    width: 100%;
+   
+}
+
+
+/* =========================
+   TARJETA
+   ========================= */
+
+.service-card {
+
+    min-height: 190px;
+
+    padding: 22px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    text-align: center;
+
+    background: #f7f8fa;
+
+    border: 1px solid #d5dbea;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(70, 78, 232, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background-color 0.3s ease;
+
+}
+
+
+/* =========================
+   ICONO
+   ========================= */
+
+.service-icon {
+
+    width: 90px;
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 8px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 18px rgba(85, 98, 245, 0.25);
+
+}
+
+
+.service-icon img {
+
+    width: 90px;
+    height: 90px;
+
+    object-fit: contain;
+
+}
+
+
+/* =========================
+   TITULO DE SERVICIO
+   ========================= */
+
+.service-card h5 {
+
+    margin: 4px 0 8px;
+
+    font-size: 1.1rem;
+
+    font-weight: 600;
+
+    color: #1f2937;
+
+}
+
+
+/* =========================
+   DESCRIPCIÓN
+   ========================= */
+
+.service-card p {
+
+    margin: 0;
+
+    max-width: 300px;
+
+    font-size: 0.9rem;
+
+    line-height: 1.5;
+
+    color: #4b5563;
+
+}
+
+
+/* =========================
+   HOVER
+   ========================= */
+
+.service-card:hover {
+
+    transform: translateY(-5px);
+
+    background: #ffffff;
+
+    border-color: #7280ff;
+
+    box-shadow:
+        0 15px 35px rgba(70, 78, 232, 0.18);
+
+}
+
+
+.service-card:hover .service-icon {
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 10px 25px rgba(85, 98, 245, 0.35);
+
+}
+
+
+.service-icon {
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .services {
+
+        padding: 25px;
+
+    }
+
+    .service {
+
+        gap: 15px;
+
+    }
+
+    .service-card {
+
+        min-height: 180px;
+
+        padding: 18px;
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .services {
+
+        padding: 20px 15px;
+
+    }
+
+    .service {
+
+        grid-template-columns: 1fr;
+
+        grid-template-rows: auto;
+
+    }
+
+    .service-card {
+
+        min-height: 160px;
+
+    }
+
+    .section-title {
+
+        font-size: 1.6rem;
+
+    }
+
+    .section-subtitle {
+
+        font-size: 0.9rem;
+
+    }
+
+}
+/* .Hosting {
     height: 20px;
     width: 20px;
 }
@@ -6,4 +284,5 @@
 .service {
     display: flex;
     flex-flow: wrap-reverse;
-}
+} */
+

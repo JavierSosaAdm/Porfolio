@@ -1,0 +1,339 @@
+.profile-presentation {
+    --profile-accent: #5145e5;
+    --profile-accent-light: #eef0ff;
+    --profile-text: #172033;
+    --profile-muted: #566176;
+    --profile-border: #dfe3f2;
+
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    box-sizing: border-box;
+    padding: 32px;
+    color: var(--profile-text);
+    background: #fbfcff;
+    font-family: inherit;
+    scrollbar-width: thin;
+    scrollbar-color: #aeb4ef transparent;
+}
+
+/* Barra de desplazamiento */
+.profile-presentation::-webkit-scrollbar {
+    width: 9px;
+}
+
+.profile-presentation::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.profile-presentation::-webkit-scrollbar-thumb {
+    background: #b7baf0;
+    border: 2px solid #fbfcff;
+    border-radius: 10px;
+}
+
+.profile-presentation::-webkit-scrollbar-thumb:hover {
+    background: var(--profile-accent);
+}
+
+/* Encabezado */
+.profile-header {
+    max-width: 760px;
+    margin: 0 auto 36px;
+    text-align: left;
+}
+
+.profile-badge,
+.experience-label {
+    display: inline-block;
+    padding: 7px 13px;
+    border: 1px solid #dfe1ff;
+    border-radius: 999px;
+    background: var(--profile-accent-light);
+    color: var(--profile-accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.profile-badge {
+    margin-bottom: 16px;
+}
+
+.profile-header h1 {
+    margin: 0;
+    color: var(--profile-text);
+    font-size: clamp(1.65rem, 3vw, 2.2rem);
+    font-weight: 750;
+    line-height: 1.2;
+}
+
+.profile-header h2 {
+    margin: 8px 0 16px;
+    color: var(--profile-accent);
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    line-height: 1.25;
+}
+
+.profile-header h2 strong {
+    color: var(--profile-accent);
+}
+
+.profile-intro,
+.profile-section p,
+.profile-cta p {
+    color: var(--profile-muted);
+    font-size: 0.98rem;
+    line-height: 1.75;
+}
+
+/* Secciones */
+.profile-section,
+.profile-cta {
+    max-width: 760px;
+    margin: 0 auto 26px;
+}
+
+.profile-section h2 {
+    margin: 0 0 10px;
+    color: var(--profile-text);
+    font-size: 1.3rem;
+    line-height: 1.35;
+}
+
+.profile-section p {
+    margin: 0 0 12px;
+}
+
+.profile-section strong {
+    color: var(--profile-text);
+}
+
+/* Tecnologías */
+.skills-summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.skill-item {
+    padding: 18px;
+    border: 1px solid var(--profile-border);
+    border-radius: 16px;
+    background: #fff;
+    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-3px);
+    border-color: #aaaaf5;
+    box-shadow: 0 10px 24px rgb(61 68 170 / 10%);
+}
+
+.skill-item i {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--profile-accent);
+    font-size: 1.7rem;
+}
+
+.skill-item h3 {
+    margin: 0 0 6px;
+    color: var(--profile-text);
+    font-size: 1rem;
+}
+
+.skill-item p {
+    margin: 0;
+    font-size: 0.86rem;
+    line-height: 1.55;
+}
+
+/* Sección de IA */
+.ai-section {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    border: 1px solid #e0e2fb;
+    border-radius: 18px;
+    background: #f5f6ff;
+}
+
+.section-icon {
+    display: flex;
+    flex: 0 0 46px;
+    width: 46px;
+    height: 46px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #7778f5, #4e43df);
+    color: #fff;
+    font-size: 1.25rem;
+}
+
+/* Experiencia */
+.experience-section {
+    padding: 20px;
+    border: 1px solid var(--profile-border);
+    border-left: 4px solid var(--profile-accent);
+    border-radius: 4px 16px 16px 4px;
+    background: #fff;
+}
+
+.experience-label {
+    margin-bottom: 12px;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+/* Llamado a la acción */
+.profile-cta {
+    margin-top: 32px;
+    margin-bottom: 8px;
+    padding: 26px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #6567ed, #493bdd);
+    box-shadow: 0 12px 28px rgb(70 62 210 / 18%);
+    color: #fff;
+    text-align: left;
+}
+
+.profile-cta h2 {
+    margin: 0 0 8px;
+    font-size: 1.45rem;
+}
+
+.profile-cta p {
+    margin: 0 0 18px;
+    color: rgb(255 255 255 / 88%);
+}
+
+.profile-button {
+    padding: 11px 17px;
+    border: 0;
+    border-radius: 11px;
+    background: #fff;
+    color: var(--profile-accent);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.profile-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgb(23 20 90 / 20%);
+}
+
+.profile-button i {
+    margin-left: 8px;
+}
+
+/* Modal */
+.contact-modal {
+    overflow: hidden;
+    border: 1px solid var(--profile-border);
+    border-radius: 20px;
+}
+
+.contact-modal .modal-header,
+.contact-modal .modal-body {
+    padding: 22px;
+}
+
+.contact-modal .modal-header {
+    border-bottom: 1px solid #eaecf3;
+}
+
+.contact-modal .modal-title {
+    color: var(--profile-text);
+    font-size: 1.25rem;
+}
+
+.contact-modal .modal-body > p {
+    margin-bottom: 18px;
+    color: var(--profile-muted);
+}
+
+.contact-option {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 11px;
+    padding: 14px;
+    border: 1px solid var(--profile-border);
+    border-radius: 14px;
+    background: #fff;
+    color: var(--profile-text);
+    text-decoration: none;
+    transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.contact-option:hover {
+    border-color: #aaaaf5;
+    box-shadow: 0 7px 18px rgb(70 62 210 / 10%);
+}
+
+.contact-option-icon {
+    display: flex;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--profile-accent);
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.contact-option h3 {
+    margin: 0 0 3px;
+    font-size: 0.95rem;
+}
+
+.contact-option span {
+    color: var(--profile-muted);
+    font-size: 0.8rem;
+}
+
+.contact-option > i:last-child {
+    margin-left: auto;
+    color: var(--profile-accent);
+}
+
+@media (max-width: 600px) {
+    .profile-presentation {
+        padding: 22px 18px;
+    }
+
+    .skills-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-section {
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skill-item,
+    .profile-button,
+    .contact-option {
+        transition: none;
+    }
+}
+
+a.profile-button {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}

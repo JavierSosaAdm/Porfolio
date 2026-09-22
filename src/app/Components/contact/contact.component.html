@@ -1,8 +1,112 @@
-<section id="contact">
-    <h2>Contacto:</h2>
+<section id="contact" aria-labelledby="contact-title">
+    <div class="contact-heading">
+        <span class="contact-eyebrow">Hablemos</span>
+        <h2 id="contact-title">¿Tenés un proyecto en mente?</h2>
+        <p>
+            Contame qué necesitás, qué idea querés hacer realidad o qué desafío
+            tiene tu negocio. Estoy acá para ayudarte a encontrar una solución.
+        </p>
+        <p class="contact-invitation">
+            Completá el formulario y me pondré en contacto con vos para conversar.
+        </p>
+    </div>
+
+    <form
+        [formGroup]="contactForm"
+        (ngSubmit)="sendEmail()"
+        class="row g-3 needs-validation"
+        novalidate>
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Tu nombre o el de tu organización</label>
+            <input
+                type="text"
+                class="form-control"
+                id="name"
+                formControlName="name"
+                autocomplete="name"
+                [ngClass]="{
+                    'is-invalid': hasErrors('name', 'required'),
+                    'is-valid': contactForm.get('name')?.valid && contactForm.get('name')?.touched
+                }">
+
+            @if (hasErrors('name', 'required')) {
+                <span class="text-danger">Por favor, indicá tu nombre.</span>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">¿A qué correo puedo responderte?</label>
+            <input
+                type="email"
+                class="form-control"
+                id="email"
+                formControlName="email"
+                autocomplete="email"
+                [ngClass]="{
+                    'is-invalid': hasErrors('email', 'required') || hasErrors('email', 'email'),
+                    'is-valid': contactForm.get('email')?.valid && contactForm.get('email')?.touched
+                }">
+
+            @if (hasErrors('email', 'required')) {
+                <span class="text-danger">Ingresá tu correo electrónico para poder responderte.</span>
+            }
+            @if (hasErrors('email', 'email')) {
+                <span class="text-danger">Revisá el formato del correo electrónico.</span>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="subject" class="form-label">¿Sobre qué te gustaría hablar?</label>
+            <input
+                type="text"
+                class="form-control"
+                id="subject"
+                formControlName="subject"
+                [ngClass]="{
+                    'is-invalid': hasErrors('subject', 'required'),
+                    'is-valid': contactForm.get('subject')?.valid && contactForm.get('subject')?.touched
+                }">
+
+            @if (hasErrors('subject', 'required')) {
+                <span class="text-danger">Agregá un asunto para tu consulta.</span>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="message" class="form-label">Contame un poco más</label>
+            <textarea
+                class="form-control"
+                id="message"
+                formControlName="message"
+                rows="5"
+                placeholder="¿Qué necesitás? ¿En qué etapa está tu proyecto?"
+                [ngClass]="{
+                    'is-invalid': hasErrors('message', 'required'),
+                    'is-valid': contactForm.get('message')?.valid && contactForm.get('message')?.touched
+                }"></textarea>
+
+            @if (hasErrors('message', 'required')) {
+                <span class="text-danger">Escribí un mensaje para que pueda conocer tu idea.</span>
+            }
+        </div>
+
+        <div class="contact-submit">
+            <p class="contact-note">Tu consulta es el primer paso para darle forma a tu idea.</p>
+            <button type="submit" class="btn btn-primary btn-send">
+                Enviar consulta
+                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            </button>
+        </div>
+    </form>
+</section>
+
+
+<!-- <section id="contact">
+    <h2>Contactactanos:</h2> 
     <form [formGroup]="contactForm" (ngSubmit)="sendEmail()" class="row g-3 needs-validation" novalidate>
         <div class="mb-3">
-            <label for="name" class="form-label">Nombre:</label>
+            <label for="name" class="form-label">Nombre/Entidad:</label>
               <input 
                 type="text" 
                 class="form-control" 
@@ -19,7 +123,7 @@
               }
         </div>
         <div class="mb-3">
-            <label for="email" class="form-label">Email:</label>
+            <label for="email" class="form-label">Email de contacto:</label>
             <input 
                 type="email" 
                 class="form-control" 
@@ -39,7 +143,7 @@
             }
         </div>
         <div class="mb-3">
-            <label for="subject" class="form-label">Asunto:</label>
+            <label for="subject" class="form-label">Asunto de la consulta:</label>
             <input 
                 type="text" 
                 class="form-control" 
@@ -56,7 +160,7 @@
             }
         </div>
         <div class="mb-3">
-            <label for="message" class="form-label">Mensaje:</label>
+            <label for="message" class="form-label">Motivo de la consulta:</label>
             <textarea 
                 class="form-control" 
                 id="message" 
@@ -77,4 +181,4 @@
         </div>
     </form>
 </section>
-
+ -->

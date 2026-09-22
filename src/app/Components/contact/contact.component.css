@@ -1,4 +1,133 @@
-.button{
+
+#contact {
+    width: min(100% - 32px, 760px);
+    margin: 64px auto;
+    padding: clamp(24px, 5vw, 44px);
+    box-sizing: border-box;
+    border: 1px solid rgba(114, 128, 255, 0.2);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 18px 50px rgba(40, 50, 120, 0.12);
+    scroll-margin-top: 100px;
+}
+
+.contact-heading {
+    margin-bottom: 28px;
+}
+
+.contact-eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #eef0ff;
+    color: #5145e5;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.contact-heading h2 {
+    margin: 0 0 12px;
+    color: #172033;
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+    font-weight: 750;
+    line-height: 1.2;
+}
+
+.contact-heading p {
+    max-width: 620px;
+    margin: 0 0 10px;
+    color: #566176;
+    line-height: 1.7;
+}
+
+.contact-heading .contact-invitation {
+    color: #5145e5;
+    font-weight: 600;
+}
+
+#contact .form-label {
+    margin-bottom: 8px;
+    color: #263149;
+    font-weight: 600;
+}
+
+#contact .form-control {
+    min-height: 46px;
+    border: 1px solid #dfe3f2;
+    border-radius: 12px;
+    background-color: #fff;
+}
+
+#contact textarea.form-control {
+    min-height: 130px;
+    resize: vertical;
+}
+
+#contact .form-control:focus {
+    border-color: #7280ff;
+    box-shadow: 0 0 0 0.2rem rgba(114, 128, 255, 0.18);
+}
+
+.contact-submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.contact-note {
+    margin: 0;
+    color: #69748a;
+    font-size: 0.9rem;
+}
+
+.btn-send {
+    display: inline-flex;
+    min-width: 150px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 11px 18px;
+    border: 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7280ff 0%, #464ee8 100%);
+    box-shadow: 0 4px 15px rgba(85, 98, 245, 0.3);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-send:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(85, 98, 245, 0.4);
+}
+
+.btn-send:focus-visible {
+    outline: 3px solid rgba(70, 78, 232, 0.35);
+    outline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+    #contact {
+        margin: 40px auto;
+        padding: 24px 18px;
+    }
+
+    .contact-submit {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .btn-send {
+        width: 100%;
+    }
+}
+/* .button{
     display: flex;
     justify-content: end;
 }
@@ -22,4 +151,4 @@
 .btn-send:hover {
     box-shadow: 0 6px 20px rgba(85, 98, 245, 0.6);
     transform: translateY(-1px);
-}
+} */
