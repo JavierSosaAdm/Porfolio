@@ -43,7 +43,9 @@ export class FormComponent implements OnInit {
 
   onSkillChange(event: Event, skillName: string) {
     const checkbox = event.target as HTMLInputElement;
-    const selectSkills = this.data.get('skills')?.value as string[];
+    const selectSkills = [
+      ...(this.data.get('skills')?.value || [])
+    ];
 
     if (checkbox.checked) {
         selectSkills.push(skillName);
@@ -54,6 +56,7 @@ export class FormComponent implements OnInit {
       }
     }
     this.data.get('skills')?.setValue(selectSkills); 
+    this.data.get('skills')?.markAsTouched();
   }
 
   async postRepositories(event: Event) {
@@ -63,6 +66,14 @@ export class FormComponent implements OnInit {
     try {
         this.RepService.postRepositories(this.data.value).subscribe({
         next: () => {
+
+          this.data.reset({
+            name: '',
+            link: '',
+            description: '',
+            skills: []
+          })
+
           if (typeof window !== 'undefined') {
             const modal = document.getElementById('repositoryModal');
 

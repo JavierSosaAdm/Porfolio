@@ -110,6 +110,11 @@
 
 .profile-section strong {
     color: var(--profile-text);
+    color: #3730a3;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 5px;
+    background-color: rgba(99, 102, 241, 0.1);
 }
 
 /* Tecnologías */

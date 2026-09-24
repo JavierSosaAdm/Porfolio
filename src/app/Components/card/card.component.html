@@ -2,20 +2,45 @@
 
     <div class="card">
 
-        <h3>{{repository.name}}</h3>
-        <a 
-            [href]="repository.link" 
-            target="_blank">
-            {{repository.link}}
-        </a>
-
-        <div>
-            <p>{{repository.description}}</p>
-
-            <p>{{repository.skills}}</p>
+        <h3>
+            <a
+                [href]="repository.link"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="repository-name">
+                {{ repository.name }}
+            </a>
             
-            <!-- <img src="" alt=""> -->
+        </h3>
+
+
+        <p class="description">
+            {{ repository.description }}
+        </p>
+
+
+        <div class="skills">
+
+            <span
+                class="skill"
+                *ngFor="let skill of skills"
+                [title]="skill.data.skillName">
+
+                <img
+                    *ngIf="skill.data.img"
+                    [src]="skill.data.img"
+                    [alt]="skill.data.skillName">
+
+                <i
+                    *ngIf="!skill.data.img && skill.data.image"
+                    [class]="skill.data.image">
+                </i>
+
+            </span>
+
         </div>
 
     </div>
+
 </section>
+

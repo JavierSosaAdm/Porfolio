@@ -11,11 +11,45 @@
         <app-carousel/>  
     </div>
 
-    <div id="repositories">
-        <h1>Bienvanidos a mis trabajos</h1>
-        <h2>Repositorios:</h2>
-        <app-carousel-repository [repositories]="repoList"/>
-    </div>
+    <section id="repositories">
+
+        <div class="repositories-introduction">
+
+            <h1>Proyectos y experiencias de desarrollo</h1>
+
+            <p>
+                En esta sección podés conocer algunos de los proyectos que he
+                desarrollado a lo largo de mi formación y experiencia como
+                desarrollador web.
+            </p>
+
+            <p>
+                Encontrarás tanto <strong>proyectos de práctica</strong>, realizados
+                para experimentar con nuevas tecnologías y poner en práctica
+                diferentes conceptos de desarrollo, como también
+                <strong>proyectos reales</strong> desarrollados para clientes y
+                necesidades concretas.
+            </p>
+
+            <p>
+                Cada proyecto representa una oportunidad para aplicar conocimientos
+                de <strong>JavaScript, TypeScript, Angular, React</strong> y otras
+                tecnologías del desarrollo web, trabajando con componentes
+                reutilizables, bases de datos, interfaces responsivas y diferentes
+                herramientas del ecosistema web.
+            </p>
+
+        </div>
+
+        <div class="repositories-showcase">
+
+            <app-carousel-repository
+                [repositories]="repoList">
+            </app-carousel-repository>
+
+        </div>
+
+    </section>
 
     <div class="chat">
         <button
