@@ -55,6 +55,20 @@
           >
         </div>
         <div class="mb-3">
+
+          <label for="image" class="form-label">
+              Imagen del proyecto
+          </label>
+        
+          <input
+              type="text"
+              class="form-control"
+              id="image"
+              formControlName="image"
+              placeholder="Ej: pasteleria-las-encinas.png">
+
+        </div>
+        <div class="mb-3">
           <label for="skills" class="form-label">Tecnologías utilizadas</label>
           <div class="skills-grid">
             @for (skill of skills; track skill.id) {

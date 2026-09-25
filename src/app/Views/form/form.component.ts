@@ -29,7 +29,8 @@ export class FormComponent implements OnInit {
       name: ['', [Validators.required]],
       link: ['', [Validators.required]],
       description: [''],
-      skills:[[], [Validators.required]]
+      skills: [[], [Validators.required]],
+      image: ['']
     })
   }
 

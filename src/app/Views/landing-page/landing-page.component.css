@@ -118,6 +118,7 @@
   #repositories {
     padding: 1.5rem 1rem;
     border-radius: 20px;
+    height: 1000px;
   }
 
   .chat-button {

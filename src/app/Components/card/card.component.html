@@ -12,7 +12,14 @@
             </a>
             
         </h3>
+        
+        <div class="repository-image">
 
+            <img
+                [src]="'assets/image/' + repository.image"
+                [alt]="repository.name">
+
+        </div>
 
         <p class="description">
             {{ repository.description }}

@@ -3,4 +3,5 @@ export interface Repository {
     link:              string;
     description:       string;
     skills:            [string];
+    image:             string;
 }
