@@ -1,11 +1,23 @@
-.repository-carousel {
+:host {
+    display: block;
     width: 100%;
-    height: 760px;
+    min-width: 0;
+}
 
+.repository-carousel,
+.repository-carousel * {
+    box-sizing: border-box;
+}
+
+.repository-carousel {
     display: grid;
-    grid-template-rows: 58px 1fr 58px;
+    grid-template-rows: 3.5rem minmax(0, 1fr) 3.5rem;
     justify-items: center;
     align-items: center;
+
+    width: 100%;
+    height: clamp(520px, 65vw, 760px);
+    min-height: 520px;
 
     overflow: visible;
 }
@@ -13,27 +25,26 @@
 .carousel-viewport {
     position: relative;
 
-    width: min(620px, 100%);
-    height: 560px;
-
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: min(620px, 100%);
+    height: 100%;
+    min-height: 0;
 
     overflow: visible;
 }
 
 .carousel-card {
     position: absolute;
-
-    width: min(560px, 100%);
-    height: 520px;
-
-    left: 50%;
     top: 50%;
+    left: 50%;
 
-    margin-left: -280px;
-    margin-top: -260px;
+    width: min(560px, calc(100% - 2rem));
+    height: min(520px, calc(100% - 1rem));
+
+    margin: -50% 0 0 -50%;
 
     cursor: pointer;
 
@@ -44,104 +55,77 @@
         filter 0.6s ease;
 }
 
-.card {
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+/*
+Si getCardPosition() ya devuelve un transform completo,
+mantén el transform inline y utiliza estos márgenes.
+*/
 
-    padding: 0 28px 24px;
-
-    border-radius: 24px;
-    background: #ffffff;
-    border: 1px solid #d5dbea;
-    box-shadow: 0 14px 35px rgba(70, 78, 232, 0.16);
-}
-
-.repository-image {
-    width: calc(100% + 56px);
-    height: 220px;
-    margin-left: -28px;
-
-    overflow: hidden;
-    border-radius: 24px 24px 0 0;
-}
-
-.repository-image img {
-    width: 100%;
-    height: 100%;
+.carousel-card > app-card {
     display: block;
-    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
 }
 
-.card h3 {
-    margin: 22px 0 12px;
-    font-size: 1.4rem;
-}
-
-.description {
-    margin: 0;
-    color: #4b5563;
-    line-height: 1.65;
-}
-
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-
-    margin-top: 20px;
-    padding-top: 16px;
-
-    border-top: 1px solid #e5e7eb;
-}
-
-/* Estados del carrusel */
+/* Estados */
 
 .carousel-card.active {
     z-index: 10;
-    scale: 1;
     opacity: 1;
     filter: none;
+    scale: 1;
 }
 
 .carousel-card.previous,
 .carousel-card.next {
     z-index: 5;
-    scale: 0.78;
     opacity: 0.55;
     filter: blur(0.3px);
+    scale: 0.78;
 }
 
 .carousel-card.hidden {
     z-index: 1;
-    scale: 0.55;
     opacity: 0;
     pointer-events: none;
+    scale: 0.55;
 }
 
 /* Botones */
 
 .carousel-button {
-    position: static;
     z-index: 20;
-
-    width: 48px;
-    height: 48px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border: none;
-    border-radius: 50%;
+    width: clamp(38px, 5vw, 48px);
+    height: clamp(38px, 5vw, 48px);
+    padding: 0;
+
+    color: #fff;
+    font-size: clamp(1rem, 2vw, 1.3rem);
 
     background: linear-gradient(135deg, #7280ff, #464ee8);
-    color: white;
-    font-size: 21px;
-
+    border: none;
+    border-radius: 50%;
     cursor: pointer;
     box-shadow: 0 5px 18px rgba(85, 98, 245, 0.4);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.carousel-button:hover {
+    box-shadow: 0 8px 24px rgba(85, 98, 245, 0.55);
+    transform: scale(1.08);
+}
+
+.carousel-button:active {
+    transform: scale(0.96);
 }
 
 .previous-button {
@@ -154,50 +138,58 @@
     grid-column: 1;
 }
 
+/* =========================
+   TABLET
+   ========================= */
+
 @media (max-width: 768px) {
     .repository-carousel {
-        height: 700px;
-        grid-template-rows: 54px 1fr 54px;
+        grid-template-rows: 3.25rem minmax(0, 1fr) 3.25rem;
+        height: 650px;
+        min-height: 650px;
     }
 
     .carousel-viewport {
         width: 100%;
-        height: 520px;
     }
 
     .carousel-card {
-        width: 88%;
-        height: 470px;
+        width: calc(100% - 2rem);
+        height: calc(100% - 1rem);
 
-        margin-left: -44%;
-        margin-top: -235px;
-    }
-
-    .repository-image {
-        height: 195px;
+        margin: -50% 0 0 -50%;
     }
 }
 
+/* =========================
+   MÓVIL
+   ========================= */
+
 @media (max-width: 480px) {
     .repository-carousel {
-        height: 650px;
+        grid-template-rows: 3rem minmax(0, 1fr) 3rem;
+        height: 590px;
+        min-height: 590px;
     }
 
     .carousel-card {
-        width: 92%;
-        height: 440px;
-
-        margin-left: -46%;
-        margin-top: -220px;
+        width: calc(100% - 1rem);
+        height: calc(100% - 0.75rem);
     }
 
-    .card {
-        padding: 0 20px 20px;
+    .carousel-card.previous,
+    .carousel-card.next {
+        scale: 0.82;
     }
+}
 
-    .repository-image {
-        width: calc(100% + 40px);
-        height: 170px;
-        margin-left: -20px;
+/* =========================
+   REDUCIR ANIMACIONES
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel-card,
+    .carousel-button {
+        transition: none;
     }
 }

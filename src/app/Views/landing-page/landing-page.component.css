@@ -1,162 +1,138 @@
 :host {
-  --primary: #4f46e5;
-  --primary-dark: #3730a3;
-  --ink: #172033;
-  --muted: #526076;
-  --surface: rgba(255, 255, 255, 0.78);
-  --shadow: 0 18px 45px rgba(50, 65, 130, 0.14);
-  display: block;
+    --primary: #4f46e5;
+    --primary-dark: #3730a3;
+    --ink: #172033;
+    --muted: #526076;
+    --surface: rgba(255, 255, 255, 0.78);
+    --shadow: 0 18px 45px rgba(50, 65, 130, 0.14);
+
+    display: block;
+    width: 100%;
+    overflow-x: clip;
 }
 
-.container {
-  width: min(1180px, calc(100% - 2rem));
-  margin: 0 auto;
-  padding: 2.5rem 0 6rem;
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
+.landing-page,
+.landing-page * {
+    box-sizing: border-box;
 }
 
-.imageLog {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto -1.25rem;
+.landing-page {
+    width: min(1180px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 2.5rem 0 6rem;
 }
 
-.imageLog img {
-  display: block;
-  width: min(650px, 92vw);
-  height: auto;
-  filter: drop-shadow(0 12px 18px rgba(70, 78, 232, 0.2));
+.landing-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 5rem;
+}
+
+.image-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.image-logo img {
+    display: block;
+    width: min(650px, 92vw);
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 12px 18px rgba(70, 78, 232, 0.2));
 }
 
 .title {
-  margin: 0;
-  text-align: center;
-  font-size: clamp(1.55rem, 3vw, 2.25rem);
-  font-weight: 700;
-  color: var(--ink);
-  letter-spacing: -0.04em;
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(1.55rem, 3vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 7vw, 5rem);
 }
 
 #introduction,
 #service,
 #repositories,
 #contact {
-  width: 100%;
+    width: 100%;
+    min-width: 0;
 }
+
+/* Permite que los componentes hijos ocupen todo el ancho */
+app-introduction,
+app-carousel,
+app-carousel-repository,
+app-contact {
+    display: block;
+    width: 100%;
+    min-width: 0;
+}
+
+/* =========================
+   REPOSITORIOS
+   ========================= */
 
 #repositories {
-  padding: clamp(1.5rem, 4vw, 3.5rem);
-  border: 1px solid rgba(79, 70, 229, 0.12);
-  border-radius: 28px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem);
+
+    width: 100%;
+    min-height: 420px;
+    padding: clamp(1.5rem, 4vw, 3.5rem);
+
+    border: 1px solid rgba(79, 70, 229, 0.12);
+    border-radius: 28px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
 }
 
-#repositories h1,
+.repositories-introduction {
+    min-width: 0;
+}
+
+.repositories-showcase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    width: 100%;
+}
+
 #repositories h2 {
-  text-align: center;
-  color: var(--ink);
+    margin: 0 0 1.25rem;
+    color: #172554;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.035em;
 }
 
-#repositories h1 {
-  margin: 0 0 0.5rem;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-}
-
-#repositories h2 {
-  margin: 0 0 2rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--primary);
-}
-
-.chat-button {
-  position: fixed;
-  z-index: 1000;
-  left: 1.5rem;
-  bottom: 1.5rem;
-
-  width: 3.75rem;
-  height: 3.75rem;
-  border: 0;
-  border-radius: 50%;
-
-  display: grid;
-  place-items: center;
-
-  color: #fff;
-  background: linear-gradient(135deg, var(--primary), #6d5dfc);
-  font-size: 1.4rem;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.chat-button:hover {
-  transform: translateY(-3px) scale(1.04);
-  box-shadow: 0 15px 30px rgba(79, 70, 229, 0.45);
-}
-
-#chat {
-  position: fixed;
-  z-index: 999;
-  right: 1.5rem;
-  bottom: 6.4rem;
-  width: min(390px, calc(100vw - 2rem));
-}
-
-@media (max-width: 700px) {
-  .container {
-    width: min(100% - 1.25rem, 1180px);
-    padding-top: 1.5rem;
-    gap: 3.5rem;
-  }
-
-  #repositories {
-    padding: 1.5rem 1rem;
-    border-radius: 20px;
-    height: 1000px;
-  }
-
-  .chat-button {
-    right: 1rem;
-    bottom: 1rem;
-  }
-
-  #chat {
-    right: 0.625rem;
-    bottom: 5.75rem;
-    width: calc(100vw - 1.25rem);
-  }
-}
-
-#repositories h1 {
-  margin: 0 0 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  
-  color: #172554;
-  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-  font-weight: 750;
-  letter-spacing: -0.035em; 
-}
-
-#repositories h1::before {
-  content: "";
-  width: 5px;
-  height: 1.1em;
-  border-radius: 10px;
-  background: linear-gradient(180deg, #6366f1, #22c55e);
+#repositories h2::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 1.1em;
+    margin-right: 10px;
+    vertical-align: -0.12em;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #6366f1, #22c55e);
 }
 
 #repositories p {
     max-width: 760px;
-    margin: 0 0 8px;
-    
+    margin: 0 0 1rem;
     color: #475569;
     font-size: 1rem;
     line-height: 1.75;
@@ -164,9 +140,295 @@
 }
 
 #repositories p strong {
-    color: #3730a3;
-    font-weight: 700;
     padding: 2px 5px;
+    color: var(--primary-dark);
+    font-weight: 700;
     border-radius: 5px;
     background-color: rgba(99, 102, 241, 0.1);
+}
+
+/* =========================
+   CHAT
+   ========================= */
+
+.chat {
+    position: relative;
+    z-index: 1000;
+}
+
+.chat-button {
+    position: fixed !important;
+    left: 1rem !important;
+    right: auto !important;
+    bottom: 1.5rem;
+    z-index: 1001;
+
+    display: grid;
+    place-items: center;
+
+    width: 3.75rem;
+    height: 3.75rem;
+    padding: 0;
+
+    color: #fff;
+    font-size: 1.4rem;
+    background: linear-gradient(135deg, var(--primary), #6d5dfc);
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.35);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.chat-button:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 15px 30px rgba(79, 70, 229, 0.45);
+}
+
+#chat {
+    position: fixed !important;
+    left: 1rem !important;
+    right: auto !important;
+    bottom: 5.25rem;
+    z-index: 1000;
+
+    width: min(750px, calc(100vw - 2rem));
+    max-height: calc(100dvh - 8rem);
+}
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 850px) {
+    .landing-page {
+        width: min(100% - 1.5rem, 1180px);
+        padding-top: 1.75rem;
+    }
+
+    .landing-header {
+        margin-bottom: 3.5rem;
+    }
+
+    #repositories {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        min-height: auto;
+        padding: 2rem 1.5rem;
+    }
+
+    .repositories-introduction {
+        text-align: center;
+    }
+
+    #repositories p {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    #repositories h2::before {
+        display: none;
+    }
+
+    #chat {
+        right: 1rem;
+        bottom: 5.75rem;
+        width: min(750px, calc(100vw - 1.25rem));
+    }
+}
+
+/* =========================
+   MÓVIL
+   ========================= */
+
+@media (max-width: 520px) {
+    .landing-page {
+        width: calc(100% - 1.25rem);
+        padding-top: 1.25rem;
+        padding-bottom: 5rem;
+    }
+
+    .landing-header {
+        gap: 0.75rem;
+        margin-bottom: 2.75rem;
+    }
+
+    .image-logo img {
+        width: min(92vw, 420px);
+    }
+
+    main {
+        gap: 3rem;
+    }
+
+    #repositories {
+        padding: 1.5rem 1rem;
+        border-radius: 20px;
+    }
+
+    #repositories h2 {
+        font-size: 1.5rem;
+    }
+
+    #repositories p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        text-align: left;
+    }
+
+    .chat-button {
+        right: 1rem;
+        bottom: 1rem;
+        width: 3.4rem;
+        height: 3.4rem;
+    }
+
+    #chat {
+        right: 0.625rem;
+        bottom: 5.25rem;
+        width: calc(100vw - 1.25rem);
+        max-height: calc(100dvh - 6rem);
+    }
+}
+
+@media (max-width: 850px) {
+    .chat-button {
+        left: 1rem;
+        right: auto;
+        bottom: 1rem;
+    }
+
+    #chat {
+        left: 0.625rem;
+        right: auto;
+        bottom: 5.25rem;
+        width: calc(100vw - 1.25rem);
+    }
+}
+
+#chat {
+    position: fixed;
+    left: 1.5rem;
+    right: auto;
+    bottom: 6.4rem;
+    z-index: 1000;
+
+    width: min(750px, calc(100vw - 2rem));
+    max-height: calc(100dvh - 8rem);
+}
+
+#chat app-chat {
+    display: block;
+    width: 100%;
+}
+
+.chat-button {
+    position: fixed;
+    left: 1rem;
+    right: auto;
+    bottom: 1rem;
+    z-index: 1001;
+
+    display: grid;
+    place-items: center;
+
+    width: 3.75rem;
+    height: 3.75rem;
+    padding: 0;
+
+    color: #fff;
+    background: linear-gradient(135deg, #4f46e5, #6d5dfc);
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.35);
+}
+
+.chat-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+
+    display: grid;
+    place-items: center;
+
+    min-width: 22px;
+    height: 22px;
+    padding: 0 5px;
+
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1;
+
+    background: #ef4444;
+    border: 2px solid #fff;
+    border-radius: 999px;
+
+    animation: chatBadgePulse 1.8s infinite;
+}
+
+#chat {
+    position: fixed;
+    left: 1rem;
+    right: auto;
+    bottom: 5.25rem;
+    z-index: 1000;
+
+    width: min(750px, calc(100vw - 2rem));
+    max-height: calc(100dvh - 6rem);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+}
+
+#chat app-chat {
+    display: block;
+    width: 100%;
+}
+
+.chat-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+}
+
+.chat-visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+@keyframes chatBadgePulse {
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.45);
+    }
+
+    50% {
+        box-shadow: 0 0 0 7px rgba(239, 68, 68, 0);
+    }
+}
+
+@media (max-width: 850px) {
+    .chat-button {
+        left: 1rem;
+        right: auto;
+        bottom: 1rem;
+    }
+
+    #chat {
+        left: 0.625rem;
+        right: auto;
+        bottom: 5.25rem;
+        width: calc(100vw - 1.25rem);
+    }
 }

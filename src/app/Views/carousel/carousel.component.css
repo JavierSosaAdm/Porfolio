@@ -1,41 +1,72 @@
+:host {
+    display: block;
+    width: 100%;
+    min-width: 0;
+}
+
+/* =========================
+   CARRUSEL
+   ========================= */
+
+.carousel,
+.carousel * {
+    box-sizing: border-box;
+}
+
 .carousel {
     position: relative;
 
     width: 100%;
-    height: 700px;
+    height: clamp(430px, 58vw, 700px);
+    min-height: 430px;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    overflow: hidden;
 }
 
+/* =========================
+   ÁREA VISIBLE
+   ========================= */
 
 .carousel-viewport {
-
     position: relative;
 
     width: 100%;
     height: 100%;
 
-    overflow: hidden;
-
     display: flex;
     align-items: center;
     justify-content: center;
+
+    overflow: hidden;
+    isolation: isolate;
 }
 
+/* =========================
+   TARJETAS
+   ========================= */
 
 .carousel-card {
-
-    --card-step: 500px;
+    --card-step: clamp(280px, 40vw, 500px);
 
     position: absolute;
-
-    left: 50%;
     top: 50%;
+    left: 50%;
 
-    width: 850px;
-    height: 600px;
+    width: min(850px, calc(100% - 130px));
+    height: min(600px, calc(100% - 50px));
+
+    overflow: hidden;
+    cursor: pointer;
+
+    background: #fff;
+    border-radius: clamp(16px, 3vw, 25px);
+
+    opacity: 0.45;
+    z-index: 1;
 
     transform:
         translate(
@@ -49,30 +80,32 @@
 
     transform-origin: center center;
 
-    border-radius: 25px;
-
-    background: white;
-
-    overflow: hidden;
-
-    cursor: pointer;
-
-    opacity: 0.45;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 
     transition:
         transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
         opacity 0.7s ease,
         box-shadow 0.7s ease,
         filter 0.7s ease;
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.12);
-
-    z-index: 1;
 }
 
+/* Componentes hijos del carrusel */
+
+.carousel-card > app-service,
+.carousel-card > app-profile-admin,
+.carousel-card > app-skills {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+}
+
+/* Tarjeta activa */
 
 .carousel-card.selected {
+    z-index: 10;
+    opacity: 1;
+    filter: none;
 
     transform:
         translate(
@@ -84,26 +117,16 @@
         )
         scale(1);
 
-    opacity: 1;
-
-    z-index: 10;
-
-    box-shadow:
-        0 25px 60px rgba(0, 0, 0, 0.22);
-
-    filter: none;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.22);
 }
 
+/* Tarjetas inactivas */
 
 .carousel-card:not(.selected) {
-
     filter: brightness(0.92);
-
 }
 
-
 .carousel-card:not(.selected):hover {
-
     opacity: 0.75;
 
     transform:
@@ -115,40 +138,32 @@
             -50%
         )
         scale(0.78);
-
 }
 
-
-/* BOTONES */
+/* =========================
+   BOTONES
+   ========================= */
 
 .carousel-button {
-
     position: absolute;
-
     top: 50%;
-
-    transform: translateY(-50%);
-
-    width: 48px;
-    height: 48px;
-
-    border: 1px solid #d5dbea;
-
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.9);
-
-    color: #4b6cb7;
-
-    cursor: pointer;
-
     z-index: 20;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
+
+    width: 48px;
+    height: 48px;
+    padding: 0;
+
+    color: #4b6cb7;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid #d5dbea;
+    border-radius: 50%;
+    cursor: pointer;
+
+    transform: translateY(-50%);
 
     transition:
         background-color 0.3s ease,
@@ -156,81 +171,54 @@
         box-shadow 0.3s ease;
 }
 
-
 .carousel-button-left {
-
-    left: 25px;
-
+    left: 20px;
 }
-
 
 .carousel-button-right {
-
-    right: 25px;
-
+    right: 20px;
 }
 
-
 .carousel-button:hover:not(:disabled) {
-
-    background: white;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 
     transform:
         translateY(-50%)
         scale(1.08);
-
-    box-shadow:
-        0 5px 15px rgba(0, 0, 0, 0.15);
-
 }
-
 
 .carousel-button:disabled {
-
     opacity: 0.3;
-
     cursor: default;
-
 }
 
-
-/* INDICADORES */
+/* =========================
+   INDICADORES
+   ========================= */
 
 .carousel-indicators {
-
     position: absolute;
-
     bottom: 15px;
-
     left: 50%;
-
-    transform: translateX(-50%);
+    z-index: 30;
 
     display: flex;
-
-    justify-content: center;
-
     align-items: center;
-
+    justify-content: center;
     gap: 10px;
 
-    z-index: 30;
+    transform: translateX(-50%);
 }
 
-
 .carousel-indicators button {
-
     width: 9px;
     height: 9px;
-
     padding: 0;
 
-    border: none;
-
-    border-radius: 50%;
-
     background: #cbd3e1;
-
+    border: none;
+    border-radius: 50%;
     cursor: pointer;
 
     transition:
@@ -238,98 +226,147 @@
         background-color 0.3s ease;
 }
 
-
 .carousel-indicators button.active {
-
     width: 28px;
-
     border-radius: 10px;
-
     background: #7280ff;
-
 }
 
-
-/* TABLET */
+/* =========================
+   TABLET
+   ========================= */
 
 @media (max-width: 1100px) {
-
     .carousel {
-
-        height: 650px;
-
+        height: clamp(400px, 62vw, 620px);
     }
 
     .carousel-card {
+        --card-step: clamp(260px, 42vw, 430px);
 
-        width: 750px;
-        height: 540px;
-
-        --card-step: 440px;
-
-    }
-
-}
-
-
-/* MOBILE */
-
-@media (max-width: 800px) {
-
-    .carousel {
-
-        height: 580px;
-
-    }
-
-    .carousel-card {
-
-        width: calc(100vw - 100px);
-
-        height: 480px;
-
-        --card-step: 280px;
-
-    }
-
-    .carousel-button {
-
-        width: 40px;
-        height: 40px;
-
+        width: min(750px, calc(100% - 110px));
+        height: min(540px, calc(100% - 45px));
     }
 
     .carousel-button-left {
-
-        left: 8px;
-
+        left: 12px;
     }
 
     .carousel-button-right {
-
-        right: 8px;
-
+        right: 12px;
     }
-
 }
 
+/* =========================
+   MÓVIL
+   ========================= */
 
-@media (max-width: 500px) {
-
+@media (max-width: 700px) {
     .carousel {
-
-        height: 520px;
-
+        height: clamp(370px, 115vw, 540px);
+        min-height: 370px;
     }
 
     .carousel-card {
+        --card-step: clamp(220px, 70vw, 320px);
 
-        width: calc(100vw - 70px);
+        width: calc(100% - 72px);
+        height: calc(100% - 55px);
 
-        height: 430px;
+        border-radius: 18px;
 
-        --card-step: 240px;
-
+        transform:
+            translate(
+                calc(
+                    -50% +
+                    (var(--index) - var(--selected)) * var(--card-step)
+                ),
+                -50%
+            )
+            scale(0.78);
     }
 
+    .carousel-card.selected {
+        transform:
+            translate(
+                calc(
+                    -50% +
+                    (var(--index) - var(--selected)) * var(--card-step)
+                ),
+                -50%
+            )
+            scale(1);
+    }
+
+    .carousel-card:not(.selected):hover {
+        transform:
+            translate(
+                calc(
+                    -50% +
+                    (var(--index) - var(--selected)) * var(--card-step)
+                ),
+                -50%
+            )
+            scale(0.8);
+    }
+
+    .carousel-button {
+        width: 38px;
+        height: 38px;
+    }
+
+    .carousel-button-left {
+        left: 5px;
+    }
+
+    .carousel-button-right {
+        right: 5px;
+    }
+
+    .carousel-indicators {
+        bottom: 8px;
+    }
+}
+
+/* =========================
+   TELÉFONOS PEQUEÑOS
+   ========================= */
+
+@media (max-width: 420px) {
+    .carousel {
+        height: 430px;
+        min-height: 430px;
+    }
+
+    .carousel-card {
+        --card-step: 235px;
+
+        width: calc(100% - 58px);
+        height: calc(100% - 52px);
+    }
+
+    .carousel-button {
+        width: 34px;
+        height: 34px;
+        font-size: 0.85rem;
+    }
+
+    .carousel-indicators button {
+        width: 8px;
+        height: 8px;
+    }
+
+    .carousel-indicators button.active {
+        width: 23px;
+    }
+}
+
+/* Reduce las animaciones si el usuario lo solicita en su sistema */
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel-card,
+    .carousel-button,
+    .carousel-indicators button {
+        transition: none;
+    }
 }

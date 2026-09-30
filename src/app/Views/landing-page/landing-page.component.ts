@@ -30,6 +30,7 @@ import { Subscription } from 'rxjs';
     showChat: boolean = false;
     currentUser: LoggerUser | null = null;
     private authSub!: Subscription;
+    unreadCount = 0;
     
 
     ngOnInit(): void {
@@ -44,6 +45,10 @@ import { Subscription } from 'rxjs';
           console.log('Usuario actual:', user);
           console.log('¿Es admin?', this.IsAdmin);
       });
+    }
+
+    onUnreadCountChange(count: number): void {
+      this.unreadCount = count;
     }
    
   }

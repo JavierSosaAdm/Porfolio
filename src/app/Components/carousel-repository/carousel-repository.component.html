@@ -1,8 +1,11 @@
 <section class="repository-carousel">
+
     <button
         type="button"
         class="carousel-button previous-button"
+        aria-label="Ver proyecto anterior"
         (click)="previous()">
+
         <i class="bi bi-chevron-up"></i>
     </button>
 
@@ -17,17 +20,18 @@
                 [style.transform]="getCardPosition(i)"
                 (click)="selectCard(i)">
 
-                <app-card [repository]="repo.data"/>
-
+                <app-card [repository]="repo.data"></app-card>
             </div>
         }
-
     </div>
 
     <button
         type="button"
         class="carousel-button next-button"
+        aria-label="Ver siguiente proyecto"
         (click)="next()">
+
         <i class="bi bi-chevron-down"></i>
     </button>
+
 </section>

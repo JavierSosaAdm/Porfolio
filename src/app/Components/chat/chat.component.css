@@ -1,254 +1,210 @@
+/* =========================
+   BASE
+   ========================= */
+
+.chat-container,
+.chat-container * {
+    box-sizing: border-box;
+}
+
 .chat-container {
-    position: fixed;
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
 
-    left: 25px;
-    bottom: 95px;
+    width: 100%;
+    max-width: 100%;
 
-    width: 750px;
-    max-width: calc(100vw - 30px);
-
-    max-height: calc(100vh - 120px);
-
-    z-index: 1050;
-
-    background: #F7F8FA;
-
-    border: 1px solid #DDE4F2;
+    background: #f7f8fa;
+    border: 1px solid #dde4f2;
     border-radius: 15px;
-
-    box-shadow:
-        0 10px 35px rgba(39, 49, 76, 0.18);
+    box-shadow: 0 10px 35px rgba(39, 49, 76, 0.18);
 
     overflow: hidden;
 }
 
+.chat-layout {
+    width: 100%;
+    max-width: none;
+    padding: 0;
 
-.container {
-    display: flex;
-    flex-direction: row;
-
+    background: #edf0f5;
     border-radius: 12px;
-
-    background: #EDF0F5;
-
-    width: 50rem;
 }
-
 
 /* =========================
-   PANEL DEL ADMIN
+   ADMIN
    ========================= */
-
-.panel-chat {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
 
 .admin-chat-container {
-    display: flex;
-    justify-content: space-between;
+    width: 100%;
 }
 
+.panel-chat {
+    display: grid;
+    grid-template-columns: minmax(190px, 30%) 1fr;
+    gap: 12px;
 
-/* =========================
-   LISTA DE CHATS
-   ========================= */
+    width: 100%;
+    padding: 12px;
+}
 
 .chat-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    min-width: 0;
+    max-height: calc(100dvh - 155px);
 
-    
-    background: #F7F8FA;
-    
+    padding: 8px;
+    margin: 0;
+
+    overflow-y: auto;
+    background: #f7f8fa;
     border-radius: 12px;
-    
-    margin-left: 0;
-    margin-right: 0.5rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
 }
 
+.title {
+    margin: 8px 0 12px;
+    text-align: center;
+    color: #27314c;
+}
 
 .chat-user {
+    display: block;
+    width: 100%;
+
+    padding: 9px 10px;
+    margin: 4px 0;
+
     list-style: none;
-
     cursor: pointer;
+    text-align: left;
+    overflow-wrap: anywhere;
 
-    background-color: #F7F8FA;
-
-    color: #27314C;
-
-    padding: 8px 12px;
-    margin: 2px 0;
-
+    color: #27314c;
+    background: #f7f8fa;
     border: 1px solid transparent;
     border-radius: 10px;
 
     transition:
-        transform 0.65s ease,
-        background-color 0.65s ease,
-        border-color 0.65s ease,
-        box-shadow 0.65s ease;
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease;
 }
-
 
 .chat-user:hover {
-    transform: translateX(6px);
-
-    background-color: #DDE4F2;
-
-    border-color: #BACAE6;
-
-    box-shadow:
-        0 4px 12px rgba(114, 128, 255, 0.12);
+    transform: translateX(4px);
+    background-color: #dde4f2;
+    border-color: #bacae6;
 }
 
+.chat-user li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.chat-user > span {
+    display: block;
+    margin-top: 4px;
+
+    font-size: 0.78rem;
+    overflow-wrap: anywhere;
+    color: #667085;
+}
+
+.unread-badge {
+    flex-shrink: 0;
+
+    min-width: 22px;
+    padding: 2px 6px;
+
+    color: #fff;
+    font-size: 0.75rem;
+    text-align: center;
+
+    background: #7280ff;
+    border-radius: 999px;
+}
 
 /* =========================
-   VENTANA DEL CHAT
+   CONVERSACIÓN
    ========================= */
 
-.chat-window {
-    overflow-y: auto;
-
-    scroll-behavior: smooth;
-
-    border: 1px solid #DDE4F2;
-
-    padding: 15px;
-
+.chat-conversation,
+.user {
     display: flex;
     flex-direction: column;
-
-    gap: 10px;
-
-    border-radius: 12px;
-
-    height: 50rem;
-    width: 30rem;
-
-    padding-left: 0.5rem;
-
-    background: #F7F8FA;
+    min-width: 0;
 }
 
+.strong {
+    min-height: 48px;
+    margin: 0;
+    padding: 12px 8px;
+
+    color: #27314c;
+    text-align: center;
+}
+
+/* Ventana común para admin y usuario */
+
+.chat-window {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 100%;
+    min-height: 220px;
+    height: clamp(280px, 60dvh, 650px);
+
+    padding: 15px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+    background: #f7f8fa;
+    border: 1px solid #dde4f2;
+    border-radius: 12px;
+}
 
 /* =========================
    MENSAJES
    ========================= */
 
 .message {
-    max-width: 70%;
+    width: fit-content;
+    max-width: min(78%, 520px);
 
     padding: 10px 15px;
+    overflow-wrap: anywhere;
 
+    color: #27314c;
     border-radius: 15px;
-
-    word-break: break-word;
-
-    color: #27314C;
 }
 
-
-/* Mensaje enviado por el usuario actual */
-
-.mine {
+.message.mine {
     align-self: flex-end;
-
-    background: #7280FF;
-
-    color: white;
-
-    box-shadow:
-        0 3px 10px rgba(114, 128, 255, 0.20);
+    color: #fff;
+    background: #7280ff;
+    box-shadow: 0 3px 10px rgba(114, 128, 255, 0.2);
 }
 
-
-/* Mensaje recibido */
-
-.other {
+.message.other {
     align-self: flex-start;
-
-    background: #DDE4F2;
-
-    color: #27314C;
-
-    box-shadow:
-        0 3px 10px rgba(39, 49, 76, 0.08);
+    background: #dde4f2;
+    box-shadow: 0 3px 10px rgba(39, 49, 76, 0.08);
 }
-
-
-/* =========================
-   HORA DEL MENSAJE
-   ========================= */
 
 .date {
     display: flex;
     justify-content: flex-end;
 
-    font-size: 0.65rem;
-
     margin-top: 4px;
-
+    font-size: 0.65rem;
     opacity: 0.65;
 }
-
-
-/* =========================
-   BOTÓN ENVIAR
-   ========================= */
-
-.btn-primary {
-    display: flex;
-
-    flex-direction: row;
-
-    align-items: center;
-    justify-content: center;
-
-    background: #7280FF;
-
-    color: white;
-
-    border: 2px solid transparent;
-
-    border-radius: 12px;
-
-    cursor: pointer;
-
-    margin-top: 0;
-
-    padding-left: 19px;
-    padding-right: 19px;
-
-    box-sizing: border-box;
-
-    transition:
-        background-color 0.7s ease,
-        color 0.7s ease,
-        box-shadow 0.7s ease,
-        transform 0.7s ease,
-        border-color 0.7s ease;
-}
-
-
-.btn-primary:hover {
-    background: #879FD4;
-
-    color: white;
-
-    border-color: #BACAE6;
-
-    box-shadow:
-        0 5px 15px rgba(114, 128, 255, 0.25);
-
-    transform: scale(1.03);
-}
-
 
 /* =========================
    FORMULARIO
@@ -256,81 +212,149 @@
 
 .form {
     display: flex;
-
-    flex-direction: row;
-
-    justify-content: space-between;
-
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    gap: 8px;
+    width: 100%;
+    padding-top: 8px;
 }
-
-
-/* =========================
-   INPUT
-   ========================= */
 
 .input {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+
+    padding: 10px 12px;
+
+    color: #27314c;
+    background: #fff;
+    border: 1px solid #bacae6;
     border-radius: 12px;
-
-    width: 23rem;
-
-    background: #FFFFFF;
-
-    color: #27314C;
-
-    border: 1px solid #BACAE6;
-
-    padding: 9px 12px;
-
     outline: none;
-
-    transition:
-        border-color 0.5s ease,
-        box-shadow 0.5s ease,
-        background-color 0.5s ease;
 }
-
 
 .input:focus {
-    background: #FFFFFF;
-
-    border-color: #7280FF;
-
-    box-shadow:
-        0 0 0 3px rgba(114, 128, 255, 0.15);
+    border-color: #7280ff;
+    box-shadow: 0 0 0 3px rgba(114, 128, 255, 0.15);
 }
 
+.btn-primary {
+    flex: 0 0 auto;
 
-/* =========================
-   NOMBRE DEL USUARIO
-   ========================= */
+    min-height: 42px;
+    padding: 0 18px;
 
-.strong {
-    display: flex;
+    color: #fff;
+    background: #7280ff;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
 
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    padding-top: 1rem;
-
-    color: #27314C;
+    transition:
+        background-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
 }
 
+.btn-primary:hover {
+    background: #879fd4;
+    border-color: #bacae6;
+    box-shadow: 0 5px 15px rgba(114, 128, 255, 0.25);
+    transform: scale(1.03);
+}
 
 /* =========================
-   TÍTULO
+   TABLETS
    ========================= */
 
-.title {
-    display: flex;
+@media (max-width: 700px) {
+    .chat-container {
+        left: 15px;
+        right: 15px;
+        bottom: 80px;
+        width: auto;
+        max-height: calc(100dvh - 100px);
+    }
 
-    padding-top: 1rem;
+    .panel-chat {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 8px;
+    }
 
-    align-items: center;
-    justify-content: center;
+    .chat-list {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
 
-    color: #27314C;
+        max-height: 105px;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .chat-list .title {
+        display: none;
+    }
+
+    .chat-user {
+        flex: 0 0 190px;
+        margin: 0;
+    }
+
+    .chat-window {
+        height: clamp(260px, 52dvh, 500px);
+    }
+}
+
+/* =========================
+   TELÉFONOS
+   ========================= */
+
+@media (max-width: 480px) {
+    .chat-container {
+        left: 8px;
+        right: 8px;
+        bottom: 70px;
+
+        width: auto;
+        max-height: calc(100dvh - 85px);
+        border-radius: 12px;
+    }
+
+    .chat-window {
+        min-height: 200px;
+        height: 48dvh;
+        padding: 10px;
+    }
+
+    .message {
+        max-width: 88%;
+        padding: 9px 11px;
+        font-size: 0.92rem;
+    }
+
+    .form {
+        gap: 6px;
+    }
+
+    .input {
+        min-width: 0;
+        font-size: 0.9rem;
+    }
+
+    .btn-primary {
+        padding: 0 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Teléfonos muy estrechos: botón debajo del input */
+
+@media (max-width: 350px) {
+    .form {
+        flex-direction: column;
+    }
+
+    .input,
+    .btn-primary {
+        width: 100%;
+    }
 }

@@ -1,24 +1,44 @@
-/* CARD */
+:host {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+}
+
+.repository-card,
+.repository-card * {
+    box-sizing: border-box;
+}
 
 .repository-card {
     width: 100%;
+    height: 100%;
+    min-width: 0;
 }
 
+/* =========================
+   TARJETA
+   ========================= */
+
 .card {
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
-    min-height: 500px;
-    padding: 0 28px 28px;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
 
-    overflow: hidden;
-    border-radius: 24px;
-    background: #ffffff;
+    overflow-x: hidden;
+    overflow-y: auto;
+
     border: 1px solid #d5dbea;
-
+    border-radius: 24px;
+    background: #fff;
     box-shadow: 0 14px 35px rgba(70, 78, 232, 0.16);
 
     transition:
-        transform 0.3s ease,
         box-shadow 0.3s ease,
         border-color 0.3s ease;
 }
@@ -28,55 +48,94 @@
     box-shadow: 0 20px 45px rgba(70, 78, 232, 0.25);
 }
 
+/* =========================
+   TÍTULO
+   ========================= */
+
 .card h3 {
-    margin: 24px 0 12px;
-    font-size: 1.45rem;
+    margin: 1.25rem 1.5rem 0.75rem;
+
+    overflow-wrap: anywhere;
+
+    font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+    line-height: 1.25;
 }
 
-.card a {
+.repository-name {
     color: #464ee8;
     text-decoration: none;
 }
 
+.repository-name:hover {
+    text-decoration: underline;
+}
+
+.repository-name:focus-visible {
+    outline: 3px solid rgba(70, 78, 232, 0.3);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* =========================
+   IMAGEN
+   ========================= */
+
 .repository-image {
-    width: calc(100% + 56px);
-    height: 260px;
-    margin-left: -28px;
+    flex: 0 0 auto;
+
+    width: 100%;
+    height: clamp(155px, 26vw, 260px);
+
     overflow: hidden;
-    border-radius: 24px 24px 0 0;
+    background: #eef0f5;
 }
 
 .repository-image img {
+    display: block;
+
     width: 100%;
     height: 100%;
-    display: block;
+
     object-fit: cover;
 }
 
+/* =========================
+   DESCRIPCIÓN
+   ========================= */
+
 .description {
-    margin-top: 20px;
+    margin: 1rem 1.5rem 0;
+
     color: #4b5563;
+    font-size: clamp(0.88rem, 2vw, 1rem);
     line-height: 1.7;
-    font-size: 1rem;
+    overflow-wrap: anywhere;
 }
+
+/* =========================
+   TECNOLOGÍAS
+   ========================= */
 
 .skills {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 14px;
-    margin-top: 24px;
-    padding-top: 18px;
+    gap: 0.7rem;
+
+    margin: 1.25rem 1.5rem 0;
+    padding-top: 1rem;
+
     border-top: 1px solid #e5e7eb;
 }
 
 .skill {
-    width: 56px;
-    height: 56px;
-
     display: flex;
     align-items: center;
     justify-content: center;
+    flex: 0 0 auto;
+
+    width: clamp(42px, 8vw, 56px);
+    height: clamp(42px, 8vw, 56px);
 
     border-radius: 14px;
     background: #f7f8fa;
@@ -87,9 +146,92 @@
         box-shadow 0.3s ease;
 }
 
+.skill:hover {
+    background: #eef0ff;
+    box-shadow: 0 6px 15px rgba(70, 78, 232, 0.15);
+    transform: translateY(-3px);
+}
+
 .skill img {
-    width: 40px;
-    height: 40px;
+    display: block;
+
+    width: 70%;
+    height: 70%;
+
     object-fit: contain;
 }
 
+.skill i {
+    color: #464ee8;
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+}
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 768px) {
+    .card h3,
+    .description {
+        margin-right: 1.1rem;
+        margin-left: 1.1rem;
+    }
+
+    .skills {
+        margin-right: 1.1rem;
+        margin-left: 1.1rem;
+    }
+
+    .repository-image {
+        height: clamp(145px, 28vw, 210px);
+    }
+}
+
+/* =========================
+   MÓVIL
+   ========================= */
+
+@media (max-width: 480px) {
+    .card {
+        border-radius: 18px;
+    }
+
+    .card h3 {
+        margin-top: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .description {
+        margin-top: 0.85rem;
+        font-size: 0.88rem;
+        line-height: 1.6;
+    }
+
+    .repository-image {
+        height: 160px;
+        border-radius: 18px 18px 0 0;
+    }
+
+    .skills {
+        gap: 0.55rem;
+        margin-top: 1rem;
+        padding-top: 0.8rem;
+    }
+
+    .skill {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+    }
+}
+
+/* =========================
+   REDUCIR ANIMACIONES
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    .skill {
+        transition: none;
+    }
+}
