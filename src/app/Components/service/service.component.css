@@ -121,7 +121,7 @@
     flex: 0 0 auto;
     width: clamp(60px, 9vw, 90px);
     height: clamp(60px, 9vw, 90px);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.3rem;
 
     border-radius: 18px;
     box-shadow: 0 8px 18px rgba(85, 98, 245, 0.25);
@@ -152,7 +152,7 @@
    ========================= */
 
 .service-card h5 {
-    margin: 0.25rem 0 0.5rem;
+    margin: 0.15rem 0 0.15rem;
 
     color: #1f2937;
     font-size: clamp(0.95rem, 2vw, 1.1rem);
