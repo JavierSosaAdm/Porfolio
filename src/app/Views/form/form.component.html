@@ -5,7 +5,7 @@
       <form [formGroup]="data" class="row g-3 needs-validation" novalidate (ngSubmit)="postRepositories($event)" >
         
         <div class="mb-3-name">
-          <label for="name" class="form-label">Nombre de Proyecto:</label>
+          <label for="name" class="form-label">{{ 'forms.projectName' | transloco }}</label>
           <input 
             type="text" 
             class="form-control" 
@@ -19,12 +19,12 @@
           >
           <div class="error-container">
             @if (hasErrors('name', 'required')) {
-              <span class="text-danger" >Debe colocar el nombre del proyecto.</span>
+              <span class="text-danger">{{ 'forms.projectNameRequired' | transloco }}</span>
             }
           </div>
         </div>
         <div class="mb-3">
-          <label for="link" class="form-label">Link:</label>
+          <label for="link" class="form-label">{{ 'forms.link' | transloco }}</label>
           <input 
             type="text" 
             class="form-control" 
@@ -38,14 +38,14 @@
           >
           <div class="error-container">
             @if (hasErrors('link', 'required')) {
-              <span class="text-danger">Debe colocar un el Link del Proyecto</span>
+              <span class="text-danger">{{ 'forms.linkRequired' | transloco }}</span>
             }
           </div>
         </div>
        
        
         <div class="mb-3">
-          <label for="description" class="form-label">Describa el proyecto</label>
+          <label for="description" class="form-label">{{ 'forms.description' | transloco }}</label>
           <input 
             type="text" 
             class="form-control" 
@@ -57,7 +57,7 @@
         <div class="mb-3">
 
           <label for="image" class="form-label">
-              Imagen del proyecto
+              {{ 'forms.projectImage' | transloco }}
           </label>
         
           <input
@@ -65,11 +65,11 @@
               class="form-control"
               id="image"
               formControlName="image"
-              placeholder="Ej: pasteleria-las-encinas.png">
+              [placeholder]="'forms.imagePlaceholder' | transloco">
 
         </div>
         <div class="mb-3">
-          <label for="skills" class="form-label">Tecnologías utilizadas</label>
+          <label for="skills" class="form-label">{{ 'forms.skills' | transloco }}</label>
           <div class="skills-grid">
             @for (skill of skills; track skill.id) {
               <div class="form-check">
@@ -88,7 +88,7 @@
           </div>
           <div class="error-container">
             @if (hasErrors('skills', 'required')) {
-            <span class="text-danger">Debe seleccionar las tecnologías utilizadas.</span>
+            <span class="text-danger">{{ 'forms.skillsRequired' | transloco }}</span>
             }
           </div>
         </div>
@@ -97,9 +97,9 @@
               type="button"
               class="btn btn-primary-close" 
               data-bs-dismiss="modal">
-              Cancelar
+              {{ 'forms.cancel' | transloco }}
             </button>
-            <button type="submit" class="btn btn-primary"> Registrar </button>
+            <button type="submit" class="btn btn-primary">{{ 'forms.register' | transloco }}</button>
           </div>
       </form>
     </div>

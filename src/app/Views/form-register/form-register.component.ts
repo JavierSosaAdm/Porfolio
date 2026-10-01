@@ -4,11 +4,12 @@ import { CommonModule, NgClass } from '@angular/common';
 import { Router } from '@angular/router';
 import { UserService } from '../../Service/user.service';
 import  emailjs  from '@emailjs/browser';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-form-register',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass, CommonModule],
+  imports: [ReactiveFormsModule, NgClass, CommonModule, TranslocoPipe],
   templateUrl: './form-register.component.html',
   styleUrl: './form-register.component.css'
 })
@@ -18,6 +19,7 @@ export class FormRegisterComponent {
 
   private UserService = inject(UserService)
   private _router = inject(Router);
+  private transloco = inject(TranslocoService);
   userValidate: any
   
 
@@ -47,7 +49,7 @@ export class FormRegisterComponent {
       next: (user) => {
 
         if (user) {
-          alert('Ya existe una cuenta con este email');
+          alert(this.transloco.translate('forms.accountExists'));
           return;
         }
         try {

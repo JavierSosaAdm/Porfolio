@@ -95,7 +95,7 @@
 
       <div class="modal-header">
         <h5 class="modal-title" id="loginModalLabel">
-          Iniciar sesión
+          {{ 'forms.login' | transloco }}
         </h5>
 
         <button
@@ -123,7 +123,7 @@
 
       <div class="modal-header">
         <h5 class="modal-title" id="repositoryModalLabel">
-          Registrar Repositorio
+          {{ 'nav.newRepository' | transloco }}
         </h5>
 
         <button
@@ -149,7 +149,7 @@
 
       <div class="modal-header">
         <h5 class="modal-title" id="registerModalLabel">
-          Registrar Usuario
+          {{ 'nav.register' | transloco }}
         </h5>
 
         <button
@@ -181,7 +181,7 @@
 
       <div class="modal-header">
         <h5 class="modal-title" id="chatLoginModalLabel">
-          Acceso requerido
+          {{ 'forms.chatAccessTitle' | transloco }}
         </h5>
 
         <button
@@ -195,7 +195,7 @@
       <div class="modal-body text-center">
 
         <p class="mb-4">
-          Debes iniciar sesión para utilizar el chat.
+          {{ 'forms.chatAccessMessage' | transloco }}
         </p>
 
         <button
@@ -203,11 +203,11 @@
           data-bs-dismiss="modal"
           data-bs-toggle="modal"
           data-bs-target="#loginModal">
-          Iniciar sesión
+          {{ 'forms.login' | transloco }}
         </button>
 
         <p class="mb-2">
-          ¿No tienes una cuenta?
+          {{ 'forms.needAccount' | transloco }}
         </p>
 
         <button
@@ -215,7 +215,7 @@
           data-bs-dismiss="modal"
           data-bs-toggle="modal"
           data-bs-target="#registerModal">
-          Registrarse
+          {{ 'forms.register' | transloco }}
         </button>
 
       </div>

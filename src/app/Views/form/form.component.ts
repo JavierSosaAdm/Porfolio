@@ -5,12 +5,13 @@ import { RepositoriesService } from '../../Service/repositories.service';
 import { Router } from '@angular/router';
 import { Skill } from '../../Models/skills.model';
 import { SkillService } from '../../Service/skills.service';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass, CommonModule],
+  imports: [ReactiveFormsModule, NgClass, CommonModule, TranslocoPipe],
   templateUrl: './form.component.html',
   styleUrl: './form.component.css'
 })

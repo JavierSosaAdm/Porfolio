@@ -4,12 +4,13 @@ import { CommonModule, NgClass } from '@angular/common';
 import { Router } from '@angular/router';
 import { UserService } from '../../Service/user.service';
 import { AuthService } from '../../Service/auth.service';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ ReactiveFormsModule, CommonModule, NgClass ],
+  imports: [ ReactiveFormsModule, CommonModule, NgClass, TranslocoPipe ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -19,6 +20,7 @@ export class LoginComponent {
   private UserService = inject(UserService)
   private _router = inject(Router);  
   private authService = inject(AuthService);
+  private transloco = inject(TranslocoService);
   
 
   constructor(private FormBuilder: FormBuilder) {
@@ -45,16 +47,16 @@ export class LoginComponent {
           )
           
           if (!userByEmail) {
-            alert('El email no se encuentra registrado');
+            alert(this.transloco.translate('forms.loginEmailNotFound'));
             return;
           }
           
           if (userByEmail.data.password != password) {
             if (userByEmail.data.password.length < 8) {
-                alert('La contaseña debe tener al menos 8 caracteres');
+                alert(this.transloco.translate('forms.passwordInvalid'));
                 return;
               }
-            alert('Contraseña incorrecta');
+            alert(this.transloco.translate('forms.wrongPassword'));
             return;
           }
         
@@ -84,7 +86,7 @@ export class LoginComponent {
       })
     } catch (error) {
       console.error('Error de logeo: ', error)
-      alert('Hay un error de sistema');
+      alert(this.transloco.translate('forms.systemError'));
     }
     
   }
