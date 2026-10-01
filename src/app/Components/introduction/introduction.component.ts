@@ -1,11 +1,12 @@
 import { NgClass, CommonModule } from '@angular/common';
 import { Component, inject, OnInit} from '@angular/core';
 import { UserService } from '../../Service/user.service';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-introduction',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslocoPipe],
   templateUrl: './introduction.component.html',
   styleUrl: './introduction.component.css'
 })

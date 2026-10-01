@@ -1,0 +1,9 @@
+{
+  "nav": { "home": "ホーム", "menu": "ページメニュー", "profile": "プロフィール", "services": "サービス", "projects": "プロジェクト", "contact": "お問い合わせ", "newRepository": "新しいリポジトリ", "login": "ログイン", "register": "登録", "logout": "ログアウト", "language": "言語", "music": "音楽コントロール", "play": "音楽を再生", "pause": "一時停止", "stop": "音楽を停止", "volume": "音量" },
+  "landing": { "title": "Webソリューション開発", "repositoriesTitle": "開発プロジェクトと経験", "repositoriesP1": "このセクションでは、Web開発者としての学習と経験を通じて作成したプロジェクトをご覧いただけます。", "repositoriesP2": "新しい技術を試す練習プロジェクトと、クライアントや具体的な要件のために開発した実際のプロジェクトを紹介します。", "repositoriesP3": "各プロジェクトでJavaScript、TypeScript、Angular、React、再利用可能なコンポーネント、データベース、レスポンシブなインターフェースを活用しています。" },
+  "intro": { "title": "アイデアをデジタルな存在に変えます。", "p1": "ビジネスがより多くの人に届き、最初の瞬間から信頼を伝えられるよう、プロフェッショナルで使いやすいWebサイトを制作します。", "p2": "デザイン、開発、ホスティング、保守、更新まで、すべてお任せください。", "p3": "あなたはビジネスに集中してください。", "p4": "私たちがWebへの展開を支援します。", "slogan": "ビジネスを前進させましょう。" },
+  "services": { "title": "サービス", "subtitle": "LoganWebでは幅広いサービスを提供しています", "hosting": "ホスティング", "hostingDescription": "高いパフォーマンスと稼働率を実現するホスティングサービスです。", "webDevelopment": "Web開発", "webDevelopmentDescription": "現代的で機能的なオーダーメイドのWebサイトとアプリケーションを開発します。", "seo": "SEOサービス", "seoDescription": "検索エンジン最適化サービスです。", "management": "Webサイト管理", "managementDescription": "管理と更新のサービスで、Webサイトを最高の状態に保ちます。" },
+  "skills": { "title": "よく使用する技術", "description": "JavaScriptとTypeScriptを使い、再利用可能なコンポーネントと明確で保守しやすい構成で、動的かつ拡張可能なWebアプリケーションを開発します。" },
+  "chat": { "consultations": "お問い合わせ", "selectConversation": "会話を選択してください", "writeMessage": "メッセージを入力", "send": "送信", "open": "チャットを開く" },
+  "contact": { "eyebrow": "お問い合わせ", "title": "プロジェクトをお考えですか？", "send": "メッセージを送信" }
+}

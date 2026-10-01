@@ -5,7 +5,7 @@
     <button
         class="carousel-button carousel-button-left"
         type="button"
-        aria-label="Ver servicio anterior"
+        [attr.aria-label]="'carousel.previous' | transloco"
         (click)="previous()"
         [disabled]="selectedIndex === 0">
         <i class="bi bi-chevron-left"></i>
@@ -66,7 +66,7 @@
     <button
         class="carousel-button carousel-button-right"
         type="button"
-        aria-label="Ver siguiente servicio"
+        [attr.aria-label]="'carousel.next' | transloco"
         (click)="next()"
         [disabled]="selectedIndex === 2">
         <i class="bi bi-chevron-right"></i>

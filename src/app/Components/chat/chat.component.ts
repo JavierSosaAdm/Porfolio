@@ -28,13 +28,15 @@ import {
 import { AdminUserId } from '../../enviroment.prod';
 import { ChatService } from '../../Service/chat.service';
 import { AuthService } from '../../Service/auth.service';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
     selector: 'app-chat',
     standalone: true,
     imports: [
         ReactiveFormsModule,
-        DatePipe
+        DatePipe,
+        TranslocoPipe
     ],
     templateUrl: './chat.component.html',
     styleUrl: './chat.component.css'

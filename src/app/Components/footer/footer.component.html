@@ -3,7 +3,7 @@
     <div class="container">
 
         <h5 class="title">
-            Tambien tienes a disposición estos medios de comunicación:  
+            {{ 'footer.title' | transloco }}
         </h5>
 
         <div class="sub-container">
@@ -14,7 +14,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="social-icon whatsapp"
-                aria-label="Contactarme por WhatsApp">
+                [attr.aria-label]="'footer.whatsapp' | transloco">
 
                 <i class="bi bi-whatsapp"></i>
 
@@ -27,7 +27,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="social-icon github"
-                aria-label="Visitar mi GitHub">
+                [attr.aria-label]="'footer.github' | transloco">
 
                 <i class="bi bi-github"></i>
 
@@ -40,7 +40,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="social-icon linkedin"
-                aria-label="Visitar mi LinkedIn">
+                [attr.aria-label]="'footer.linkedin' | transloco">
 
                 <i class="bi bi-linkedin"></i>
 

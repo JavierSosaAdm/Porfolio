@@ -1,51 +1,51 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary" style="position: sticky; top: 0; z-index: 1030;">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" [attr.aria-label]="'nav.menu' | transloco">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item-d">
-          <a class="bi bi-house-door-fill nav-link active" [routerLink]="['/']"></a>
+          <a class="bi bi-house-door-fill nav-link active" [routerLink]="['/']" [attr.aria-label]="'nav.home' | transloco"></a>
         </li>
         <li class="nav-item-d dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Menú de Página</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ 'nav.menu' | transloco }}</a>
           <ul class="dropdown-menu">
-            <li><a class="bi bi-person-square nav-link" [routerLink]="['/']" (click)="goToSection('introduction')">  Perfil</a></li> 
-            <li><a class="bi bi-person-square nav-link" [routerLink]="['/']" (click)="goToSection('service')">  Servicios</a></li>
-            <li><a class="bi bi-journal-text nav-link" [routerLink]="['/']" (click)="goToSection('repositories')">  Trabajos</a></li>
-            <li><a class="bi bi-envelope-at-fill nav-link" [routerLink]="['/']" (click)="goToSection('contact')">  Contacto</a></li>
+            <li><a class="bi bi-person-square nav-link" [routerLink]="['/']" (click)="goToSection('introduction')">  {{ 'nav.profile' | transloco }}</a></li>
+            <li><a class="bi bi-person-square nav-link" [routerLink]="['/']" (click)="goToSection('service')">  {{ 'nav.services' | transloco }}</a></li>
+            <li><a class="bi bi-journal-text nav-link" [routerLink]="['/']" (click)="goToSection('repositories')">  {{ 'nav.projects' | transloco }}</a></li>
+            <li><a class="bi bi-envelope-at-fill nav-link" [routerLink]="['/']" (click)="goToSection('contact')">  {{ 'nav.contact' | transloco }}</a></li>
           </ul>
         </li>
           <i class="devicon-angularjs-plain colored"></i>
           @if (IsAdmin) {
             <li class="nav-item">
-              <a class="bi bi-journal-plus nav-link" href="#" data-bs-toggle="modal" data-bs-target="#repositoryModal">  Nuevo Repositorio</a>
+              <a class="bi bi-journal-plus nav-link" href="#" data-bs-toggle="modal" data-bs-target="#repositoryModal">  {{ 'nav.newRepository' | transloco }}</a>
             </li>
           }       
 
             <li class="nav-item" [hidden]="userLog">
-              <a class="bi bi-person-fill nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">  Iniciar sesión</a>
+              <a class="bi bi-person-fill nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">  {{ 'nav.login' | transloco }}</a>
             </li>
             <li class="nav-item" [hidden]="userLog">
-              <a class="bi bi-person-vcard nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">  Registrarse</a>
+              <a class="bi bi-person-vcard nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">  {{ 'nav.register' | transloco }}</a>
             </li>
 
           <li class="nav-item" [hidden]="!userLog">
             <a class="bi bi-person-dash-fill nav-link" href="#" (click)="logout(); $event.preventDefault()">
-              Cerrar sesión
+              {{ 'nav.logout' | transloco }}
             </a>
           </li>
 
       </ul>
     </div>
-    <div class="music-controls" aria-label="Controles de música">
+    <div class="music-controls" [attr.aria-label]="'nav.music' | transloco">
       @if (playing === true) {
         <button
           type="button"
           class="music-button music-button--primary"
           (click)="pause()"
-          aria-label="Pausar música">
+          [attr.aria-label]="'nav.pause' | transloco">
           <i class="bi bi-pause-fill"></i>
         </button>
       }
@@ -55,7 +55,7 @@
           type="button"
           class="music-button music-button--primary"
           (click)="play()"
-          aria-label="Reproducir música">
+          [attr.aria-label]="'nav.play' | transloco">
            <i class="bi bi-play-fill"></i>
         </button>
       }
@@ -64,7 +64,7 @@
         type="button"
         class="music-button music-button--secondary"
         (click)="stop()"
-        aria-label="Detener música">
+        [attr.aria-label]="'nav.stop' | transloco">
         <i class="bi bi-stop-fill"></i>
       </button>
     
@@ -74,9 +74,17 @@
         min="0"
         max="1"
         step="0.1"
-        aria-label="Volumen"
+        [attr.aria-label]="'nav.volume' | transloco"
         (input)="changeVolume($event)">
-    </div> 
+    </div>
+    <label class="language-control">
+      <span class="visually-hidden">{{ 'nav.language' | transloco }}</span>
+      <select [value]="currentLang" (change)="changeLanguage($event)" [attr.aria-label]="'nav.language' | transloco">
+        @for (language of languages; track language.code) {
+          <option [value]="language.code">{{ language.label }}</option>
+        }
+      </select>
+    </label>
   </div>
 </nav>
 

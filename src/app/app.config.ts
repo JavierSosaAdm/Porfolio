@@ -5,6 +5,8 @@ import { routes } from './app.routes';
 // import { provideClientHydration } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { enviroment } from './enviroment.prod';
+import { provideTransloco } from '@jsverse/transloco';
+import { TranslocoHttpLoader } from './i18n/transloco-http-loader';
 
 
 const firebaseConfig = {
@@ -24,6 +26,16 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes, withHashLocation()), 
     // provideClientHydration(),
     provideHttpClient(withFetch()),
+    ...provideTransloco({
+      config: {
+        availableLangs: ['es', 'en', 'pt', 'fr', 'it', 'ja', 'ru', 'hi'],
+        defaultLang: 'es',
+        fallbackLang: 'es',
+        reRenderOnLangChange: true,
+        prodMode: true
+      },
+      loader: TranslocoHttpLoader
+    }),
     importProvidersFrom(
 //      HttpClientModule,
       AngularFireModule.initializeApp(firebaseConfig),

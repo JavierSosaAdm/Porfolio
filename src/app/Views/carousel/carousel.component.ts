@@ -4,6 +4,7 @@ import { SkillsComponent } from '../../Components/skills/skills.component';
 import { TercerComponenteComponent } from '../../Components/tercer-componente/tercer-componente.component';
 import { ProfileAdminComponent } from '../../Components/profile-admin/profile-admin.component'
 import { ServiceComponent } from '../../Components/service/service.component'
+import { TranslocoPipe } from '@jsverse/transloco';
 
 interface CarouselItem {
   id: number;
@@ -15,7 +16,7 @@ interface CarouselItem {
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [CommonModule, SkillsComponent, ProfileAdminComponent, TercerComponenteComponent, ServiceComponent],
+  imports: [CommonModule, TranslocoPipe, SkillsComponent, ProfileAdminComponent, TercerComponenteComponent, ServiceComponent],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.css'
 })

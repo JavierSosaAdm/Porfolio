@@ -8,7 +8,7 @@
         </div>
 
         <h1 class="title">
-            Desarrollo de soluciones Web
+            {{ 'landing.title' | transloco }}
         </h1>
     </header>
 
@@ -23,27 +23,18 @@
 
         <section id="repositories">
             <div class="repositories-introduction">
-                <h2>Proyectos y experiencias de desarrollo</h2>
+                <h2>{{ 'landing.repositoriesTitle' | transloco }}</h2>
 
                 <p>
-                    En esta sección podés conocer algunos de los proyectos que he
-                    desarrollado a lo largo de mi formación y experiencia como
-                    desarrollador web.
+                    {{ 'landing.repositoriesP1' | transloco }}
                 </p>
 
                 <p>
-                    Encontrarás tanto <strong>proyectos de práctica</strong>,
-                    realizados para experimentar con nuevas tecnologías y poner en
-                    práctica diferentes conceptos de desarrollo, como también
-                    <strong>proyectos reales</strong> desarrollados para clientes y
-                    necesidades concretas.
+                    {{ 'landing.repositoriesP2' | transloco }}
                 </p>
 
                 <p>
-                    Cada proyecto representa una oportunidad para aplicar conocimientos
-                    de <strong>JavaScript, TypeScript, Angular y React</strong>,
-                    trabajando con componentes reutilizables, bases de datos,
-                    interfaces responsivas y diferentes herramientas del ecosistema web.
+                    {{ 'landing.repositoriesP3' | transloco }}
                 </p>
             </div>
 
@@ -63,7 +54,7 @@
         <button
             type="button"
             class="chat-button"
-            aria-label="Abrir chat"
+            [attr.aria-label]="'chat.open' | transloco"
             [attr.aria-expanded]="showChat"
             (click)="showChat = !showChat">
         

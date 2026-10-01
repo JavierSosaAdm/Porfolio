@@ -11,13 +11,14 @@ import { CarouselRepositoryComponent } from '../../Components/carousel-repositor
 import { IntroductionComponent } from '../../Components/introduction/introduction.component';
 import { AuthService, LoggerUser } from '../../Service/auth.service';
 import { Subscription } from 'rxjs';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 
 
   @Component({
     selector: 'app-landing-page',
     standalone: true,
-    imports: [CommonModule, ContactComponent, SkillsComponent, ChatComponent, CarouselComponent, IntroductionComponent, CarouselRepositoryComponent ],
+    imports: [CommonModule, TranslocoPipe, ContactComponent, SkillsComponent, ChatComponent, CarouselComponent, IntroductionComponent, CarouselRepositoryComponent ],
     templateUrl: './landing-page.component.html',
     styleUrl: './landing-page.component.css'
   })

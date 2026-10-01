@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "menu": "Menú de página",
+    "profile": "Perfil",
+    "services": "Servicios",
+    "projects": "Trabajos",
+    "contact": "Contacto",
+    "newRepository": "Nuevo repositorio",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "logout": "Cerrar sesión",
+    "language": "Idioma",
+    "music": "Controles de música",
+    "play": "Reproducir música",
+    "pause": "Pausar música",
+    "stop": "Detener música",
+    "volume": "Volumen"
+  },
+  "landing": {
+    "title": "Desarrollo de soluciones Web",
+    "repositoriesTitle": "Proyectos y experiencias de desarrollo",
+    "repositoriesP1": "En esta sección podés conocer algunos de los proyectos que he desarrollado a lo largo de mi formación y experiencia como desarrollador web.",
+    "repositoriesP2": "Encontrarás tanto proyectos de práctica, realizados para experimentar con nuevas tecnologías y poner en práctica diferentes conceptos de desarrollo, como también proyectos reales desarrollados para clientes y necesidades concretas.",
+    "repositoriesP3": "Cada proyecto representa una oportunidad para aplicar conocimientos de JavaScript, TypeScript, Angular y React, trabajando con componentes reutilizables, bases de datos, interfaces responsivas y diferentes herramientas del ecosistema web."
+  },
+  "intro": {
+    "title": "Converte tu idea en una presencia digital.",
+    "p1": "Creamos sitios web profesionales, modernos y fáciles de usar para que tu negocio pueda llegar a más personas y transmitir confianza desde el primer momento.",
+    "p2": "Nos ocupamos de todo: diseño, desarrollo, alojamiento, mantenimiento y actualización de tu sitio.",
+    "p3": "Vos te ocupás de tu negocio.",
+    "p4": "Nosotros nos ocupamos de llevarlo a la web.",
+    "slogan": "Impulsa tu negocio hacia adelante."
+  },
+  "services": {
+    "title": "Servicios",
+    "subtitle": "En LoganWeb tenemos una amplia gama de servicios",
+    "hosting": "Hosting",
+    "hostingDescription": "Servicios de hosting que garantizan un alto rendimiento y tiempo de actividad.",
+    "webDevelopment": "Desarrollo de la web",
+    "webDevelopmentDescription": "Desarrollo de sitios web y aplicaciones web modernas y funcionales a medida.",
+    "seo": "Servicio de SEO",
+    "seoDescription": "Servicio de optimización de motores de búsqueda.",
+    "management": "Gestión de Sitios Web",
+    "managementDescription": "Mantenga su sitio web funcionando al máximo rendimiento con nuestros servicios de administración y actualización."
+  },
+  "skills": {
+    "title": "Tecnologías usualmente utilizadas",
+    "description": "Desarrollo aplicaciones web dinámicas y escalables en lenguajes Javascript y Typescript aplicando componentes reutilizables y una estructura de código clara y mantenible."
+  },
+  "chat": {
+    "consultations": "Consultas",
+    "selectConversation": "Seleccione una consulta",
+    "writeMessage": "Escribe un mensaje",
+    "send": "Enviar",
+    "open": "Abrir chat"
+  },
+  "profile": { "badge": "Desarrollo Web Profesional", "question": "¿Tenés una idea, un servicio o un producto para ofrecer?", "tagline": "lo lleva a Internet.", "intro": "Desarrollo sitios web modernos, funcionales y adaptados a las necesidades de cada negocio, para ayudarte a tener una presencia profesional en Internet y llegar a más clientes.", "aboutTitle": "Soy Javier Sosa", "aboutP1": "Soy el creador de <LoganWeb/> y desarrollador Web especializado principalmente en JavaScript y TypeScript.", "aboutP2": "Mi objetivo es transformar ideas y necesidades de negocio en soluciones digitales claras, funcionales y fáciles de utilizar, priorizando siempre una buena experiencia para el usuario.", "techTitle": "¿Qué tecnologías utilizo?", "techIntro": "Trabajo principalmente con tecnologías orientadas al desarrollo de aplicaciones Web modernas y escalables.", "javascript": "Desarrollo de funcionalidades dinámicas e interactivas para aplicaciones Web.", "typescript": "Desarrollo de aplicaciones con código estructurado, tipado y mantenible.", "angular": "Creación de aplicaciones Web mediante componentes reutilizables y estructuras escalables.", "react": "Desarrollo de interfaces dinámicas y componentes reutilizables.", "aiTitle": "Desarrollo asistido por Inteligencia Artificial", "aiP1": "También incorporo herramientas de Inteligencia Artificial dentro de mi proceso de desarrollo para mejorar la rapidez, fluidez y eficiencia del trabajo.", "aiP2": "La IA funciona como una herramienta de apoyo durante el desarrollo, mientras que la arquitectura, implementación, revisión y toma de decisiones técnicas forman parte del proceso.", "experienceLabel": "Experiencia", "experienceTitle": "Experiencia en entrenamiento de modelos de IA", "experienceP1": "Además del desarrollo Web, he colaborado durante aproximadamente un año con Outlier en proyectos relacionados con el entrenamiento y evaluación de modelos de Inteligencia Artificial.", "experienceP2": "Esta experiencia me permitió trabajar con evaluación de código, análisis de respuestas de modelos, datos y diferentes procesos orientados a mejorar sistemas de IA.", "ctaTitle": "¿Tenés un proyecto en mente?", "ctaText": "Contame qué necesitás y podemos encontrar una solución para llevar tu negocio a Internet.", "ctaButton": "Hablemos de tu proyecto" },
+  "contact": {
+    "eyebrow": "Hablemos",
+    "title": "¿Tenés un proyecto en mente?",
+    "description": "Contame qué necesitás, qué idea querés hacer realidad o qué desafío tiene tu negocio. Estoy acá para ayudarte a encontrar una solución.", "invitation": "Completá el formulario y me pondré en contacto con vos para conversar.", "name": "Tu nombre o el de tu organización", "nameRequired": "Por favor, indicá tu nombre.", "email": "¿A qué correo puedo responderte?", "emailRequired": "Ingresá tu correo electrónico para poder responderte.", "emailInvalid": "Revisá el formato del correo electrónico.", "subject": "¿Sobre qué te gustaría hablar?", "subjectRequired": "Agregá un asunto para tu consulta.", "message": "Contame un poco más", "messagePlaceholder": "¿Qué necesitás? ¿En qué etapa está tu proyecto?", "messageRequired": "Escribí un mensaje para que pueda conocer tu idea.", "note": "Tu consulta es el primer paso para darle forma a tu idea.", "send": "Enviar consulta"
+  },
+  "footer": { "title": "También tienes a disposición estos medios de comunicación:", "whatsapp": "Contactarme por WhatsApp", "github": "Visitar mi GitHub", "linkedin": "Visitar mi LinkedIn" },
+  "carousel": { "previous": "Ver elemento anterior", "next": "Ver elemento siguiente" }
+}

@@ -1,13 +1,12 @@
 <section id="contact" aria-labelledby="contact-title">
     <div class="contact-heading">
-        <span class="contact-eyebrow">Hablemos</span>
-        <h2 id="contact-title">¿Tenés un proyecto en mente?</h2>
+        <span class="contact-eyebrow">{{ 'contact.eyebrow' | transloco }}</span>
+        <h2 id="contact-title">{{ 'contact.title' | transloco }}</h2>
         <p>
-            Contame qué necesitás, qué idea querés hacer realidad o qué desafío
-            tiene tu negocio. Estoy acá para ayudarte a encontrar una solución.
+            {{ 'contact.description' | transloco }}
         </p>
         <p class="contact-invitation">
-            Completá el formulario y me pondré en contacto con vos para conversar.
+            {{ 'contact.invitation' | transloco }}
         </p>
     </div>
 
@@ -18,7 +17,7 @@
         novalidate>
 
         <div class="mb-3">
-            <label for="name" class="form-label">Tu nombre o el de tu organización</label>
+            <label for="name" class="form-label">{{ 'contact.name' | transloco }}</label>
             <input
                 type="text"
                 class="form-control"
@@ -31,12 +30,12 @@
                 }">
 
             @if (hasErrors('name', 'required')) {
-                <span class="text-danger">Por favor, indicá tu nombre.</span>
+                <span class="text-danger">{{ 'contact.nameRequired' | transloco }}</span>
             }
         </div>
 
         <div class="mb-3">
-            <label for="email" class="form-label">¿A qué correo puedo responderte?</label>
+            <label for="email" class="form-label">{{ 'contact.email' | transloco }}</label>
             <input
                 type="email"
                 class="form-control"
@@ -49,15 +48,15 @@
                 }">
 
             @if (hasErrors('email', 'required')) {
-                <span class="text-danger">Ingresá tu correo electrónico para poder responderte.</span>
+                <span class="text-danger">{{ 'contact.emailRequired' | transloco }}</span>
             }
             @if (hasErrors('email', 'email')) {
-                <span class="text-danger">Revisá el formato del correo electrónico.</span>
+                <span class="text-danger">{{ 'contact.emailInvalid' | transloco }}</span>
             }
         </div>
 
         <div class="mb-3">
-            <label for="subject" class="form-label">¿Sobre qué te gustaría hablar?</label>
+            <label for="subject" class="form-label">{{ 'contact.subject' | transloco }}</label>
             <input
                 type="text"
                 class="form-control"
@@ -69,32 +68,32 @@
                 }">
 
             @if (hasErrors('subject', 'required')) {
-                <span class="text-danger">Agregá un asunto para tu consulta.</span>
+                <span class="text-danger">{{ 'contact.subjectRequired' | transloco }}</span>
             }
         </div>
 
         <div class="mb-3">
-            <label for="message" class="form-label">Contame un poco más</label>
+            <label for="message" class="form-label">{{ 'contact.message' | transloco }}</label>
             <textarea
                 class="form-control"
                 id="message"
                 formControlName="message"
                 rows="5"
-                placeholder="¿Qué necesitás? ¿En qué etapa está tu proyecto?"
+                [placeholder]="'contact.messagePlaceholder' | transloco"
                 [ngClass]="{
                     'is-invalid': hasErrors('message', 'required'),
                     'is-valid': contactForm.get('message')?.valid && contactForm.get('message')?.touched
                 }"></textarea>
 
             @if (hasErrors('message', 'required')) {
-                <span class="text-danger">Escribí un mensaje para que pueda conocer tu idea.</span>
+                <span class="text-danger">{{ 'contact.messageRequired' | transloco }}</span>
             }
         </div>
 
         <div class="contact-submit">
-            <p class="contact-note">Tu consulta es el primer paso para darle forma a tu idea.</p>
+            <p class="contact-note">{{ 'contact.note' | transloco }}</p>
             <button type="submit" class="btn btn-primary btn-send">
-                Enviar consulta
+                {{ 'contact.send' | transloco }}
                 <i class="bi bi-arrow-right" aria-hidden="true"></i>
             </button>
         </div>

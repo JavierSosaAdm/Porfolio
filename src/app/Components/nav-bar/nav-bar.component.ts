@@ -10,12 +10,13 @@ import { LoginComponent } from '../../Views/login/login.component';
 import { FormRegisterComponent } from '../../Views/form-register/form-register.component';
 import { FormComponent } from '../../Views/form/form.component';
 import { ContactComponent } from '../contact/contact.component';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [RouterModule, RouterLink, CommonModule, LoginComponent, FormRegisterComponent, FormComponent, ContactComponent],
+  imports: [RouterModule, RouterLink, CommonModule, LoginComponent, FormRegisterComponent, FormComponent, ContactComponent, TranslocoPipe],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
@@ -26,14 +27,32 @@ export class NavBarComponent implements OnInit {
   private _router = inject(Router);
   private musicService = inject (MusicService);
   private viewportScroller = inject(ViewportScroller);
+  private translocoService = inject(TranslocoService);
   IsAdmin: boolean = false;
   userLog: boolean = false;
   playing: boolean = false;
   volume: string = '';
+  currentLang = 'es';
+
+  readonly languages = [
+    { code: 'es', label: 'Español' },
+    { code: 'en', label: 'English' },
+    { code: 'pt', label: 'Português' },
+    { code: 'fr', label: 'Français' },
+    { code: 'it', label: 'Italiano' },
+    { code: 'ja', label: '日本語' },
+    { code: 'ru', label: 'Русский' },
+    { code: 'hi', label: 'हिन्दी' }
+  ];
 
   ngOnInit(): void {
-    // this.play();
     if (isPlatformBrowser(this.platformId)) {
+      const storedLang = localStorage.getItem('portfolio-language');
+      this.currentLang = storedLang && this.languages.some(lang => lang.code === storedLang)
+        ? storedLang
+        : 'es';
+      this.translocoService.setActiveLang(this.currentLang);
+
       const user = JSON.parse(localStorage.getItem('user') || '{}');
       if (user.IsAdmin !== undefined) {
         this.IsAdmin = user.IsAdmin;
@@ -49,6 +68,15 @@ export class NavBarComponent implements OnInit {
         }
       });
     }
+  }
+
+  changeLanguage(event: Event): void {
+    const select = event.target as HTMLSelectElement;
+    const language = select.value;
+
+    this.currentLang = language;
+    this.translocoService.setActiveLang(language);
+    localStorage.setItem('portfolio-language', language);
   }
 
   logout() {

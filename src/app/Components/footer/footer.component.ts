@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 // import {GithubOutlined}
 
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [],
+  imports: [TranslocoPipe],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })

@@ -2,12 +2,13 @@ import { Component, inject, OnInit} from '@angular/core';
 import { UserService } from '../../Service/user.service';
 import { CommonModule, NgClass } from '@angular/common';
 import { SkillService } from '../../Service/skills.service';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslocoPipe],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.css'
 })
